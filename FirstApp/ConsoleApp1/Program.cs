@@ -53,7 +53,7 @@ namespace ConsoleApp1
          Console.WriteLine("exp1 <<8 = {0:X}", exp3 << 8); // AB00
 
          Console.WriteLine("exp1 >>4 = {0:X}", exp3 >> 4); // 000A
-         Console.WriteLine("exp1 >>8 = {0:X}", exp3 >> 8); 
+         Console.WriteLine("exp1 >>8 = {0:X}", exp3 >> 8); // 0000
 
       }
    }
