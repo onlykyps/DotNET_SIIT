@@ -37,6 +37,23 @@ namespace ConsoleApp1
 
          Console.WriteLine("exp1 ^ exp2 = {0:X}", exp1 ^ exp2);
 
+         // << (deplasare la stanga)
+         // >> (deplasare la dreapta)
+         // muta informatia, ce se elibereaza este inlocuit cu 0
+         // 0101 1000 P XXXX XXXX 
+         //             <<2 
+         //             XXXX XX00
+         //             >>2 
+         //             00XX XXXX
+         // P de la prapastie
+
+         ushort exp3 = 0x00AB;
+
+         Console.WriteLine("exp1 <<4 = {0:X}", exp3 << 4); // 0AB0
+         Console.WriteLine("exp1 <<8 = {0:X}", exp3 << 8); // AB00
+
+         Console.WriteLine("exp1 >>4 = {0:X}", exp3 >> 4); // 000A
+         Console.WriteLine("exp1 >>8 = {0:X}", exp3 >> 8); 
 
       }
    }
