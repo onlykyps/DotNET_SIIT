@@ -152,7 +152,7 @@ namespace ConsoleApp1
          for (int i = 0; i < arrayStr.Length; i++)
          {
             //Console.WriteLine("Introduceti pozitia {0}", i);
-            arrayStr[i] = Console.ReadLine();
+            //arrayStr[i] = Console.ReadLine();
          }
 
          foreach (string item in arrayStr)
