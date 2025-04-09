@@ -55,33 +55,48 @@ namespace ConsoleApp1
          //Console.WriteLine("exp1 >>4 = {0:X}", exp3 >> 4); // 000A
          //Console.WriteLine("exp1 >>8 = {0:X}", exp3 >> 8); // 0000
 
-         Console.WriteLine("Introduceti un numar");
-         short an = short.Parse(Console.ReadLine());
+         //Console.WriteLine("Introduceti un numar");
+         //short an = short.Parse(Console.ReadLine());
 
          // varianta 1
-         if(an % 4 != 0)
-         {
-            Console.WriteLine("{0} nu este an bisect", an);
-         }
-         else
-         {
-            if(an % 100 != 0)
-               Console.WriteLine("{0} este an bisect", an);
-            else
-               if(an % 400 == 0)
-                  Console.WriteLine("{0} este an bisect", an);
-               else
-                  Console.WriteLine("{0} nu este an bisect", an);
-         }
+         //if(an % 4 != 0)
+         //{
+         //Console.WriteLine("{0} nu este an bisect", an);
+         //}
+         //else
+         //{
+         //if(an % 100 != 0)
+         //Console.WriteLine("{0} este an bisect", an);
+         //else
+         //if(an % 400 == 0)
+         //Console.WriteLine("{0} este an bisect", an);
+         //else
+         //Console.WriteLine("{0} nu este an bisect", an);
+         //}
 
          // varianta 2
-         if (an % 4 != 0 || (an % 100 == 0 && an % 400 !=0))
+         //if (an % 4 != 0 || (an % 100 == 0 && an % 400 !=0))
+         //{
+         //Console.WriteLine("{0} nu este an bisect", an);
+         //}
+         //else
+         //{
+         //Console.WriteLine("{0} este an bisect", an);
+         //}
+
+
+         int[] array = new int[] { 1, 2, 3, 4, 5 };
+         
+         // get array size
+         int length = array.Length;
+
+         // declare and create the reversed array
+         int[] reversed = new int[length];
+
+         // initialize the reversed array
+         for (int i = 0; i < length; i++)
          {
-            Console.WriteLine("{0} nu este an bisect", an);
-         }
-         else
-         {
-            Console.WriteLine("{0} este an bisect", an);
+            reversed[length - i - 1] = array[i];
          }
 
 
