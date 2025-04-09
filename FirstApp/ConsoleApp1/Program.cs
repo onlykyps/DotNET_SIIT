@@ -127,7 +127,7 @@ namespace ConsoleApp1
 
          for (int i = 0; i < 20; i++)
          {
-            Console.WriteLine("array1[{0}] = {1}\array2[{0}]", i, array1[i], array2[i]);
+            Console.WriteLine("array1[{0}] = {1}/array2[{2}]", i, array1[i], array2[i]);
          }
 
          int[] revArray1 = new int[array1.Length];
@@ -141,7 +141,7 @@ namespace ConsoleApp1
 
          for (int i = 0; i < 20; i++)
          {
-            Console.WriteLine("revArray1[{0}] = {1}\revArray2[{0}]", i, revArray1[i], revArray2[i]);
+            Console.WriteLine("revArray1[{0}] = {1}/revArray2[{2}]", i, revArray1[i], revArray2[i]);
          }
 
 
