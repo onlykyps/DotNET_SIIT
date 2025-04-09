@@ -102,7 +102,7 @@ namespace ConsoleApp1
 
 
          int[] array1 = new int[20];
-         int[] array2 = new int[20];
+         //int[] array2 = new int[20];
 
          for (int i = 0; i < array1.Length; i++)
          {
@@ -110,48 +110,68 @@ namespace ConsoleApp1
             Console.WriteLine("numarul este " + array1[i]);
          }
 
-         for (int i = 0; i < array2.Length; i++)
+         //for (int i = 0; i < array2.Length; i++)
+         //{
+         //   array2[i] = i * 10 + 110;
+         //   Console.WriteLine("numarul este " + array2[i]);
+         //}
+
+         //for (int i = 0; i < array1.Length; i++)
+         //{
+         //   int temp = array1[i];
+         //   array1[i] = array2[i];
+         //   array2[i] = temp;
+         //   Console.WriteLine("numarul din array1 este " + array1[i]);
+         //   Console.WriteLine("numarul din array2 este " + array2[i]);
+         //}
+
+         //for (int i = 0; i < 20; i++)
+         //{
+         //   Console.WriteLine("array1[{0}] = {1}/array2[{0}]= {2}", i, array1[i], array2[i]);
+         //}
+
+         //int[] revArray1 = new int[array1.Length];
+         //int[] revArray2 = new int[array2.Length];
+
+         //for (int i = 0; i < revArray1.Length; i++)
+         //{
+         //   revArray1[revArray1.Length - i - 1] = array1[i];
+         //   revArray2[revArray1.Length - i - 1] = array2[i];
+         //}
+
+         //for (int i = 0; i < 20; i++)
+         //{
+         //   Console.WriteLine("revArray1[{0}] = {1}/revArray2[{0}] = {2}", i, revArray1[i], revArray2[i]);
+         //}
+
+
+
+
+         string[] arrayStr = new string[5];
+
+         for (int i = 0; i < arrayStr.Length; i++)
          {
-            array2[i] = i * 10 + 110;
-            Console.WriteLine("numarul este " + array2[i]);
+            //Console.WriteLine("Introduceti pozitia {0}", i);
+            arrayStr[i] = Console.ReadLine();
          }
 
-         for (int i = 0; i < array1.Length; i++)
+         foreach (string item in arrayStr)
          {
-            int temp = array1[i];
-            array1[i] = array2[i];
-            array2[i] = temp;
-            Console.WriteLine("numarul din array1 este " + array1[i]);
-            Console.WriteLine("numarul din array2 este " + array2[i]);
+            //Console.WriteLine(item);
          }
 
-         for (int i = 0; i < 20; i++)
+         string[] copyEgalArrayStr = arrayStr;
+         copyEgalArrayStr[0] = "Clau";
+
+         foreach (string item in arrayStr)
          {
-            Console.WriteLine("array1[{0}] = {1}/array2[{0}]= {2}", i, array1[i], array2[i]);
+            //Console.WriteLine(item);
          }
 
-         int[] revArray1 = new int[array1.Length];
-         int[] revArray2 = new int[array2.Length];
+         int[] copyClone = (int[])array1.Clone();
 
-         for (int i = 0; i < revArray1.Length; i++)
-         {
-            revArray1[revArray1.Length - i - 1] = array1[i];
-            revArray2[revArray1.Length - i - 1] = array2[i];
-         }
-
-         for (int i = 0; i < 20; i++)
-         {
-            Console.WriteLine("revArray1[{0}] = {1}/revArray2[{0}] = {2}", i, revArray1[i], revArray2[i]);
-         }
-
-
-
-
-
-
-
-
-
+         copyClone[0] = 1988;
+         Console.WriteLine("numarul este " + array1[0]);
 
 
 
