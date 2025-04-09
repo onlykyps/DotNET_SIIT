@@ -85,19 +85,75 @@ namespace ConsoleApp1
          //}
 
 
-         int[] array = new int[] { 1, 2, 3, 4, 5 };
-         
-         // get array size
-         int length = array.Length;
+         //int[] array = new int[] { 1, 2, 3, 4, 5 };
 
-         // declare and create the reversed array
-         int[] reversed = new int[length];
+         //// get array size
+         //int length = array.Length;
 
-         // initialize the reversed array
-         for (int i = 0; i < length; i++)
+         //// declare and create the reversed array
+         //int[] reversed = new int[length];
+
+         //// initialize the reversed array
+         //for (int i = 0; i < length; i++)
+         //{
+         //   reversed[length - i - 1] = array[i];
+         //}
+
+
+
+         int[] array1 = new int[20];
+         int[] array2 = new int[20];
+
+         for (int i = 0; i < array1.Length; i++)
          {
-            reversed[length - i - 1] = array[i];
+            array1[i] = i * 3 + 33;
+            Console.WriteLine("numarul este " + array1[i]);
          }
+
+         for (int i = 0; i < array2.Length; i++)
+         {
+            array2[i] = i * 10 + 110;
+            Console.WriteLine("numarul este " + array2[i]);
+         }
+
+         for (int i = 0; i < array1.Length; i++)
+         {
+            int temp = array1[i];
+            array1[i] = array2[i];
+            array2[i] = temp;
+            Console.WriteLine("numarul din array1 este " + array1[i]);
+            Console.WriteLine("numarul din array2 este " + array2[i]);
+         }
+
+         for (int i = 0; i < 20; i++)
+         {
+            Console.WriteLine("array1[{0}] = {1}\array2[{0}]", i, array1[i], array2[i]);
+         }
+
+         int[] revArray1 = new int[array1.Length];
+         int[] revArray2 = new int[array2.Length];
+
+         for (int i = 0; i < revArray1.Length; i++)
+         {
+            revArray1[revArray1.Length - i - 1] = array1[i];
+            revArray2[revArray1.Length - i - 1] = array2[i];
+         }
+
+         for (int i = 0; i < 20; i++)
+         {
+            Console.WriteLine("revArray1[{0}] = {1}\revArray2[{0}]", i, revArray1[i], revArray2[i]);
+         }
+
+
+
+
+
+
+
+
+
+
+
 
 
       }
