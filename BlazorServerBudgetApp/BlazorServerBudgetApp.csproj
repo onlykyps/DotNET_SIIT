@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-  <ImportGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11"/>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11"/>
@@ -17,5 +17,5 @@
     <PackageReference Include="Syncfusion.Blazor.Buttons" Version="23.1.36"/>
     <PackageReference Include="Syncfusion.Blazor.Calendars" Version="23.1.36"/>
     
-  </ImportGroup>
+  </ItemGroup>
 </Project>

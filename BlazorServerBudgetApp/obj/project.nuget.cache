@@ -1,8 +1,48 @@
 {
   "version": 2,
-  "dgSpecHash": "ArzJgHkvvDp1DnQ5g6eyU9IN6BCBmIJvOExpEh7EHEvXtotmOeaSXw1uUvzkjnscMUSIIsLIHmLD0Y9M87Jf4w==",
-  "success": true,
+  "dgSpecHash": "CRT/YCixJpxXuY8H8RVknqowx8MdsC3JD43VsfR0FtIGFSYR7NRJrhIZRQAyp4BC/tCb3RixwDu8bGsop/MkFg==",
+  "success": false,
   "projectFilePath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\BlazorServerBudgetApp.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\claud\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.11\\microsoft.entityframeworkcore.7.0.11.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.11\\microsoft.entityframeworkcore.design.7.0.11.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\7.0.11\\microsoft.entityframeworkcore.sqlite.7.0.11.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.buttons\\23.1.36\\syncfusion.blazor.buttons.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.calendars\\23.1.36\\syncfusion.blazor.calendars.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.charts\\23.1.36\\syncfusion.blazor.charts.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.grid\\23.1.36\\syncfusion.blazor.grid.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.inputs\\23.1.36\\syncfusion.blazor.inputs.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.popups\\23.1.36\\syncfusion.blazor.popups.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.stockchart\\23.1.36\\syncfusion.blazor.stockchart.23.1.36.nupkg.sha512",
+    "C:\\Users\\claud\\.nuget\\packages\\syncfusion.blazor.themes\\23.1.36\\syncfusion.blazor.themes.23.1.36.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore.Design 7.0.11 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore.Design 7.0.11 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore.Design",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore.Sqlite 7.0.11 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore.Sqlite 7.0.11 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore.Sqlite",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.EntityFrameworkCore 7.0.11 is not compatible with net5.0 (.NETCoreApp,Version=v5.0). Package Microsoft.EntityFrameworkCore 7.0.11 supports: net6.0 (.NETCoreApp,Version=v6.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
