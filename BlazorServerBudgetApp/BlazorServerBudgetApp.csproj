@@ -1,21 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.4" />
     
-    <PackageReference Include="Syncfusion.Blazor.Grid" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.Inputs" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.Popups" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.StockChart" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.Themes" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.Charts" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.Buttons" Version="23.1.36"/>
-    <PackageReference Include="Syncfusion.Blazor.Calendars" Version="23.1.36"/>
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.Inputs" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.Popups" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.StockChart" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.Charts" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.Buttons" Version="29.1.37" />
+    <PackageReference Include="Syncfusion.Blazor.Calendars" Version="29.1.37" />
     
   </ItemGroup>
 </Project>
