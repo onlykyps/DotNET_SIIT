@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlazorServerBudgetApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b87e34ebe79825b25101c8b84eec62a111f8c566")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b486a30ac385d943a9df645da7574c85adc13676")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlazorServerBudgetApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlazorServerBudgetApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
