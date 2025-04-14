@@ -1,12 +1,122 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\blazorserverbudgetapp\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\blazorserverbudgetapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\blazorserverbudgetapp\\data\\models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|solutionrelative:data\\models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\blazorserverbudgetapp\\data\\models\\expense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|solutionrelative:data\\models\\expense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\blazorserverbudgetapp\\data\\models\\fund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|solutionrelative:data\\models\\fund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\blazorserverbudgetapp\\data\\configuration\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A33D668-87E7-44AC-B002-E89F1D11323F}|BlazorServerBudgetApp.csproj|solutionrelative:data\\configuration\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T12:55:51.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T12:31:35.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Fund.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Models\\Fund.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Fund.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Models\\Fund.cs",
+              "RelativeToolTip": "Data\\Models\\Fund.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T12:30:26.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Note.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Models\\Note.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Note.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Models\\Note.cs",
+              "RelativeToolTip": "Data\\Models\\Note.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T12:26:24.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Expense.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Models\\Expense.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Expense.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Models\\Expense.cs",
+              "RelativeToolTip": "Data\\Models\\Expense.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T12:23:43.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Configuration\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\Configuration\\AppDbContext.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\BlazorServerBudgetApp\\Data\\Configuration\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\Configuration\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T12:18:51.674Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
