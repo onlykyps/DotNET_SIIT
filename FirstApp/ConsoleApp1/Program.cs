@@ -186,6 +186,7 @@ namespace ConsoleApp1
          //}
 
          string[] copyStr = new string[arrayStr.Length];
+         // shallow copy deoarece nu merg pe referinta, nu face deep copy
          Array.Copy(arrayStr,copyStr,arrayStr.Length);
 
          Console.WriteLine("----------------------");
