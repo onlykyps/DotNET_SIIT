@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace ConsoleApp1
 {
@@ -107,7 +108,7 @@ namespace ConsoleApp1
          for (int i = 0; i < array1.Length; i++)
          {
             array1[i] = i * 3 + 33;
-            Console.WriteLine("numarul este " + array1[i]);
+            //Console.WriteLine("numarul este " + array1[i]);
          }
 
          //for (int i = 0; i < array2.Length; i++)
@@ -149,32 +150,66 @@ namespace ConsoleApp1
 
          string[] arrayStr = new string[5];
 
-         for (int i = 0; i < arrayStr.Length; i++)
-         {
-            //Console.WriteLine("Introduceti pozitia {0}", i);
-            //arrayStr[i] = Console.ReadLine();
-         }
+         //for (int i = 0; i < arrayStr.Length; i++)
+         //{
+         //   //Console.WriteLine("Introduceti pozitia {0}", i);
+         //   //arrayStr[i] = Console.ReadLine();
+         //}
 
-         foreach (string item in arrayStr)
-         {
-            //Console.WriteLine(item);
-         }
+         //foreach (string item in arrayStr)
+         //{
+         //   //Console.WriteLine(item);
+         //}
 
          string[] copyEgalArrayStr = arrayStr;
          copyEgalArrayStr[0] = "Clau";
 
-         foreach (string item in arrayStr)
-         {
-            //Console.WriteLine(item);
-         }
+         //foreach (string item in arrayStr)
+         //{
+         //   //Console.WriteLine(item);
+         //}
 
          int[] copyClone = (int[])array1.Clone();
 
          copyClone[0] = 1988;
-         Console.WriteLine("numarul este " + array1[0]);
+         //Console.WriteLine("numarul este " + array1[0]);
 
 
+         for (int bu = 0; bu < arrayStr.Length; bu++)
+         {
+            arrayStr[bu] = Console.ReadLine();
+         }
 
+         //foreach(var sir in arrayStr)
+         //{
+         //   //Console.WriteLine(sir + "");
+         //}
+
+         string[] copyStr = new string[arrayStr.Length];
+         Array.Copy(arrayStr,copyStr,arrayStr.Length);
+
+         Console.WriteLine("----------------------");
+
+         for (int bu = 0; bu < copyStr.Length; bu++)
+         {
+            Console.WriteLine(copyStr[bu] + "");
+         }
+
+         copyStr[0] = "Clau";
+
+         Console.WriteLine("--------Dupa modifcarea pozitiei 0--------------");
+
+         for (int bu = 0; bu < arrayStr.Length; bu++)
+         {
+            Console.WriteLine(arrayStr[bu] + "");
+         }
+
+         Console.WriteLine("----------------------");
+
+         for (int bu = 0; bu < copyStr.Length; bu++)
+         {
+            Console.WriteLine(copyStr[bu] + "");
+         }
 
       }
    }
