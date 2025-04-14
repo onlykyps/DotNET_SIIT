@@ -4,14 +4,13 @@ D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\bin\De
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.runtimeconfig.dev.json
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.dll
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\bin\Debug\net5.0\ConsoleApp1.pdb
-D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.csproj.AssemblyReference.cache
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.AssemblyInfoInputs.cache
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.AssemblyInfo.cs
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.sourcelink.json
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.dll
-D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ref\ConsoleApp1.dll
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\refint\ConsoleApp1.dll
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.pdb
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.genruntimeconfig.cache
-D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ConsoleApp1.sourcelink.json
-D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\refint\ConsoleApp1.dll
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\FirstApp\ConsoleApp1\obj\Debug\net5.0\ref\ConsoleApp1.dll
