@@ -185,10 +185,11 @@ namespace ConsoleApp1
             }
          }
 
-         Console.WriteLine(cuvintele[0] + " " + cuvintele[1]);
+         //Console.WriteLine(cuvintele[0] + " " + cuvintele[1]);
+         textArray = cuvintele[0] + " " + cuvintele[1];
 
-
-
+         string output = textArray.ToLower().Trim('i', 'n');
+         Console.WriteLine(output);   
 
 
       }
