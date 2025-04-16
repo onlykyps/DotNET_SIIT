@@ -106,30 +106,71 @@ namespace ConsoleApp1
          //
 
 
-         string[] orase = new string[]
-         {
-            "Cluj-Napoca",
-            "Brasov",
-            "Iasi",
-            "Bucuresti",
-            "Oradea",
-            "Timisoara",
-            "Alba-Iulia"
-         };
+         //string[] orase = new string[]
+         //{
+         //   "Cluj-Napoca",
+         //   "Brasov",
+         //   "Iasi",
+         //   "Bucuresti",
+         //   "Oradea",
+         //   "Timisoara",
+         //   "Alba-Iulia"
+         //};
 
-         string primu = orase[0];
+         //string primu = orase[0];
 
-         for (int i = 1; i < orase.Length; i++) 
-         {
-            string temp = orase [i];
-            if(String.Compare(temp, primu)<0)
+         //for (int i = 1; i < orase.Length; i++) 
+         //{
+         //   string temp = orase [i];
+         //   if(String.Compare(temp, primu)<0)
+         //   {
+         //      primu = temp;
+         //   }
+
+         //}
+
+         //Console.WriteLine("Primu oras: {0}", primu);
+
+         //solutia mea imperfecta
+         string poppins = "supercalifragilisticexpialidocious";
+         string input = Console.ReadLine();
+         int contor = 0;
+         int pas = 0;
+         bool go = true;
+
+         while (go) 
+         { 
+            if(poppins.IndexOf(input, pas) >0)
             {
-               primu = temp;
+               contor++;
+               pas = poppins.IndexOf(input, pas) + 1;
             }
+            else
+            {
+               go = false;
+            }
+            
 
          }
 
-         Console.WriteLine("Primu oras: {0}", primu);
+         Console.WriteLine("caracterul apare de {0}", contor);
+
+         //solutia corecta
+         char caracter = char.Parse(Console.ReadLine());
+         int lastPos = -1;
+         int contr = 0;
+
+         do
+         {
+            lastPos = poppins.IndexOf(caracter, lastPos + 1);
+            if(lastPos!=-1) contr++;
+
+         } while (lastPos != -1);
+
+         if (contr == 0)
+            Console.WriteLine("caracterul de {0} nu apare ", caracter);
+         else 
+            Console.WriteLine("caracterul apare de {0}", contr);
 
       }
    }
