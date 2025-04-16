@@ -48,24 +48,60 @@ namespace ConsoleApp1
 
          //Console.WriteLine(fib1);
 
-         uint a = 1; 
-         uint b = 1; 
-         uint c;
-         uint nrIntr;
+         //uint a = 1; 
+         //uint b = 1; 
+         //uint c;
+         //uint nrIntr;
 
-         Console.WriteLine("introduceti numar");
+         //Console.WriteLine("introduceti numar");
+         //nrIntr = uint.Parse(Console.ReadLine());
+
+         //do
+         //{
+         //   c = a + b;
+         //   a = b;
+         //   b = c;
+         //}
+         //while (c <= nrIntr);
+
+         //Console.WriteLine("nr din sirul lui Fibonnaci cel mai aproape de {0} este {1}", nrIntr, (c == nrIntr ? c : a));
+         
+         uint nrIntr;
          nrIntr = uint.Parse(Console.ReadLine());
 
-         do
+         switch (nrIntr)
          {
-            c = a + b;
-            a = b;
-            b = c;
+            case 1:
+                  Console.WriteLine("Ati apasat stanga jos");
+               break;
+            case 2:
+               Console.WriteLine("Ati apasat jos");
+               break;
+            case 3:
+               Console.WriteLine("Ati apasat dreapta jos");
+               break;
+            case 4:
+               Console.WriteLine("Ati apasat stanga");
+               break;
+            case 5:
+               Console.WriteLine("Ati apasat centru");
+               break;
+            case 6:
+               Console.WriteLine("Ati apasat dreapta");
+               break;
+            case 7:
+               Console.WriteLine("Ati apasat stanga sus");
+               break;
+            case 8:
+               Console.WriteLine("Ati apasat sus");
+               break;
+            case 9:
+               Console.WriteLine("Ati apasat dreapta sus");
+               break;
+            default:
+               Console.WriteLine("Ati apasat tasta gresita");
+               break;
          }
-         while (c <= nrIntr);
-
-         Console.WriteLine("nr din sirul lui Fibonnaci cel mai aproape de {0} este {1}", nrIntr, (c == nrIntr ? c : a));
-
       }
    }
 }
