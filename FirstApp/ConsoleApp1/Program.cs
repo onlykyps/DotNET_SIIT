@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Formats.Asn1;
+using System.Linq;
 using System.Reflection;
 
 namespace ConsoleApp1
@@ -65,43 +66,71 @@ namespace ConsoleApp1
          //while (c <= nrIntr);
 
          //Console.WriteLine("nr din sirul lui Fibonnaci cel mai aproape de {0} este {1}", nrIntr, (c == nrIntr ? c : a));
-         
-         uint nrIntr;
-         nrIntr = uint.Parse(Console.ReadLine());
 
-         switch (nrIntr)
+         //uint nrIntr;
+         //nrIntr = uint.Parse(Console.ReadLine());
+
+         //switch (nrIntr)
+         //{
+         //   case 1:
+         //         Console.WriteLine("Ati apasat stanga jos");
+         //      break;
+         //   case 2:
+         //      Console.WriteLine("Ati apasat jos");
+         //      break;
+         //   case 3:
+         //      Console.WriteLine("Ati apasat dreapta jos");
+         //      break;
+         //   case 4:
+         //      Console.WriteLine("Ati apasat stanga");
+         //      break;
+         //   case 5:
+         //      Console.WriteLine("Ati apasat centru");
+         //      break;
+         //   case 6:
+         //      Console.WriteLine("Ati apasat dreapta");
+         //      break;
+         //   case 7:
+         //      Console.WriteLine("Ati apasat stanga sus");
+         //      break;
+         //   case 8:
+         //      Console.WriteLine("Ati apasat sus");
+         //      break;
+         //   case 9:
+         //      Console.WriteLine("Ati apasat dreapta sus");
+         //      break;
+         //   default:
+         //      Console.WriteLine("Ati apasat tasta gresita");
+         //      break;
+         //}
+         //
+
+
+         string[] orase = new string[]
          {
-            case 1:
-                  Console.WriteLine("Ati apasat stanga jos");
-               break;
-            case 2:
-               Console.WriteLine("Ati apasat jos");
-               break;
-            case 3:
-               Console.WriteLine("Ati apasat dreapta jos");
-               break;
-            case 4:
-               Console.WriteLine("Ati apasat stanga");
-               break;
-            case 5:
-               Console.WriteLine("Ati apasat centru");
-               break;
-            case 6:
-               Console.WriteLine("Ati apasat dreapta");
-               break;
-            case 7:
-               Console.WriteLine("Ati apasat stanga sus");
-               break;
-            case 8:
-               Console.WriteLine("Ati apasat sus");
-               break;
-            case 9:
-               Console.WriteLine("Ati apasat dreapta sus");
-               break;
-            default:
-               Console.WriteLine("Ati apasat tasta gresita");
-               break;
+            "Cluj-Napoca",
+            "Brasov",
+            "Iasi",
+            "Bucuresti",
+            "Oradea",
+            "Timisoara",
+            "Alba-Iulia"
+         };
+
+         string primu = orase[0];
+
+         for (int i = 1; i < orase.Length; i++) 
+         {
+            string temp = orase [i];
+            if(String.Compare(temp, primu)<0)
+            {
+               primu = temp;
+            }
+
          }
+
+         Console.WriteLine("Primu oras: {0}", primu);
+
       }
    }
 }
