@@ -131,46 +131,65 @@ namespace ConsoleApp1
 
          //Console.WriteLine("Primu oras: {0}", primu);
 
-         //solutia mea imperfecta
-         string poppins = "supercalifragilisticexpialidocious";
-         string input = Console.ReadLine();
-         int contor = 0;
-         int pas = 0;
-         bool go = true;
+         ////solutia mea imperfecta
+         //string poppins = "supercalifragilisticexpialidocious";
+         //string input = Console.ReadLine();
+         //int contor = 0;
+         //int pas = 0;
+         //bool go = true;
 
-         while (go) 
-         { 
-            if(poppins.IndexOf(input, pas) >0)
-            {
-               contor++;
-               pas = poppins.IndexOf(input, pas) + 1;
-            }
-            else
-            {
-               go = false;
-            }
+         //while (go) 
+         //{ 
+         //   if(poppins.IndexOf(input, pas) >0)
+         //   {
+         //      contor++;
+         //      pas = poppins.IndexOf(input, pas) + 1;
+         //   }
+         //   else
+         //   {
+         //      go = false;
+         //   }
             
 
+         //}
+
+         //Console.WriteLine("caracterul apare de {0}", contor);
+
+         ////solutia corecta
+         //char caracter = char.Parse(Console.ReadLine());
+         //int lastPos = -1;
+         //int contr = 0;
+
+         //do
+         //{
+         //   lastPos = poppins.IndexOf(caracter, lastPos + 1);
+         //   if(lastPos!=-1) contr++;
+
+         //} while (lastPos != -1);
+
+         //if (contr == 0)
+         //   Console.WriteLine("caracterul de {0} nu apare ", caracter);
+         //else 
+         //   Console.WriteLine("caracterul apare de {0}", contr);
+
+
+         string textArray = "Invatam sirurile";
+
+         string[] cuvintele = textArray.Split(" ");
+
+         for (int i = 0; i < cuvintele.Length; i++)
+         {
+            if(string.Compare(cuvintele[i],"sirurile") == 0)
+            {
+               cuvintele[i] = "figurile";
+            }
          }
 
-         Console.WriteLine("caracterul apare de {0}", contor);
+         Console.WriteLine(cuvintele[0] + " " + cuvintele[1]);
 
-         //solutia corecta
-         char caracter = char.Parse(Console.ReadLine());
-         int lastPos = -1;
-         int contr = 0;
 
-         do
-         {
-            lastPos = poppins.IndexOf(caracter, lastPos + 1);
-            if(lastPos!=-1) contr++;
 
-         } while (lastPos != -1);
 
-         if (contr == 0)
-            Console.WriteLine("caracterul de {0} nu apare ", caracter);
-         else 
-            Console.WriteLine("caracterul apare de {0}", contr);
 
       }
    }
