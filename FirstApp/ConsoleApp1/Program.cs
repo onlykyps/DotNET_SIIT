@@ -150,7 +150,7 @@ namespace ConsoleApp1
          //   {
          //      go = false;
          //   }
-            
+
 
          //}
 
@@ -195,34 +195,46 @@ namespace ConsoleApp1
          //string newOutPut = output.Replace("vat", "");
          //Console.WriteLine(newOutPut);
 
-         StringBuilder input = new StringBuilder("Jimba de Coana mare", 30);
+         //StringBuilder input = new StringBuilder("Jimba de Coana mare", 30);
 
-         Console.WriteLine(input.ToString());
+         //Console.WriteLine(input.ToString());
 
-         input[0] = 'L';
+         //input[0] = 'L';
 
-         Console.WriteLine(input.ToString());
+         //Console.WriteLine(input.ToString());
 
-         //for (int i = 1; i < 10; i++) 
-         //{
-         //   if(input[i] == ' ')
-         //   {
-         //      input[i] = 'jul';
-         //      break;
-         //   }
-         //}
+         ////for (int i = 1; i < 10; i++) 
+         ////{
+         ////   if(input[i] == ' ')
+         ////   {
+         ////      input[i] = 'jul';
+         ////      break;
+         ////   }
+         ////}
 
-         int indexSpatiu = input.ToString().IndexOf(' ');
-         input.Insert(indexSpatiu, "jul");
+         //int indexSpatiu = input.ToString().IndexOf(' ');
+         //input.Insert(indexSpatiu, "jul");
 
-         input.Replace("Coana ", "progra");
+         //input.Replace("Coana ", "progra");
 
-         Console.WriteLine(input.ToString());
+         //Console.WriteLine(input.ToString());
 
-         input.Append(" C# este bestial!");
+         //input.Append(" C# este bestial!");
 
-         Console.WriteLine(input.ToString());
+         //Console.WriteLine(input.ToString());
 
+         string one = "cateva";
+         string two = "multi";
+
+         float a = 2.55f;
+         float b = 4.69f;
+
+         string output = $"Ana are {one} kg de mere, ce costa {a}lei";
+         Console.WriteLine(output);
+         string outputTwo = String.Format(output, two, b);
+         Console.WriteLine(outputTwo);
+         string outputThree = String.Format(output, two, b*a);
+         Console.WriteLine(outputThree);
 
       }
    }
