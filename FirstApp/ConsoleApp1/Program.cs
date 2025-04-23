@@ -8,8 +8,53 @@ namespace ConsoleApp1
 {
    class Program
    {
+
+      enum Masini
+      {
+         Skoda=23,
+         Lada,
+         Fiat = 8,
+         Audi = 10,
+         BMW,
+         Opel = 15,
+         Jeep
+      };
+
       static void Main(string[] args)
       {
+         Console.WriteLine("Introduceti un numar");
+         int opt = int.Parse(Console.ReadLine());
+
+         Masini optEnum = (Masini)opt;
+
+         switch (optEnum) 
+         {
+            case Masini.Jeep:
+               Console.WriteLine("Ati castigat un Jeep");
+               break;
+            case Masini.Lada:
+               Console.WriteLine("Ati castigat un Lada");
+               break;
+            case Masini.Fiat:
+               Console.WriteLine("Ati castigat un Fiat");
+               break;
+            case Masini.Audi:
+               Console.WriteLine("Ati castigat un Audi");
+               break;
+            case Masini.BMW:
+               Console.WriteLine("Ati castigat un BMW");
+               break;
+            case Masini.Opel:
+               Console.WriteLine("Ati castigat un Opel");
+               break;
+            default:
+               Console.WriteLine("Ciu ciu");
+               break;
+
+         }
+
+
+
          //ushort input = ushort.Parse(Console.ReadLine());
          //bool ePrim = false;
 
@@ -223,18 +268,21 @@ namespace ConsoleApp1
 
          //Console.WriteLine(input.ToString());
 
-         string one = "cateva";
-         string two = "multi";
+         //string one = "cateva";
+         //string two = "multi";
 
-         float a = 2.55f;
-         float b = 4.69f;
+         //float a = 2.55f;
+         //float b = 4.69f;
 
-         string output = $"Ana are {one} kg de mere, ce costa {a}lei";
-         Console.WriteLine(output);
-         string outputTwo = String.Format(output, two, b);
-         Console.WriteLine(outputTwo);
-         string outputThree = String.Format(output, two, b*a);
-         Console.WriteLine(outputThree);
+         //string output = $"Ana are {one} kg de mere, ce costa {a}lei";
+         //Console.WriteLine(output);
+         //string outputTwo = String.Format(output, two, b);
+         //Console.WriteLine(outputTwo);
+         //string outputThree = String.Format(output, two, b*a);
+         //Console.WriteLine(outputThree);
+
+         
+
 
       }
    }
