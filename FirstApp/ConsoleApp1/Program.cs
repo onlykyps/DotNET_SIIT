@@ -2,6 +2,7 @@
 using System.Formats.Asn1;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -31,7 +32,7 @@ namespace ConsoleApp1
          //   //}
          //}
 
-         //if (!ePrim) Console.WriteLine("{0} nu e prim", input);
+         //if (!ePrim) Console.WriteLine("{0} nu e prim" , input);
          //else Console.WriteLine("{0} e prim", input);
 
          //gresit, de revizuit
@@ -173,26 +174,54 @@ namespace ConsoleApp1
          //   Console.WriteLine("caracterul apare de {0}", contr);
 
 
-         string textArray = "Invatam sirurile";
+         //string textArray = "Invatam sirurile";
 
-         string[] cuvintele = textArray.Split(" ");
+         //string[] cuvintele = textArray.Split(" ");
 
-         for (int i = 0; i < cuvintele.Length; i++)
-         {
-            if(string.Compare(cuvintele[i],"sirurile") == 0)
-            {
-               cuvintele[i] = "figurile";
-            }
-         }
+         //for (int i = 0; i < cuvintele.Length; i++)
+         //{
+         //   if(string.Compare(cuvintele[i],"sirurile") == 0)
+         //   {
+         //      cuvintele[i] = "figurile";
+         //   }
+         //}
 
-         //Console.WriteLine(cuvintele[0] + " " + cuvintele[1]);
-         textArray = cuvintele[0] + " " + cuvintele[1];
+         ////Console.WriteLine(cuvintele[0] + " " + cuvintele[1]);
+         //textArray = cuvintele[0] + " " + cuvintele[1];
 
-         string output = textArray.ToLower().Trim('i', 'n', 'l', 'e');
-         Console.WriteLine(output);
+         //string output = textArray.ToLower().Trim('i', 'n', 'l', 'e');
+         //Console.WriteLine(output);
 
-         string newOutPut = output.Replace("vat", "");
-         Console.WriteLine(newOutPut);
+         //string newOutPut = output.Replace("vat", "");
+         //Console.WriteLine(newOutPut);
+
+         StringBuilder input = new StringBuilder("Jimba de Coana mare", 30);
+
+         Console.WriteLine(input.ToString());
+
+         input[0] = 'L';
+
+         Console.WriteLine(input.ToString());
+
+         //for (int i = 1; i < 10; i++) 
+         //{
+         //   if(input[i] == ' ')
+         //   {
+         //      input[i] = 'jul';
+         //      break;
+         //   }
+         //}
+
+         int indexSpatiu = input.ToString().IndexOf(' ');
+         input.Insert(indexSpatiu, "jul");
+
+         input.Replace("Coana ", "progra");
+
+         Console.WriteLine(input.ToString());
+
+         input.Append(" C# este bestial!");
+
+         Console.WriteLine(input.ToString());
 
 
       }
