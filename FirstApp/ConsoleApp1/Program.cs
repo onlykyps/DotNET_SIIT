@@ -23,37 +23,44 @@ namespace ConsoleApp1
       static void Main(string[] args)
       {
          Console.WriteLine("Introduceti un numar");
-         int opt = int.Parse(Console.ReadLine());
+         //int opt = int.Parse(Console.ReadLine());
 
          Masini optEnum = (Masini)opt;
 
-         switch (optEnum) 
-         {
-            case Masini.Jeep:
-               Console.WriteLine("Ati castigat un Jeep");
-               break;
-            case Masini.Lada:
-               Console.WriteLine("Ati castigat un Lada");
-               break;
-            case Masini.Fiat:
-               Console.WriteLine("Ati castigat un Fiat");
-               break;
-            case Masini.Audi:
-               Console.WriteLine("Ati castigat un Audi");
-               break;
-            case Masini.BMW:
-               Console.WriteLine("Ati castigat un BMW");
-               break;
-            case Masini.Opel:
-               Console.WriteLine("Ati castigat un Opel");
-               break;
-            default:
-               Console.WriteLine("Ciu ciu");
-               break;
+         //switch (optEnum) 
+         //{
+         //   case Masini.Jeep:
+         //      Console.WriteLine("Ati castigat un Jeep");
+         //      break;
+         //   case Masini.Lada:
+         //      Console.WriteLine("Ati castigat un Lada");
+         //      break;
+         //   case Masini.Fiat:
+         //      Console.WriteLine("Ati castigat un Fiat");
+         //      break;
+         //   case Masini.Audi:
+         //      Console.WriteLine("Ati castigat un Audi");
+         //      break;
+         //   case Masini.BMW:
+         //      Console.WriteLine("Ati castigat un BMW");
+         //      break;
+         //   case Masini.Opel:
+         //      Console.WriteLine("Ati castigat un Opel");
+         //      break;
+         //   default:
+         //      Console.WriteLine("Ciu ciu");
+         //      break;
 
-         }
+         //}
 
+         //varianta dotNet Core
+         Masini optEnu = Enum.Parse<Masini>(Console.ReadLine());
+         Console.WriteLine("Ati castigat o masina " + optEnum.ToString());
 
+         //varianta dotNet framwork
+         //Masini optEn;
+         //Enum.TryParse<Masini>(Console.ReadLine(), out optEn);
+         
 
          //ushort input = ushort.Parse(Console.ReadLine());
          //bool ePrim = false;
@@ -281,7 +288,7 @@ namespace ConsoleApp1
          //string outputThree = String.Format(output, two, b*a);
          //Console.WriteLine(outputThree);
 
-         
+
 
 
       }
