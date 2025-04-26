@@ -22,10 +22,10 @@ namespace ConsoleApp1
 
       static void Main(string[] args)
       {
-         Console.WriteLine("Introduceti un numar");
+         //Console.WriteLine("Introduceti un numar");
          //int opt = int.Parse(Console.ReadLine());
 
-         Masini optEnum = (Masini)opt;
+         //Masini optEnum = (Masini)opt;
 
          //switch (optEnum) 
          //{
@@ -54,8 +54,8 @@ namespace ConsoleApp1
          //}
 
          //varianta dotNet Core
-         Masini optEnu = Enum.Parse<Masini>(Console.ReadLine());
-         Console.WriteLine("Ati castigat o masina " + optEnum.ToString());
+         //Masini optEnu = Enum.Parse<Masini>(Console.ReadLine());
+         //Console.WriteLine("Ati castigat o masina " + optEnum.ToString());
 
          //varianta dotNet framwork
          //Masini optEn;
