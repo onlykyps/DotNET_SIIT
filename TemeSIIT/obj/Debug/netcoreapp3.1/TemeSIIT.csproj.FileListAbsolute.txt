@@ -12,3 +12,4 @@ D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\TemeSIIT\obj\Debug\netcorea
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\TemeSIIT\obj\Debug\netcoreapp3.1\TemeSIIT.dll
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\TemeSIIT\obj\Debug\netcoreapp3.1\TemeSIIT.pdb
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\TemeSIIT\obj\Debug\netcoreapp3.1\TemeSIIT.genruntimeconfig.cache
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\TemeSIIT\obj\Debug\netcoreapp3.1\TemeSIIT.sourcelink.json
