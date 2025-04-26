@@ -26,7 +26,7 @@ namespace TemeSIIT
          //   x1 = (-b + MathF.Sqrt(discriminant)) / 2 * a;
          //   x2 = (-b - MathF.Sqrt(discriminant)) / 2 * a;
 
-         //   Console.WriteLine($"Pentru valorile introduse rezulta radacinile x1={0} si x2={1}", x1, x2);
+         //   Console.WriteLine("Pentru valorile introduse rezulta radacinile x1={0} si x2={1}", x1, x2);
          //}
          //else if (discriminant < 0)
          //{
@@ -37,7 +37,7 @@ namespace TemeSIIT
          //   x1 = (-b + MathF.Sqrt(discriminant)) / 2 * a;
          //   x2 = (-b - MathF.Sqrt(discriminant)) / 2 * a;
 
-         //   Console.WriteLine($"Pentru valorile introduse radacinile sunt egale si rezulta x1=x2={0}", x1);
+         //   Console.WriteLine("Pentru valorile introduse radacinile sunt egale si rezulta x1=x2={0}", x1);
          //}
 
 
