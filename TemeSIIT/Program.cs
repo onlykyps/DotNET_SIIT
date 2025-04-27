@@ -6,6 +6,9 @@ namespace TemeSIIT
    {
       static void Main(string[] args)
       {
+         //rezlolvarea temei cu ecuatia quadratica
+         //---------------------------------------
+
          //int a, b, c;
          //float discriminant, x1, x2;
 
@@ -41,6 +44,10 @@ namespace TemeSIIT
          //}
 
 
+
+         //rezlolvarea temei cu valoarea minima si maxima a unui tablou
+         //------------------------------------------------------------
+
          int dimensiune;
 
          Console.WriteLine("Introduceti dimensiunea tabloului ");
@@ -58,6 +65,7 @@ namespace TemeSIIT
          }
 
          // varianta in care caut minim si maxim separat
+
          int valoareMaxima = 0;
 
          for (int i = 0; i < tablou.Length; i++)
