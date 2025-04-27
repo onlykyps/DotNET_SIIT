@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TemeSIIT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb09470cfafc0709346ba99889c5ecf74b206d43")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37f95855c6e193b42c017dac2a292b39be71a2fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("TemeSIIT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TemeSIIT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

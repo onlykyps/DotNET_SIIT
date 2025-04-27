@@ -57,6 +57,7 @@ namespace TemeSIIT
             dimensiune--;
          }
 
+         // varianta in care caut minim si maxim separat
          int valoareMaxima = 0;
 
          for (int i = 0; i < tablou.Length; i++)
@@ -78,6 +79,33 @@ namespace TemeSIIT
 
          Console.WriteLine("Valoarea maxima a tabloului este {0}, iar valoarea minima este {1}",
             valoareMaxima, valoareMinima);
+
+
+         // varianta in care sortez tot tabloul crescator apoi afisez primul si ultimul element
+
+         int tempLength = tablou.Length;
+
+         while (tempLength > 0) 
+         { 
+            for (int i = 0;i < tablou.Length-1;i++)
+            {
+               int temp = tablou[i];
+               if (tablou[i] > tablou[i + 1])
+               {
+                  temp = tablou[i];
+                  tablou[i] = tablou[i + 1];
+                  tablou[i+1] = temp;
+
+               }
+
+            }
+            tempLength--;
+         }
+
+         Console.WriteLine("Valoarea maxima a tabloului este {0}, iar valoarea minima este {1}",
+            tablou[tablou.Length-1], tablou[0]);
+
+         Console.WriteLine("Stop");
       }
    }
 }
