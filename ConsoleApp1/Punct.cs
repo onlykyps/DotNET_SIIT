@@ -10,6 +10,7 @@ namespace ConsoleApp1
    {
 
 		public Double _x, _y;
+		public Culoare _culoare;
 
 		//private Double _coordX;
 		//private Double _coordY;
