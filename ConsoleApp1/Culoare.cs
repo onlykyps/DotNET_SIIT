@@ -37,5 +37,12 @@ namespace ConsoleApp1
          set { _blue = value; }
       }
 
+      public Culoare(byte _alpha, byte _red, byte _green, byte _blue )
+      {
+         this._alpha = _alpha;
+         this._red = _red;
+         this._green = _green;
+         this._blue = _blue;
+      }
    }
 }

@@ -33,6 +33,12 @@ namespace ConsoleApp1
 			set { _culoare = value; }
 		}
 
+      public Punct(Double _x, Double _y, Culoare culoare)
+      {
+			this._x = _x;
+			this._y = _y;
+			this._culoare = culoare;
+      }
 
-	}
+   }
 }
