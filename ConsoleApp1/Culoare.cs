@@ -8,7 +8,34 @@ namespace ConsoleApp1
 {
    public class Culoare
    {
-      public byte _alpha, _red, _green, _blue;
+		private byte _alpha;
+      private byte _red;  
+      private byte _green;
+      private byte _blue;
+
+		public byte Alpha
+		{
+			get { return _alpha; }
+			set { _alpha = value; }
+		}
+
+      public byte Red
+      {
+         get { return _red; }
+         set { _red = value; }
+      }
+
+      public byte Green
+      {
+         get { return _green; }
+         set { _green = value; }
+      }
+      
+      public byte Blue
+      {
+         get { return _blue; }
+         set { _blue = value; }
+      }
 
    }
 }

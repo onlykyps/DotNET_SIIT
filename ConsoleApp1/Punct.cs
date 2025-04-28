@@ -9,24 +9,30 @@ namespace ConsoleApp1
    public class Punct
    {
 
-		public Double _x, _y;
-		public Culoare _culoare;
+		private Double _x, _y;
+      private Culoare _culoare;
 
 		//private Double _coordX;
 		//private Double _coordY;
 
+		public Double CoordX
+		{
+			get { return _x; }
+			set { _x = value; }
+		}
 
-		//public Double CoordX
-		//{
-		//	get { return _coordX; }
-		//	set { _coordX = value; }
-		//}
+		public Double CoordY
+		{
+			get { return _y; }
+			set { _y = value; }
+		}
 
-		//public Double CoordY
-		//{
-		//	get { return _coordY; }
-		//	set { _coordY = value; }
-		//}
+		public Culoare Culoare
+      {
+			get { return _culoare; }
+			set { _culoare = value; }
+		}
+
 
 	}
 }
