@@ -8,10 +8,51 @@ namespace ConsoleApp1
 {
    public class Program
    {
+      struct TwoFields
+      {
+         public ushort _2f1; 
+         public ushort _2f3;
+      }
+
+      struct FourFields
+      {
+         public byte _4f1;
+         public byte _4f2;
+         public byte _4f3;
+         public byte _4f4;
+      }
+
       static void Main(string[] args)
-      { 
+      {
+         TwoFields twoF;
+         twoF._2f1 = 0xF11F;
+         twoF._2f3 = 0xABBA;
+
+         Console.WriteLine("{0:X}{1:X}", twoF._2f3, twoF._2f1);
+
+         FourFields fourFields = new FourFields();
+         //fourFields._4f1 = twoF._2f1/2;
+         fourFields._4f1 = (byte)twoF._2f1;
+
+         //fourFields._4f2 = twoF._2f1/2;
+         fourFields._4f2 = (byte)(twoF._2f1/256);
+
+         fourFields._4f3 = (byte)(twoF._2f3/256);
+         fourFields._4f4 = (byte)(twoF._2f3/256);
+
+         Console.WriteLine("{0:X}{1:X}{2:X}{3:X}", fourFields._4f1, fourFields._4f2, fourFields._4f3, fourFields._4f4);
+
+         TwoFields threeTwoF = twoF;
+
+         Console.WriteLine("{0:X}{1:X}", threeTwoF._2f1, threeTwoF._2f3);
+
+         threeTwoF._2f1 = 0xB116;
+         Console.WriteLine("{0:X}{1:X}", twoF._2f3, twoF._2f1);
+         Console.WriteLine("{0:X}{1:X}", threeTwoF._2f1, threeTwoF._2f3);
+
+
          Culoare blue = new Culoare(0xFF, 0x00, 0x00, 0xFF);
-         Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
+         //Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
 
          // redundant
          blue.Alpha = 0xFF;
@@ -25,7 +66,7 @@ namespace ConsoleApp1
          p1.CoordY = 5;
          p1.Culoare = blue;
 
-         Console.WriteLine("Contor are valoarea {0}",Punct.Contor);
+         //Console.WriteLine("Contor are valoarea {0}",Punct.Contor);
 
          //p1._culoare._alpha = 0xFF;
          //p1._culoare._red = 0x00;
@@ -33,7 +74,7 @@ namespace ConsoleApp1
          //p1._culoare._blue = 0xFF;
 
          Culoare red = new Culoare(0xFF, 0xFF, 0x00, 0x00);
-         Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
+         //Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
 
          // redundant
          Punct p2 = new Punct(7, 9, red)
@@ -43,12 +84,12 @@ namespace ConsoleApp1
 
          };
 
-         Console.WriteLine("Contor are valoarea {0}", Punct.Contor);
+         //Console.WriteLine("Contor are valoarea {0}", Punct.Contor);
 
          Punct p3 = p1;
 
-         Console.WriteLine("Contor are valoarea {0}", Punct.Contor);
-         Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
+         //Console.WriteLine("Contor are valoarea {0}", Punct.Contor);
+         //Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
       }
    }
 }
