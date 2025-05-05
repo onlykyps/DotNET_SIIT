@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,16 @@ namespace ConsoleApp1
 		//private Double _coordX;
 		//private Double _coordY;
 
-		public Double CoordX
+		private static short _cnt  = 0;
+
+		public static short Contor
+      {
+			get { return _cnt; }
+         //set { _cnt = value; }
+      }
+
+
+      public Double CoordX
 		{
 			get { return _x; }
 			set { _x = value; }
@@ -38,6 +48,8 @@ namespace ConsoleApp1
 			this._x = _x;
 			this._y = _y;
 			this._culoare = culoare;
+
+         _cnt++;
       }
 
    }

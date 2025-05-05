@@ -13,7 +13,16 @@ namespace ConsoleApp1
       private byte _green;
       private byte _blue;
 
-		public byte Alpha
+      private static short _cnt = 0;
+
+      public static short Contor
+      {
+         get { return _cnt; }
+         //set { _cnt = value; }
+      }
+
+
+      public byte Alpha
 		{
 			get { return _alpha; }
 			set { _alpha = value; }
@@ -43,6 +52,8 @@ namespace ConsoleApp1
          this._red = _red;
          this._green = _green;
          this._blue = _blue;
+
+         _cnt++;
       }
    }
 }
