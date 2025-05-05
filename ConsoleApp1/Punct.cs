@@ -24,7 +24,6 @@ namespace ConsoleApp1
          //set { _cnt = value; }
       }
 
-
       public Double CoordX
 		{
 			get { return _x; }
@@ -52,5 +51,21 @@ namespace ConsoleApp1
          _cnt++;
       }
 
+		public void Afiseaza()
+		{
+         Console.WriteLine($"Coordonate:X={_x}, Y={_y}");
+			_culoare.Afiseaza();
+      }
+
+      public void ComplementeazaCuloarea()
+      {
+         _culoare.Complementeaza();
+      }
+
+		public void Inverseaza()
+		{
+			_x = -1*_x;
+			_y = -1*_y;
+		}
    }
 }

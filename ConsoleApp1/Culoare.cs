@@ -21,7 +21,6 @@ namespace ConsoleApp1
          //set { _cnt = value; }
       }
 
-
       public byte Alpha
 		{
 			get { return _alpha; }
@@ -55,5 +54,19 @@ namespace ConsoleApp1
 
          _cnt++;
       }
+
+      public void Afiseaza()
+      {
+         Console.WriteLine($"Cei patru membrii ai oiectului sunt " +
+            $"Alpha={_alpha},Red={_red},Green={_green},Blue={_blue}");
+      }
+
+      public void Complementeaza() 
+      {
+         _red = (byte)(0xFF - _red);
+         _green = (byte)(0xFF - _green);
+         _blue = (byte)(0xFF - _blue);    
+      }
+
    }
 }

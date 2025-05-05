@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\culoare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:culoare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\punct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:punct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\culoare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:culoare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,27 +26,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Culoare.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Culoare.cs",
               "RelativeDocumentMoniker": "Culoare.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Culoare.cs",
               "RelativeToolTip": "Culoare.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T16:58:15.665Z"
+              "WhenOpened": "2025-04-28T16:58:15.665Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Punct.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Punct.cs",
               "RelativeDocumentMoniker": "Punct.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Punct.cs",
               "RelativeToolTip": "Punct.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAEMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T16:27:26.301Z"
+              "WhenOpened": "2025-04-28T16:27:26.301Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,7 +58,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAuwCoAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEsAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T16:27:09.917Z",
               "EditorCaption": ""
