@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+   public class Triunghi
+   {
+      private Punct[] _puncte;
+
+      public Triunghi
+         (
+            (double x, double y) p1,
+            (double, double) p2,
+            (double, double) p3,
+            Culoare culoare
+         ) 
+      {
+         _puncte = new Punct[3]
+         {
+            new Punct(p1.x, p1.y, culoare),
+            new Punct(p2.Item1, p2.Item2, culoare),
+            new Punct(p3.Item1, p3.Item2, culoare)
+         };
+
+
+      }
+
+      //public void AfiseazaCampurile(Punct[] campurile)
+      //{
+      //   for (int i = 0; i < campurile.Length; i++)
+      //   {
+      //      campurile[i].Afiseaza();
+      //   }
+      //}
+
+      public void Afiseaza()
+      {
+         foreach(Punct p in _puncte)
+         {
+            p.Afiseaza();
+         }
+      }
+
+      public void MutareaPunctelor
+         (
+            (double x, double y)? p1 = null,
+            (double x, double y)? p2 = null,
+            (double x, double y)? p3 = null
+         )
+      {
+         if (p1.HasValue) _puncte[0].Muta(p1.Value.x, p1.Value.y);
+         if (p2.HasValue) _puncte[1].Muta(p2.Value.x, p2.Value.y);
+         if (p3.HasValue) _puncte[2].Muta(p3.Value.x, p3.Value.y);
+      }
+
+
+
+   }
+}

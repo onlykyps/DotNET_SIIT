@@ -91,13 +91,25 @@ namespace ConsoleApp1
          //Console.WriteLine("Contor are valoarea {0}", Punct.Contor);
          //Console.WriteLine("Contor culoare are valoarea {0}", Culoare.Contor);
 
-         p1.Afiseaza();
-         p2.Afiseaza();
+         //p1.Afiseaza();
+         //p2.Afiseaza();
 
-         p1.ComplementeazaCuloarea();
-         p1.Inverseaza();
-         p1.Afiseaza();
-         
+         //p1.ComplementeazaCuloarea();
+         //p1.Inverseaza();
+         //p1.Afiseaza();
+
+         //p1.Muta(13,15);
+
+         Triunghi triunghi = new Triunghi((0,0), (2, 0), (0,4), blue);
+         triunghi.Afiseaza();
+         triunghi.MutareaPunctelor((1, 1), (2, 1), (5, 1));
+         triunghi.Afiseaza();
+
+         triunghi.MutareaPunctelor((0, 0), (3, 0), (3, 4));
+         triunghi.Afiseaza();
+         triunghi.MutareaPunctelor((0, 0), (3, 0));
+         triunghi.MutareaPunctelor(p3:(3, 4));
+
       }
    }
 }

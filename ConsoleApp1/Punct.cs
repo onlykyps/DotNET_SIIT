@@ -54,7 +54,7 @@ namespace ConsoleApp1
 		public void Afiseaza()
 		{
          Console.WriteLine($"Coordonate:X={_x}, Y={_y}");
-			_culoare.Afiseaza();
+			//_culoare.Afiseaza();
       }
 
       public void ComplementeazaCuloarea()
@@ -67,5 +67,20 @@ namespace ConsoleApp1
 			_x = -1*_x;
 			_y = -1*_y;
 		}
+
+		public void Muta(double _x, double _y)
+		{
+         //this.Afiseaza();
+
+         _y = this._y;
+         _x = this._x;
+
+			this._x -= _y;
+			this._y -= _x;
+
+			this.Afiseaza();
+
+		}
+
    }
 }
