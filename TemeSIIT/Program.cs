@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Threading;
 
 namespace TemeSIIT
 {
@@ -48,72 +51,184 @@ namespace TemeSIIT
          //rezlolvarea temei cu valoarea minima si maxima a unui tablou
          //------------------------------------------------------------
 
-         int dimensiune;
+         //int dimensiune;
 
-         Console.WriteLine("Introduceti dimensiunea tabloului ");
-         dimensiune = int.Parse(Console.ReadLine());
+         //Console.WriteLine("Introduceti dimensiunea tabloului ");
+         //dimensiune = int.Parse(Console.ReadLine());
 
-         int[] tablou = new int[dimensiune];
-         int index = 0;
+         //int[] tablou = new int[dimensiune];
+         //int index = 0;
 
-         while (dimensiune > 0) 
+         //while (dimensiune > 0) 
+         //{
+         //   Console.WriteLine("Adaugati elemntul {0} al tabloului",index);
+         //   tablou[index] = int.Parse(Console.ReadLine());
+         //   index++;
+         //   dimensiune--;
+         //}
+
+         //// varianta in care caut minim si maxim separat
+
+         //int valoareMaxima = 0;
+
+         //for (int i = 0; i < tablou.Length; i++)
+         //{
+         //   if (tablou[i] > valoareMaxima)
+         //   {
+         //      valoareMaxima = tablou[i];
+         //   }
+         //}
+
+         //int valoareMinima = tablou[0];
+         //for (int i = 0; i < tablou.Length; i++)
+         //{
+         //   if (tablou[i] < valoareMinima)
+         //   {
+         //      valoareMinima = tablou[i];
+         //   }
+         //}
+
+         //Console.WriteLine("Valoarea maxima a tabloului este {0}, iar valoarea minima este {1}",
+         //   valoareMaxima, valoareMinima);
+
+
+         //// varianta in care sortez tot tabloul crescator apoi afisez primul si ultimul element
+
+         //int tempLength = tablou.Length;
+
+         //while (tempLength > 0) 
+         //{ 
+         //   for (int i = 0;i < tablou.Length-1;i++)
+         //   {
+         //      int temp = tablou[i];
+         //      if (tablou[i] > tablou[i + 1])
+         //      {
+         //         temp = tablou[i];
+         //         tablou[i] = tablou[i + 1];
+         //         tablou[i+1] = temp;
+
+         //      }
+
+         //   }
+         //   tempLength--;
+         //}
+
+         //Console.WriteLine("Valoarea maxima a tabloului este {0}, iar valoarea minima este {1}",
+         //   tablou[tablou.Length-1], tablou[0]);
+
+         //Console.WriteLine("Stop");
+
+         String[] deVerificatTotal;
+
+         //optiune hard-codata
+
+         //String[] deVerificatTotal = 
+         //   {
+         //      "redeem",
+         //      "recognize",
+         //      "jail",
+         //      "fly",
+         //      "dragon"
+         //   }
+         //;
+
+         //String[] deVerificatTotal =
+         //   {
+         //      "jelly",
+         //      "generate",
+         //      "threat",
+         //      "cow",
+         //      "wreck",
+         //      "retailer",
+         //      "straw",
+         //      "cover",
+         //      "response",
+         //      "last"
+         //   };
+
+         //optiune programata
+
+         int lungimeaTabloului;
+         int dubluriMin = 0;
+         int dubluriMax = 0;
+
+         string[] totalDubluriMax = new string[0];
+         string[] totalDubluriMin = new string[0];
+
+         Console.WriteLine("Introduceti lungimea tabloului");
+         lungimeaTabloului = int.Parse(Console.ReadLine());
+         deVerificatTotal = new string[lungimeaTabloului];
+        
+
+         while (lungimeaTabloului > 0)
          {
-            Console.WriteLine("Adaugati elemntul {0} al tabloului",index);
-            tablou[index] = int.Parse(Console.ReadLine());
-            index++;
-            dimensiune--;
+            Console.WriteLine("Introduceti string la pozitia {0} in tablou",
+               deVerificatTotal.Length - lungimeaTabloului);
+
+            string inputDeVerificat = Console.ReadLine();
+
+            deVerificatTotal[deVerificatTotal.Length - lungimeaTabloului] = inputDeVerificat;
+
+            lungimeaTabloului--;
          }
+         string minVerificat = deVerificatTotal[0];
+         string maxVerificat = deVerificatTotal[0];
 
-         // varianta in care caut minim si maxim separat
-
-         int valoareMaxima = 0;
-
-         for (int i = 0; i < tablou.Length; i++)
+         foreach (string item in deVerificatTotal)
          {
-            if (tablou[i] > valoareMaxima)
+            if (item.Length > maxVerificat.Length)
             {
-               valoareMaxima = tablou[i];
+               maxVerificat = item;
+            }
+            else if (item.Length == maxVerificat.Length)
+            {
+               dubluriMax++;
+               //totalDubluriMax = new string[1];
+               //totalDubluriMax.Append(item.ToString());
+            }
+            
+            if (item.Length < minVerificat.Length)
+            {
+               minVerificat = item;
+            }
+            else if (item.Length == minVerificat.Length)
+            {
+               dubluriMin++;
+               //totalDubluriMin = new string[1];
+               //totalDubluriMin.Append(item.ToString());
             }
          }
 
-         int valoareMinima = tablou[0];
-         for (int i = 0; i < tablou.Length; i++)
+         totalDubluriMin = new string[dubluriMin];
+         totalDubluriMax = new string[dubluriMax];
+
+         string raspunsFinal = "";
+
+         if(totalDubluriMin.Length > 0)
          {
-            if (tablou[i] < valoareMinima)
+            raspunsFinal += ("Sunt {0} valori minime: ",totalDubluriMin.Length);
+            foreach (string item in totalDubluriMin)
             {
-               valoareMinima = tablou[i];
+               raspunsFinal += (item + " ");
             }
+            
          }
 
-         Console.WriteLine("Valoarea maxima a tabloului este {0}, iar valoarea minima este {1}",
-            valoareMaxima, valoareMinima);
+         raspunsFinal += " si ";
 
-
-         // varianta in care sortez tot tabloul crescator apoi afisez primul si ultimul element
-
-         int tempLength = tablou.Length;
-
-         while (tempLength > 0) 
-         { 
-            for (int i = 0;i < tablou.Length-1;i++)
+         if (totalDubluriMax.Length > 0)
+         {
+            raspunsFinal += ("{0} valori maxime: ", totalDubluriMax.Length);
+            foreach (string item in totalDubluriMax)
             {
-               int temp = tablou[i];
-               if (tablou[i] > tablou[i + 1])
-               {
-                  temp = tablou[i];
-                  tablou[i] = tablou[i + 1];
-                  tablou[i+1] = temp;
-
-               }
-
+               raspunsFinal += (item + " ");
             }
-            tempLength--;
+
          }
 
-         Console.WriteLine("Valoarea maxima a tabloului este {0}, iar valoarea minima este {1}",
-            tablou[tablou.Length-1], tablou[0]);
+         Console.WriteLine("Stringul cel mai scurt este {0}, stringul cel mai lung este {1}",
+            minVerificat, maxVerificat);
 
-         Console.WriteLine("Stop");
       }
    }
 }
