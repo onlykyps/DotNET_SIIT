@@ -101,14 +101,18 @@ namespace ConsoleApp1
          //p1.Muta(13,15);
 
          Triunghi triunghi = new Triunghi((0,0), (2, 0), (0,4), blue);
-         triunghi.Afiseaza();
+         //triunghi.Afiseaza();
          triunghi.MutareaPunctelor((1, 1), (2, 1), (5, 1));
-         triunghi.Afiseaza();
+         //triunghi.Afiseaza();
 
          triunghi.MutareaPunctelor((0, 0), (3, 0), (3, 4));
-         triunghi.Afiseaza();
+         //triunghi.Afiseaza();
          triunghi.MutareaPunctelor((0, 0), (3, 0));
          triunghi.MutareaPunctelor(p3:(3, 4));
+
+         triunghi.MutareaPunctelor(p1: (6, 0));
+
+         Console.WriteLine($"Perimetrul triunghiului este {triunghi.CalculeazaPerimetru()}");
 
       }
    }

@@ -75,10 +75,10 @@ namespace ConsoleApp1
          _y = this._y;
          _x = this._x;
 
-			this._x -= _y;
-			this._y -= _x;
+			this._x = _y;
+			this._y = _x;
 
-			this.Afiseaza();
+			//this.Afiseaza();
 
 		}
 
