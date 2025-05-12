@@ -73,5 +73,28 @@ namespace ConsoleApp1
          return perimetru;
       }
 
+      private double CalculeazaArie()
+      {
+         double semiPer = CalculeazaPerimetru() / 2;
+         double prod = semiPer;
+
+         for (byte p=0; p<3; p++)
+         {
+            prod *= semiPer - CalculeazaLatura(_puncte[p], _puncte[(p + 1) % 3]);
+         }
+
+         return Math.Sqrt(prod);
+      }
+
+      public static bool operator >= (Triunghi tr1, Triunghi tr2)
+      {
+         return tr1.CalculeazaArie() > tr2.CalculeazaArie();
+      }
+
+      public static bool operator <= (Triunghi tr1, Triunghi tr2)
+      {
+         return tr1.CalculeazaArie() < tr2.CalculeazaArie();
+      }
+
    }
 }

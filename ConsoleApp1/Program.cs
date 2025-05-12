@@ -114,6 +114,20 @@ namespace ConsoleApp1
 
          Console.WriteLine($"Perimetrul triunghiului este {triunghi.CalculeazaPerimetru()}");
 
+         double a = 20;
+         double b = 39;
+
+         Console.WriteLine($"Max dintre {a} si {b} e {MaxFinder.GetMax(a, b)}") ;
+
+         Punct pctMax = MaxFinder.GetMax(p1, p2);
+         pctMax.Afiseaza();
+
+         Triunghi nouTriungi = new Triunghi((5, 6), (7, 8), (8, 9), red);
+
+         Triunghi maxTriunghi = MaxFinder.GetMax(triunghi, nouTriungi);
+         Console.Write("Afiseaza cel mai mare triunghi");
+         maxTriunghi.Afiseaza();
+
       }
    }
 }
