@@ -56,18 +56,18 @@ namespace ConsoleApp1
          if (p3.HasValue) _puncte[2].Muta(p3.Value.x, p3.Value.y);
       }
 
-      private double CalculeazaLatura(Punct punct1, Punct punct2)
-      {
-         return Math.Sqrt(Math.Pow(punct1.CoordX - punct2.CoordX, 2)
-            + Math.Pow(punct1.CoordY - punct2.CoordY, 2));
-      }
+      //private double CalculeazaLatura(Punct punct1, Punct punct2)
+      //{
+      //   return Math.Sqrt(Math.Pow(punct1.CoordX - punct2.CoordX, 2)
+      //      + Math.Pow(punct1.CoordY - punct2.CoordY, 2));
+      //}
 
       public double CalculeazaPerimetru() 
       {
          double perimetru = 0;
          for (int i = 0; i < _puncte.Length; i++)
          {
-            perimetru += CalculeazaLatura(_puncte[i], _puncte[(i + 1) % 3]);
+            perimetru += DistanceCalculator.CalculeazaDistanta(_puncte[i], _puncte[(i + 1) % 3]);
          }
 
          return perimetru;
@@ -80,7 +80,7 @@ namespace ConsoleApp1
 
          for (byte p=0; p<3; p++)
          {
-            prod *= semiPer - CalculeazaLatura(_puncte[p], _puncte[(p + 1) % 3]);
+            prod *= semiPer - DistanceCalculator.CalculeazaDistanta(_puncte[p], _puncte[(p + 1) % 3]);
          }
 
          return Math.Sqrt(prod);
