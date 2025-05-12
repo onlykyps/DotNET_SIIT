@@ -9,12 +9,13 @@ namespace ConsoleApp1
 {
    public static class MaxFinder
    {
-      public static int GetMax(int a, int b)
+      // pentru siguranta, trecem un set de metode in privat
+      private static int GetMax(int a, int b)
       {
          return a > b ? a : b;
       }
 
-      public static double GetMax(double a, double b) 
+      private static double GetMax(double a, double b) 
       {
          return a > b ? a : b; 
       }
@@ -28,6 +29,32 @@ namespace ConsoleApp1
       public static Triunghi GetMax(Triunghi tr1, Triunghi tr2)
       {
          return tr1 >= tr2 ? tr1 : tr2;
+      }
+
+      // pentru a nu fi incurcate de copilatoare mai vechi
+      // care nu stiu care e diferenta intre metode cu un set dat sau nestiut de parametri
+      public static int GetMax(params int[] parametri)
+      {
+         int maxim = 0;
+
+         for (int i = 0; i < parametri.Length; i++)
+         {
+            maxim = GetMax(maxim, parametri[i]);
+         }
+
+         return maxim;
+      }
+
+      public static double GetMax(params double[] parametri)
+      {
+         double maxim = 0;
+
+         for (int i = 0; i < parametri.Length; i++)
+         {
+            maxim = GetMax(maxim, parametri[i]);
+         }
+
+         return maxim;
       }
 
    }

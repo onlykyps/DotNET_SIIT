@@ -128,6 +128,11 @@ namespace ConsoleApp1
          Console.Write("Afiseaza cel mai mare triunghi");
          maxTriunghi.Afiseaza();
 
+         Console.WriteLine($"Maximul dintre 2, 5, 2, 4, 9 si 0 e {MaxFinder.GetMax(2, 5, 2, 4, 9, 0)}");
+
+         Console.WriteLine($"Maximul dintre 4.5, 4.8, 4.75, 4.6, 4.9 si 4 e " +
+            $"{MaxFinder.GetMax(4.5, 4.8, 4.75, 4.6, 4.9, 4)}");
+
       }
    }
 }
