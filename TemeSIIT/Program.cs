@@ -149,16 +149,14 @@ namespace TemeSIIT
          //optiune programata
 
          int lungimeaTabloului;
-         int dubluriMin = 0;
-         int dubluriMax = 0;
-
-         string[] totalDubluriMax = new string[0];
-         string[] totalDubluriMin = new string[0];
+         int dubluriMin = 1;
+         int dubluriMax = 1;
 
          Console.WriteLine("Introduceti lungimea tabloului");
          lungimeaTabloului = int.Parse(Console.ReadLine());
          deVerificatTotal = new string[lungimeaTabloului];
-        
+
+         
 
          while (lungimeaTabloului > 0)
          {
@@ -171,63 +169,90 @@ namespace TemeSIIT
 
             lungimeaTabloului--;
          }
+
+
          string minVerificat = deVerificatTotal[0];
          string maxVerificat = deVerificatTotal[0];
 
+         string[] totalDubluriMax = new string[0];
+         string[] totalDubluriMin = new string[0];
+
          foreach (string item in deVerificatTotal)
          {
+            //verificare maxim
             if (item.Length > maxVerificat.Length)
             {
                maxVerificat = item;
+               dubluriMax = 0;
+               Array.Resize(ref totalDubluriMax, 0);
             }
-            else if (item.Length == maxVerificat.Length)
+            else if (item.Length == maxVerificat.Length && item != maxVerificat)
             {
                dubluriMax++;
-               //totalDubluriMax = new string[1];
-               //totalDubluriMax.Append(item.ToString());
-            }
-            
-            if (item.Length < minVerificat.Length)
-            {
-               minVerificat = item;
-            }
-            else if (item.Length == minVerificat.Length)
-            {
-               dubluriMin++;
-               //totalDubluriMin = new string[1];
-               //totalDubluriMin.Append(item.ToString());
+               Array.Resize(ref totalDubluriMax, totalDubluriMax.Length + 2);
+               totalDubluriMax[totalDubluriMax.Length - 1] = item.ToString();
+               totalDubluriMax[totalDubluriMax.Length - 2] = maxVerificat.ToString();
             }
          }
 
-         totalDubluriMin = new string[dubluriMin];
-         totalDubluriMax = new string[dubluriMax];
+         foreach (string item in deVerificatTotal)
+         {
+            //verificare minim
+            if (item.Length < minVerificat.Length)
+         {
+            minVerificat = item;
+            dubluriMin = 0;
+            Array.Resize(ref totalDubluriMin, 0);
+         }
+         else if (item.Length == minVerificat.Length && item != minVerificat)
+         {
+            dubluriMin++;
+            Array.Resize(ref totalDubluriMin, totalDubluriMin.Length + 2);
+            totalDubluriMin[totalDubluriMin.Length - 1] = item.ToString();
+            totalDubluriMin[totalDubluriMin.Length - 2] = minVerificat.ToString();
+         }
+         }
 
          string raspunsFinal = "";
 
-         if(totalDubluriMin.Length > 0)
+         if (totalDubluriMin.Length > 0)
          {
-            raspunsFinal += ("Sunt {0} valori minime: ",totalDubluriMin.Length);
+            raspunsFinal += "Sunt " + totalDubluriMin.Length.ToString() + " valori minime: ";
             foreach (string item in totalDubluriMin)
             {
-               raspunsFinal += (item + " ");
+               if (item != null)
+               {
+                  raspunsFinal += (item.ToString() + " ");
+               }
             }
-            
+
+         }
+         else 
+         {
+            raspunsFinal += "Exista o valoare minima " + minVerificat.ToString();
          }
 
-         raspunsFinal += " si ";
+            raspunsFinal += " si ";
 
          if (totalDubluriMax.Length > 0)
          {
-            raspunsFinal += ("{0} valori maxime: ", totalDubluriMax.Length);
+            raspunsFinal += "si " + totalDubluriMax.Length.ToString() + " valori maxime: ";
             foreach (string item in totalDubluriMax)
             {
-               raspunsFinal += (item + " ");
+               if (item != null)
+               {
+                  raspunsFinal += (item.ToString() + " ");
+               }
             }
 
          }
-
-         Console.WriteLine("Stringul cel mai scurt este {0}, stringul cel mai lung este {1}",
-            minVerificat, maxVerificat);
+         else
+         {
+            raspunsFinal += "si o valoare maxima: " + maxVerificat.ToString();
+         }
+            Console.WriteLine(raspunsFinal);
+         //Console.WriteLine("Stringul cel mai scurt este {0}, stringul cel mai lung este {1}",
+         //   minVerificat, maxVerificat);
 
       }
    }
