@@ -46,6 +46,7 @@
     <Compile Include="Culoare.cs" />
     <Compile Include="DistanceCalculator.cs" />
     <Compile Include="Dreptunghi.cs" />
+    <Compile Include="Interface1.cs" />
     <Compile Include="MaxFinder.cs" />
     <Compile Include="Polygon.cs" />
     <Compile Include="Program.cs" />

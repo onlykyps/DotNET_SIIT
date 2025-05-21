@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClaseMosteniriInterfete
 {
-   public class Triunghi: Polygon
+   public class Triunghi: Polygon, IArie
    {
       //private Punct[] _puncte; //devine mostenit
       private static byte _nrPuncte = 3;
@@ -66,7 +67,7 @@ namespace ClaseMosteniriInterfete
 
 
 
-      public override double CalculeazaArie()
+      public double CalculeazaArie()
       {
          double semiPer = CalculeazaPerimetru() / 2;
          double prod = semiPer;

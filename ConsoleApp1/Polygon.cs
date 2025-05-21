@@ -32,7 +32,7 @@ namespace ClaseMosteniriInterfete
          return perimetru;
       }
 
-      public abstract double CalculeazaArie();
+      //public abstract double CalculeazaArie();
 
 
    }

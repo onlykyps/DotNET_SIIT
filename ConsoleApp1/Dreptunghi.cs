@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-   public class Dreptunghi : Polygon
+   public class Dreptunghi : Polygon, IArie
    {
       private static byte _nrPuncte = 4;
 
@@ -26,7 +26,7 @@ namespace ConsoleApp1
       }
 
 
-      public override double CalculeazaArie()
+      public double CalculeazaArie()
       {
          return DistanceCalculator.CalculeazaDistanta(_puncte[0], _puncte[1]) *
              DistanceCalculator.CalculeazaDistanta(_puncte[1], _puncte[2]);
