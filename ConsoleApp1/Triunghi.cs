@@ -64,9 +64,9 @@ namespace ClaseMosteniriInterfete
       //      + Math.Pow(punct1.CoordY - punct2.CoordY, 2));
       //}
 
-      
 
-      public double CalculeazaArie()
+
+      public override double CalculeazaArie()
       {
          double semiPer = CalculeazaPerimetru() / 2;
          double prod = semiPer;

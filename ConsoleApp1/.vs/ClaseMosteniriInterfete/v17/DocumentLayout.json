@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\consoleapp1\\triunghi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:triunghi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ClaseMosteniriInterfete.csproj|solutionrelative:dreptunghi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\consoleapp1\\polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\distancecalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:distancecalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\maxfinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:maxfinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\consoleapp1\\polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|solutionrelative:polygon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E82B6E5-B287-4A8D-A261-3AB389C6C905}|ConsoleApp1.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\punct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,37 +38,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Dreptunghi.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Dreptunghi.cs",
               "RelativeDocumentMoniker": "Dreptunghi.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Dreptunghi.cs",
               "RelativeToolTip": "Dreptunghi.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAABLAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T16:29:16.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Polygon.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Polygon.cs",
               "RelativeDocumentMoniker": "Polygon.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Polygon.cs",
               "RelativeToolTip": "Polygon.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAACIAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T12:47:43.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DistanceCalculator.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\DistanceCalculator.cs",
               "RelativeDocumentMoniker": "DistanceCalculator.cs",
@@ -81,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MaxFinder.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\MaxFinder.cs",
               "RelativeDocumentMoniker": "MaxFinder.cs",
@@ -107,26 +107,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAAAI8AAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAAAJIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T16:01:26.405Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Triunghi.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Triunghi.cs",
               "RelativeDocumentMoniker": "Triunghi.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\ConsoleApp1\\Triunghi.cs",
               "RelativeToolTip": "Triunghi.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-07T15:56:48.901Z",
               "EditorCaption": ""

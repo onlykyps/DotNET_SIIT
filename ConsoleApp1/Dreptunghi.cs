@@ -26,7 +26,7 @@ namespace ConsoleApp1
       }
 
 
-      public double CalculeazaArie()
+      public override double CalculeazaArie()
       {
          return DistanceCalculator.CalculeazaDistanta(_puncte[0], _puncte[1]) *
              DistanceCalculator.CalculeazaDistanta(_puncte[1], _puncte[2]);

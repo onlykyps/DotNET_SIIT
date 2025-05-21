@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClaseMosteniriInterfete
 {
-   public class Polygon
+   public abstract class Polygon
    {
       protected Punct[] _puncte;
 
@@ -32,10 +32,7 @@ namespace ClaseMosteniriInterfete
          return perimetru;
       }
 
-      public double CalculeazaArie()
-      {
-        throw new NotImplementedException();
-      }
+      public abstract double CalculeazaArie();
 
 
    }
