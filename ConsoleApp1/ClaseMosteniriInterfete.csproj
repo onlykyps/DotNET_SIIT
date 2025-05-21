@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Culoare.cs" />
     <Compile Include="DistanceCalculator.cs" />
+    <Compile Include="Dreptunghi.cs" />
     <Compile Include="MaxFinder.cs" />
+    <Compile Include="Polygon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Punct.cs" />

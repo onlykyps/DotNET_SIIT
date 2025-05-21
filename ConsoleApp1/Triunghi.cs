@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ClaseMosteniriInterfete
 {
-   public class Triunghi
+   public class Triunghi: Polygon
    {
-      private Punct[] _puncte;
+      //private Punct[] _puncte; //devine mostenit
+      private static byte _nrPuncte = 3;
 
       public Triunghi
          (
@@ -16,7 +17,8 @@ namespace ConsoleApp1
             (double, double) p2,
             (double, double) p3,
             Culoare culoare
-         ) 
+
+         ) : base(culoare, _nrPuncte, p1, p2, p3)    
       {
          _puncte = new Punct[3]
          {
@@ -62,18 +64,9 @@ namespace ConsoleApp1
       //      + Math.Pow(punct1.CoordY - punct2.CoordY, 2));
       //}
 
-      public double CalculeazaPerimetru() 
-      {
-         double perimetru = 0;
-         for (int i = 0; i < _puncte.Length; i++)
-         {
-            perimetru += DistanceCalculator.CalculeazaDistanta(_puncte[i], _puncte[(i + 1) % 3]);
-         }
+      
 
-         return perimetru;
-      }
-
-      private double CalculeazaArie()
+      public double CalculeazaArie()
       {
          double semiPer = CalculeazaPerimetru() / 2;
          double prod = semiPer;

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ConsoleApp1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ClaseMosteniriInterfete
 {
    public class Program
    {
@@ -132,6 +133,15 @@ namespace ConsoleApp1
 
          Console.WriteLine($"Maximul dintre 4.5, 4.8, 4.75, 4.6, 4.9 si 4 e " +
             $"{MaxFinder.GetMax(4.5, 4.8, 4.75, 4.6, 4.9, 4)}");
+
+         Console.WriteLine("INHERITANCE");
+
+         Console.WriteLine($"Aria primului triunghi e {triunghi.CalculeazaArie()}");
+         Console.WriteLine($"Aria celui de-al doilea triunghi e {nouTriungi.CalculeazaArie()}");
+
+         Dreptunghi dreptunghi = new Dreptunghi((0,0), (3,0), (3,4), (0,4), red);
+
+         Console.WriteLine($"Aria primului dreptunghi e {dreptunghi.CalculeazaArie()}");
 
       }
    }
