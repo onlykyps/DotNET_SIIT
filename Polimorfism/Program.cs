@@ -14,16 +14,23 @@ namespace Polimorfism
          Instrument pian = new Pian();
          Instrument flaut = new Flaut();
 
-         vioara.RedaNota();
-         pian.RedaNota();
-         flaut.RedaNota();
+         //vioara.RedaNota();
+         //pian.RedaNota();
+         //flaut.RedaNota();
 
          Vioara vioaraClasica = new VioaraClasica();
          Vioara vioaraElectrica = new VioaraElectrica(); 
 
-         vioaraClasica.RedaNota();
-         vioaraElectrica.RedaNota();
+         //vioaraClasica.RedaNota();
+         //vioaraElectrica.RedaNota();
 
+         Instrument[] instruments = new Instrument[]
+         { vioara, pian, flaut, vioaraClasica, vioaraElectrica };
+
+         foreach (Instrument instr in instruments) 
+         { 
+            instr.RedaNota();
+         }
       }
    }
 }
