@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace Polimorfism
 {
-   public class Program
+   public class Pian
    {
-      static void Main(string[] args)
-      {
 
-
-
-
-      }
    }
 }

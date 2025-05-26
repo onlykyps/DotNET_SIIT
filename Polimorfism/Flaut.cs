@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace Polimorfism
 {
-   public class Program
+   public class Flaut
    {
-      static void Main(string[] args)
-      {
 
-
-
-
-      }
    }
 }

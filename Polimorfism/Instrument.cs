@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace Polimorfism
 {
-   public class Program
+   public class Instrument
    {
-      static void Main(string[] args)
-      {
 
-
-
-
-      }
    }
 }
