@@ -49,6 +49,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vioara.cs" />
+    <Compile Include="VioaraClasica.cs" />
+    <Compile Include="VioaraElectrica.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

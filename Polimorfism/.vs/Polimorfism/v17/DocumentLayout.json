@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\vioara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:vioara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\flaut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:flaut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\vioaraelectrica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:vioaraelectrica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\vioaraclasica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:vioaraclasica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\vioara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:vioara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\pian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:pian.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\flaut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|solutionrelative:flaut.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{499E2330-0B1F-4047-8832-7A76B5DCAB94}|Polimorfism.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\polimorfism\\instrument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,50 +38,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "VioaraClasica.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\VioaraClasica.cs",
+              "RelativeDocumentMoniker": "VioaraClasica.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\VioaraClasica.cs",
+              "RelativeToolTip": "VioaraClasica.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T17:16:15.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VioaraElectrica.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\VioaraElectrica.cs",
+              "RelativeDocumentMoniker": "VioaraElectrica.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\VioaraElectrica.cs",
+              "RelativeToolTip": "VioaraElectrica.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T17:16:04.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Pian.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Pian.cs",
               "RelativeDocumentMoniker": "Pian.cs",
-              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Pian.cs*",
-              "RelativeToolTip": "Pian.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Pian.cs",
+              "RelativeToolTip": "Pian.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T16:54:49.724Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Flaut.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Flaut.cs",
               "RelativeDocumentMoniker": "Flaut.cs",
-              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Flaut.cs*",
-              "RelativeToolTip": "Flaut.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Flaut.cs",
+              "RelativeToolTip": "Flaut.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T16:54:05.073Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Vioara.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Vioara.cs",
               "RelativeDocumentMoniker": "Vioara.cs",
-              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Vioara.cs*",
-              "RelativeToolTip": "Vioara.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Vioara.cs",
+              "RelativeToolTip": "Vioara.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T16:53:52.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Instrument.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Instrument.cs",
               "RelativeDocumentMoniker": "Instrument.cs",
@@ -86,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\Polimorfism\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T15:38:41.68Z",
               "EditorCaption": ""

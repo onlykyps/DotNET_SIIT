@@ -18,6 +18,11 @@ namespace Polimorfism
          pian.RedaNota();
          flaut.RedaNota();
 
+         Vioara vioaraClasica = new VioaraClasica();
+         Vioara vioaraElectrica = new VioaraElectrica(); 
+
+         vioaraClasica.RedaNota();
+         vioaraElectrica.RedaNota();
 
       }
    }
