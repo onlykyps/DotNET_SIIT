@@ -8,7 +8,7 @@ namespace Polimorfism
 {
    public class Vioara: Instrument
    {
-      public void RedaNota()
+      public override void RedaNota()
       {
          Console.WriteLine("Vioara");
       }

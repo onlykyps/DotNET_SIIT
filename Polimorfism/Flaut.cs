@@ -8,7 +8,7 @@ namespace Polimorfism
 {
    public class Flaut: Instrument
    {
-      public void RedaNota()
+      public override void RedaNota()
       {
          Console.WriteLine("Flaut");
       }
