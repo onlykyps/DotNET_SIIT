@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Polimorfism
 {
-   public class Vioara
+   public class Vioara: Instrument
    {
-
+      public void RedaNota()
+      {
+         Console.WriteLine("Vioara");
+      }
    }
 }

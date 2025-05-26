@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Polimorfism
 {
-   public class Flaut
+   public class Flaut: Instrument
    {
-
+      public void RedaNota()
+      {
+         Console.WriteLine("Flaut");
+      }
    }
 }

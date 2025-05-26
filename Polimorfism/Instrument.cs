@@ -8,6 +8,9 @@ namespace Polimorfism
 {
    public class Instrument
    {
-
+      public void RedaNota()
+      {
+         Console.WriteLine("instrument");
+      }
    }
 }

@@ -10,8 +10,13 @@ namespace Polimorfism
    {
       static void Main(string[] args)
       {
+         Instrument vioara = new Vioara();
+         Instrument pian = new Pian();
+         Instrument flaut = new Flaut();
 
-
+         vioara.RedaNota();
+         pian.RedaNota();
+         flaut.RedaNota();
 
 
       }
