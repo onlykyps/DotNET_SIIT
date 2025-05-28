@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Flaut.cs" />
-    <Compile Include="Instrument.cs" />
+    <Compile Include="IInstrument.cs" />
     <Compile Include="Pian.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

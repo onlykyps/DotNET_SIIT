@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Polimorfism
 {
-   public class Pian: Instrument
+   public class Pian: IInstrument
    {
-      public override void RedaNota()
+      public void RedaNota()
       {
          Console.WriteLine("Pian");
       }
+
    }
 }

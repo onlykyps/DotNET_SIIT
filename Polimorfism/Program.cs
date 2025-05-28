@@ -10,24 +10,24 @@ namespace Polimorfism
    {
       static void Main(string[] args)
       {
-         Instrument vioara = new Vioara();
-         Instrument pian = new Pian();
-         Instrument flaut = new Flaut();
+         IInstrument vioara = new Vioara();
+         IInstrument pian = new Pian();
+         IInstrument flaut = new Flaut();
 
          //vioara.RedaNota();
          //pian.RedaNota();
          //flaut.RedaNota();
 
          Vioara vioaraClasica = new VioaraClasica();
-         Vioara vioaraElectrica = new VioaraElectrica(); 
+         Vioara vioaraElectrica = new VioaraElectrica();
 
          //vioaraClasica.RedaNota();
          //vioaraElectrica.RedaNota();
 
-         Instrument[] instruments = new Instrument[]
+         IInstrument[] instruments = new IInstrument[]
          { vioara, pian, flaut, vioaraClasica, vioaraElectrica };
 
-         foreach (Instrument instr in instruments) 
+         foreach (IInstrument instr in instruments) 
          { 
             instr.RedaNota();
          }
