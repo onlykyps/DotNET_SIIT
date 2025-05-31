@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
@@ -14,7 +15,7 @@ namespace TemeSIIT
          char[] nonAlphaNum = ",.'-!?:;".ToCharArray();
          
 
-         string[] palindromListPrcesare = new string[palindromInputDeCuratat.Length];
+         string[] palindromListProcesare = new string[palindromInputDeCuratat.Length];
          for (int i = 0; i < palindromInputDeCuratat.Length; i++)
          {
             char[] temp = palindromInputDeCuratat[i].ToCharArray();
@@ -29,19 +30,41 @@ namespace TemeSIIT
             }
 
 
-            palindromListPrcesare[i] = tempFinal.ToString();
+            palindromListProcesare[i] = tempFinal.ToString();
          }
 
-         return palindromListPrcesare;
+         return palindromListProcesare;
 
       }
 
-      public void VerificarePalindrom(string[] palindromList, string palindromInput, int indexLaPalindromOriginal)
+
+      public string CuratarePalindromIndividual(string palindromInputDeCuratat)
+      {
+         char[] nonAlphaNum = ",.'-!?:;".ToCharArray();
+
+
+         char[] palindromListProcesare = palindromInputDeCuratat.ToCharArray();
+
+        
+         StringBuilder palindromListPredare = new StringBuilder();
+
+         foreach (char c in palindromListProcesare)
+         {
+            if (c != ' ' && !nonAlphaNum.Contains(c))
+            {
+               palindromListPredare.Append(c);
+            }
+         }
+
+         return palindromListPredare.ToString();
+
+      }
+
+      public bool VerificarePalindromIndividual(string palindromInput)
       {
          char[] palindromInputChars = palindromInput.ToCharArray();
          bool isPalindrom = false;
          int index = 0;
-
 
          if (palindromInputChars.Length % 2 == 0)
          {
@@ -96,7 +119,71 @@ namespace TemeSIIT
          }
 
 
-         string raspunsFinal = isPalindrom == true ? "este palindrom" : "nu este palindrom";
+         return isPalindrom;
+      }
+
+      public void VerificarePalindromLista(string[] palindromList, string palindromInput, int indexLaPalindromOriginal)
+      {
+         //char[] palindromInputChars = palindromInput.ToCharArray();
+         //bool isPalindrom = false;
+         //int index = 0;
+
+
+         //if (palindromInputChars.Length % 2 == 0)
+         //{
+         //   for (int i = 0; i < palindromInputChars.Length; i++)
+         //   {
+         //      if (Char.ToLower(palindromInputChars[i]) == Char.ToLower(palindromInputChars[palindromInputChars.Length - i - 1])
+         //         &&
+         //         palindromInputChars[i] != ',')
+         //      {
+         //         isPalindrom = true;
+         //      }
+         //      else if (Char.ToLower(palindromInputChars[i]) == Char.ToLower(palindromInputChars[palindromInputChars.Length - i - 2])
+         //         &&
+         //         palindromInputChars[i] != ',')
+         //      {
+         //         isPalindrom = true;
+         //      }
+         //      else
+         //      {
+         //         isPalindrom = false;
+         //         break;
+         //      }
+         //   }
+         //}
+         //else
+         //{
+         //   while (index != palindromInputChars.Length / 2 + 1)
+         //   {
+         //      if (Char.ToLower(palindromInputChars[index]) == Char.ToLower(palindromInputChars[palindromInputChars.Length - index - 1])
+         //         &&
+         //         palindromInputChars[index] != ',')
+         //      {
+         //         isPalindrom = true;
+
+         //      }
+         //      else if (Char.ToLower(palindromInputChars[index]) == Char.ToLower(palindromInputChars[palindromInputChars.Length - index - 2])
+         //         &&
+         //         palindromInputChars[index] != ',')
+         //      {
+         //         isPalindrom = true;
+
+         //      }
+         //      else
+         //      {
+         //         isPalindrom = false;
+
+         //         break;
+         //      }
+         //      index++;
+         //   }
+
+         //}
+
+         //VerificarePalindromIndividual(palindromInput);
+
+         string raspunsFinal = VerificarePalindromIndividual(palindromInput) == true ? "este palindrom" : "nu este palindrom";
 
 
          Console.WriteLine(@"{0} {1}", palindromList[indexLaPalindromOriginal], raspunsFinal);
@@ -107,9 +194,15 @@ namespace TemeSIIT
       {
          //Palindrom Assignment
 
+         //solutie pentru Compiler Error CS0120
+         Program program = new Program();
+
          //Cu input de la operator
          //Console.WriteLine("Introduceti polindromul: ");
          //string palindromInput = Console.ReadLine();
+         //string palindromInputDeCuratat = program.CuratarePalindromIndividual(palindromInput);
+         //string raspunsFinal = program.VerificarePalindromIndividual(palindromInputDeCuratat) == true ? "este palindrom" : "nu este palindrom";
+         //Console.WriteLine(@"{0} {1}", palindromInput, raspunsFinal);
 
 
          //Cu input prestabilit
@@ -127,15 +220,14 @@ namespace TemeSIIT
          //stergem spatiile goale
          string[] palindromCuratat = new string[palindromList.Length];
 
-         //solutie pentru Compiler Error CS0120
-         Program program = new Program(); 
+         
          palindromCuratat = program.CuratarePalindrom(palindromList);
 
          int indexLaPalindromOriginal = 0;
 
-         foreach (string palindromInput in palindromCuratat)
+         foreach (string pal in palindromCuratat)
          {
-            program.VerificarePalindrom(palindromList, palindromInput, indexLaPalindromOriginal);
+            program.VerificarePalindromLista(palindromList, pal, indexLaPalindromOriginal);
             indexLaPalindromOriginal++;
          }
       }
