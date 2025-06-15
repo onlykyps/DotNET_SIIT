@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ClaseMosteniriInterfete
@@ -10,10 +11,23 @@ namespace ClaseMosteniriInterfete
    {
       protected Punct[] _puncte;
 
+      public Punct[] Puncte
+      {
+         get { return _puncte; }
+         set { _puncte = value; }
+      }
+
+      public Polygon(params Punct[] punte)
+      {
+         Console.WriteLine("in ctor cu puncte polygon");
+         _puncte = punte;
+      }
+
       public Polygon(Culoare cul, byte nrPct, params( double, double )[] coords)
       {
          Console.WriteLine("In CTOR Poligon");
          _puncte = new Punct[nrPct];
+      
 
          for (byte i = 0; i< nrPct; i++)
          {

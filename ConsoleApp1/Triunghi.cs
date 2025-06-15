@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ClaseMosteniriInterfete
@@ -11,6 +12,13 @@ namespace ClaseMosteniriInterfete
    {
       //private Punct[] _puncte; //devine mostenit
       private static byte _nrPuncte = 3;
+
+      [JsonConstructor]
+      public Triunghi(Punct[] puncte)
+         : base(puncte)
+      {
+         Console.WriteLine("in ctor cu puncte Triunghi");
+      }
 
       public Triunghi
          (

@@ -1,0 +1,7 @@
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\bin\Debug\Colectii.exe.config
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\bin\Debug\Colectii.exe
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\bin\Debug\Colectii.pdb
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\obj\Debug\Colectii.csproj.AssemblyReference.cache
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\obj\Debug\Colectii.csproj.CoreCompileInputs.cache
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\obj\Debug\Colectii.exe
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Colectii\obj\Debug\Colectii.pdb

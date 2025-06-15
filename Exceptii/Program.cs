@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -11,46 +12,49 @@ namespace Exceptii
    {
       static void Main(string[] args)
       {
-         bool firstNumberRead = false;
+
+        
+
+         //bool firstNumberRead = false;
 
 
-         Console.WriteLine("Introduceti doua numere de la tastatura");
-         int num1 = 0;
-         int num2 = 0;
+         //Console.WriteLine("Introduceti doua numere de la tastatura");
+         //int num1 = 0;
+         //int num2 = 0;
 
-         while (true) 
-         {
-            try
-            {
-               if (!firstNumberRead)
-               {
-                  Console.WriteLine("Primul numar");
-                  num1 = Convert.ToInt32(Console.ReadLine());
-                  firstNumberRead = true;
-               }
-               Console.WriteLine("Al doilea numar");
-               num2 = Convert.ToInt32(Console.ReadLine());
-               int result = num1 / num2;
-               Console.WriteLine($"resultatul este ", result);
-               break;
-            }
-            catch (DivideByZeroException divZeroEx)
-            {
-               Console.WriteLine("Nu putem diviza cu 0");
-            }
-            catch (FormatException ex) 
-            { 
-               Console.WriteLine("input invalid. introduceti un integer");
-            }
-         }
-         
+         //while (true) 
+         //{
+         //   try
+         //   {
+         //      if (!firstNumberRead)
+         //      {
+         //         Console.WriteLine("Primul numar");
+         //         num1 = Convert.ToInt32(Console.ReadLine());
+         //         firstNumberRead = true;
+         //      }
+         //      Console.WriteLine("Al doilea numar");
+         //      num2 = Convert.ToInt32(Console.ReadLine());
+         //      int result = num1 / num2;
+         //      Console.WriteLine($"resultatul este ", result);
+         //      break;
+         //   }
+         //   catch (DivideByZeroException divZeroEx)
+         //   {
+         //      Console.WriteLine("Nu putem diviza cu 0");
+         //   }
+         //   catch (FormatException ex) 
+         //   { 
+         //      Console.WriteLine("input invalid. introduceti un integer");
+         //   }
+         //}
+
 
          //idee gresita
          //try
          //{
-            
 
-            
+
+
          //}
          //catch (FormatException fEx)
          //{
@@ -58,8 +62,8 @@ namespace Exceptii
 
          //   throw new ArgumentException("integer invalid", fEx);
          //}
-        
-        
+
+
 
          //try
          //{
@@ -71,7 +75,7 @@ namespace Exceptii
          //   throw;
          //}
 
-        
+
       }
 
 

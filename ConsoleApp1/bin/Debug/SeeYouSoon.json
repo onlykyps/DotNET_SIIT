@@ -1,0 +1,70 @@
+[
+  {
+    "Puncte": [
+      {
+        "CoordX": 0,
+        "CoordY": 0,
+        "Culoare": {
+          "Alpha": 255,
+          "Red": 0,
+          "Green": 0,
+          "Blue": 255
+        }
+      },
+      {
+        "CoordX": 0,
+        "CoordY": 2,
+        "Culoare": {
+          "Alpha": 255,
+          "Red": 0,
+          "Green": 0,
+          "Blue": 255
+        }
+      },
+      {
+        "CoordX": 4,
+        "CoordY": 0,
+        "Culoare": {
+          "Alpha": 255,
+          "Red": 0,
+          "Green": 0,
+          "Blue": 255
+        }
+      }
+    ]
+  },
+  {
+    "Puncte": [
+      {
+        "CoordX": 5,
+        "CoordY": 6,
+        "Culoare": {
+          "Alpha": 255,
+          "Red": 255,
+          "Green": 0,
+          "Blue": 0
+        }
+      },
+      {
+        "CoordX": 7,
+        "CoordY": 8,
+        "Culoare": {
+          "Alpha": 255,
+          "Red": 255,
+          "Green": 0,
+          "Blue": 0
+        }
+      },
+      {
+        "CoordX": 8,
+        "CoordY": 9,
+        "Culoare": {
+          "Alpha": 255,
+          "Red": 255,
+          "Green": 0,
+          "Blue": 0
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,7 @@
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\bin\Debug\Exceptii.exe.config
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\bin\Debug\Exceptii.exe
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\bin\Debug\Exceptii.pdb
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\obj\Debug\Exceptii.csproj.AssemblyReference.cache
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\obj\Debug\Exceptii.csproj.CoreCompileInputs.cache
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\obj\Debug\Exceptii.exe
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\Exceptii\obj\Debug\Exceptii.pdb
