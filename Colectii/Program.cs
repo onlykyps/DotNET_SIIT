@@ -116,6 +116,92 @@ namespace Colectii
          {
             Console.WriteLine($"Word {pair.Key} appears {pair.Value} times");
          }
+
+         Console.WriteLine("********Dictionary<TKey,TValue >********");
+
+         IDictionary<string, string> dict = new Dictionary<string, string>();
+
+         dict.Add("CJ", "Cluj");
+         dict.Add("TM", "Timis");
+         dict.Add("BH", "Bihor");
+
+         dict["AR"] = "Arad";
+
+         //bool succes = dict.TryAdd("TL", "Timis");
+
+         foreach (var item in dict)
+         {
+            Console.WriteLine(item.Value.ToString());
+         }
+
+         Console.WriteLine("********SortedDictionary<TKey,TValue >********");
+
+         IDictionary<string, string> dictSorted = new SortedDictionary<string, string>();
+
+         dictSorted.Add("CJ", "Cluj");
+         dictSorted.Add("TM", "Timis");
+         dictSorted.Add("BH", "Bihor");
+         dictSorted.Add("AR", "Arad");
+         dictSorted.Add("AB", "Alba");
+
+         foreach (var item in dictSorted)
+         {
+            Console.WriteLine(item.Value.ToString());
+         }
+
+         Console.WriteLine("********HashSet<T>********");
+
+         HashSet<int> listaUnu = new HashSet<int>();
+         HashSet<int> listaDoi = new HashSet<int>();
+
+         var rand = new Random();
+
+         for (int i = 0; i < 9; i++) 
+         {
+            listaUnu.Add(rand.Next(10));
+            listaDoi.Add(rand.Next(10));
+         }
+
+         ISet<int> set = new HashSet<int>();
+
+         PrintSet(listaUnu);
+         PrintSet(listaDoi);
+         
+         listaUnu.UnionWith(listaDoi);
+
+         PrintSet(listaUnu);
+
+         void PrintSet<T>(ISet<T> setMetoda)
+         {
+            string raspuns = "{ ";
+            foreach (T item in setMetoda)
+            {
+               raspuns += item.ToString() + ", ";
+            }
+
+            Console.WriteLine(raspuns + "}");
+         }
+
+         Console.WriteLine("********SortedSet<T>********");
+
+         SortedSet<int> listaUnuSorted = new SortedSet<int>();
+         SortedSet<int> listaDoiSorted = new SortedSet<int>();
+
+         var randuri = new Random();
+
+         for (int i = 0; i < 9; i++)
+         {
+            listaUnuSorted.Add(randuri.Next(10));
+            listaDoiSorted.Add(randuri.Next(10));
+         }
+
+         PrintSet(listaUnuSorted);
+         PrintSet(listaDoiSorted);
+
+         listaUnuSorted.UnionWith(listaDoiSorted);
+
+         PrintSet(listaUnuSorted);
+
       }
    }
 }
