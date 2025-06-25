@@ -8,6 +8,8 @@ namespace DelegatesAnon
 {
    public delegate void GreetDelegate(string name);
 
+   delegate int MathOp(int x, int y);
+
    public class Program
    {
       static void SayHello(string n)
@@ -33,6 +35,13 @@ namespace DelegatesAnon
          greetDelegate += SayHello;
 
          greetDelegate("Ovidiu");
+
+         //MathOp add = (a, b) => { return a + b; }; // corect si asa
+         MathOp add = (a, b) => a + b;
+
+         int result = add(28, 30);
+
+         Console.WriteLine($"Result is {result}");
 
       }
    }
