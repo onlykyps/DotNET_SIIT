@@ -43,6 +43,24 @@ namespace DelegatesAnon
 
          Console.WriteLine($"Result is {result}");
 
+         Action<int> printSqr = (x) =>
+         {
+            int rezultat = x * x;
+            Console.WriteLine($"Square of {x} is {rezultat}"); 
+         };
+
+         printSqr(2);
+
+         Func<int, int> funcSqr = (x) =>
+         {
+           return x * x;
+         };
+
+         int y = 3;
+
+         Console.WriteLine($"Square of {y} is {funcSqr(y)}");
+
+         
       }
    }
 }
