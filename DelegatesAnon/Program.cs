@@ -40,7 +40,7 @@ namespace DelegatesAnon
       }
    }
 
-   public class Program
+   public static class Program
    {
       static void SayHello(string n)
       {
