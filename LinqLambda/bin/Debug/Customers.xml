@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Customer location="cloud" importance="low">
+    <CustomerName>Georgia</CustomerName>
+    <Project size="big" numsize="37">
+      <ProjectName>Project Under Cover</ProjectName>
+      <TimeRecord>
+        <Date>2017-04-03T00:00:00</Date>
+        <Duration>4</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-08-03T00:00:00</Date>
+        <Duration>10</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-09-04T00:00:00</Date>
+        <Duration>2</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-10-05T00:00:00</Date>
+        <Duration>4</Duration>
+      </TimeRecord>
+      <HourlyFee>15</HourlyFee>
+    </Project>
+    <Project size="medium" numsize="25">
+      <ProjectName>Project Open Source</ProjectName>
+      <HourlyFee>5</HourlyFee>
+    </Project>
+  </Customer>
+  <Customer location="onpremise" importance="high">
+    <CustomerName>Arizona</CustomerName>
+    <Project size="very big" numsize="49">
+      <ProjectName>Project Base</ProjectName>
+      <TimeRecord>
+        <Date>2017-06-15T10:00:00</Date>
+        <Duration>7</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-07-05T01:00:00</Date>
+        <Duration>4</Duration>
+      </TimeRecord>
+      <HourlyFee>5</HourlyFee>
+    </Project>
+    <Project size="small" numsize="13">
+      <ProjectName>Project Main</ProjectName>
+      <HourlyFee>8</HourlyFee>
+    </Project>
+    <Project size="medium" numsize="21">
+      <ProjectName>Follow Up</ProjectName>
+      <HourlyFee>4</HourlyFee>
+    </Project>
+  </Customer>
+  <Customer location="cloud" importance="high">
+    <CustomerName>Softie Inc</CustomerName>
+    <Project size="big" numsize="39">
+      <ProjectName>Phase 1</ProjectName>
+      <TimeRecord>
+        <Date>2017-05-06T00:00:00</Date>
+        <Duration>6</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-07-06T00:00:00</Date>
+        <Duration>5</Duration>
+      </TimeRecord>
+      <HourlyFee>5</HourlyFee>
+    </Project>
+    <Project size="small" numsize="15">
+      <ProjectName>Phase 2</ProjectName>
+      <TimeRecord>
+        <Date>2016-11-11T00:00:00</Date>
+        <Duration>7</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-01-05T00:00:00</Date>
+        <Duration>8</Duration>
+      </TimeRecord>
+      <HourlyFee>10</HourlyFee>
+    </Project>
+    <Project size="very small"  numsize="7">
+      <ProjectName>Phase 3</ProjectName>
+      <HourlyFee>10</HourlyFee>
+    </Project>
+    <Project size="big" numsize="33">
+      <ProjectName>Phase 4 </ProjectName>
+      <HourlyFee>15</HourlyFee>
+    </Project>
+  </Customer>
+  <Customer location="cloud" importance="critical">
+    <CustomerName>Hardie Inc</CustomerName>
+    <Project size="small" numsize="17">
+      <ProjectName>Phase 1</ProjectName>
+      <TimeRecord>
+        <Date>2021-05-06T00:00:00</Date>
+        <Duration>1</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2021-07-06T00:00:00</Date>
+        <Duration>9</Duration>
+      </TimeRecord>
+      <HourlyFee>5</HourlyFee>
+    </Project>
+    <Project size="big" numsize="31">
+      <ProjectName>Phase 2</ProjectName>
+      <TimeRecord>
+        <Date>2021-11-11T00:00:00</Date>
+        <Duration>8</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2022-01-05T00:00:00</Date>
+        <Duration>5</Duration>
+      </TimeRecord>
+      <HourlyFee>10</HourlyFee>
+    </Project>
+    <Project size="medium" numsize="29">
+      <ProjectName>Phase 3</ProjectName>
+      <HourlyFee>10</HourlyFee>
+    </Project>
+    <Project size="big" numsize="35">
+      <ProjectName>Phase 4 </ProjectName>
+      <HourlyFee>15</HourlyFee>
+    </Project>
+  </Customer>
+  <Customer location="onpremise" importance="low">
+    <CustomerName>Sunshine</CustomerName>
+    <Project size="small" numsize="11">
+      <ProjectName>Project Under Cover</ProjectName>
+      <TimeRecord>
+        <Date>2017-04-03T00:00:00</Date>
+        <Duration>4</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-08-03T00:00:00</Date>
+        <Duration>10</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-09-04T00:00:00</Date>
+        <Duration>2</Duration>
+      </TimeRecord>
+      <TimeRecord>
+        <Date>2017-10-05T00:00:00</Date>
+        <Duration>4</Duration>
+      </TimeRecord>
+      <HourlyFee>15</HourlyFee>
+    </Project>
+    <Project size="big" numsize="36">
+      <ProjectName>Project Open Source</ProjectName>
+      <HourlyFee>5</HourlyFee>
+    </Project>
+  </Customer>
+</Root>
