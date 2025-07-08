@@ -5,3 +5,4 @@ D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LinqLambda\obj\Debug\LinqLa
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LinqLambda\obj\Debug\LinqLambda.csproj.CoreCompileInputs.cache
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LinqLambda\obj\Debug\LinqLambda.exe
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LinqLambda\obj\Debug\LinqLambda.pdb
+D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LinqLambda\obj\Debug\LinqLambda.exe.config
