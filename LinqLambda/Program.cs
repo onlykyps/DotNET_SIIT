@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -51,7 +52,7 @@ namespace LinqLambda
 
          foreach (XName name in johnSql)
          {
-            Console.WriteLine(name);
+            //Console.WriteLine(name);
          }
 
          Console.WriteLine("--------------- Lista noduri customer -----------------");
@@ -61,7 +62,7 @@ namespace LinqLambda
 
          foreach (XElement item in stapaniiNostri)
          {
-               Console.WriteLine(item);
+               //Console.WriteLine(item);
          }
 
 
@@ -80,13 +81,44 @@ namespace LinqLambda
 
          IEnumerable<XElement> listaProiecte = descendants.Select(x => x)
                                                          .Where(y => y.Name == "Project")
-                                                         .OrderByDescending(z => z.Attribute("numsize").Value);
+                                                         .OrderByDescending(nod => int.Parse(nod.Element("HourlyFee").Value))
+                                                         .ThenByDescending(z => z.Attribute("numsize").Value);
 
          foreach (XElement item in listaProiecte)
          {
-            Console.WriteLine(item);
+            //Console.WriteLine(item);
          }
 
+         var xElements = descendants.Select(x => x)
+                                    .Where(y=>y.Name == "Project")
+                                    .GroupBy(nod => nod.Attribute("size").Value);
+
+
+         foreach (var items in xElements)
+         {
+            //foreach (var i in items)
+               //Console.WriteLine(i.Attribute("numsize").Value);
+         }
+
+        var listaCustomersLoc = descendants.Select(x => x)
+                                          .Where(y => y.Name == "Customer")
+                                          .GroupBy(nod => nod.Attribute("location").Value).Distinct();
+
+         foreach (var loc in listaCustomersLoc)
+         {
+            Console.WriteLine(loc.Key);
+         }
+
+
+
+         var listaCust = descendants.Select(x => x)
+                                          .Where(y => y.Name == "Customer")
+                                          .Select(cust => cust)
+                                          .Where(custNode => custNode.Elements().Any(
+                                                            proj => proj.Name == "Project" && 
+                                                            proj.Attribute("numsize").Value == "35")).FirstOrDefault();
+
+         Console.WriteLine(listaCust);
       }
    }
 }
