@@ -8,9 +8,12 @@ namespace LightAssignment
 {
    public class BecReglabil
    {
+      #region props full
       private int m_PutereMaxima;
       private int m_PutereCurenta;
-      
+      private bool m_Aprins;
+
+
       public int PutereMaxima
       {
          get { return m_PutereMaxima; }
@@ -23,45 +26,64 @@ namespace LightAssignment
          set { m_PutereCurenta = value; }
       }
 
-      private bool m_Aprins;
-
       public bool Aprins
       {
-         get { return m_Aprins; }
-         set { m_Aprins = value; }
+         get { return PutereCurenta > 0; }
+         //set { m_Aprins = value; }
       }
+      #endregion
 
-
-
-      public BecReglabil(int PutereMaxima, int PutereCurenta) 
+      #region ctors
+      public BecReglabil(int PutereMaxima, int PutereCurenta)
       {
          this.PutereCurenta = PutereCurenta;
          this.PutereMaxima = PutereMaxima;
-         
+
       }
 
       public BecReglabil()
       {
-            
+
       }
 
+      public BecReglabil(int putereMaxima)
+      {
+         this.PutereMaxima = putereMaxima;
+         this.PutereCurenta = 0;
+      }
+      #endregion
+
+      #region methods
       public void Aprinde()
       {
-
+         PutereCurenta = PutereMaxima;
       }
+
       public void Stinge()
       {
-
+         PutereCurenta = 0;
       }
-      public void MaresteLumina()
+
+      public void MaresteLumina(int lumen)
       {
+         PutereCurenta += lumen;
 
+         if (PutereCurenta > PutereMaxima)
+         {
+            PutereCurenta = PutereMaxima;
+         }
 
       }
-      public void ReduceLumina()
+      public void ReduceLumina(int lumen)
       {
+         PutereCurenta -= lumen;
 
+         if (PutereCurenta < 0)
+         {
+            PutereCurenta = 0;
+         }
       }
+      #endregion
 
    }
 }

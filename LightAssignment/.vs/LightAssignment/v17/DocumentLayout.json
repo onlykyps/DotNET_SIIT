@@ -7,7 +7,11 @@
       "RelativeMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|solutionrelative:becreglabil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\lightassignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\lightassignment\\candelabru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|solutionrelative:candelabru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Candelabru.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Candelabru.cs",
+              "RelativeDocumentMoniker": "Candelabru.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Candelabru.cs",
+              "RelativeToolTip": "Candelabru.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T10:01:35.869Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,20 +45,20 @@
               "RelativeDocumentMoniker": "BecReglabil.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\BecReglabil.cs",
               "RelativeToolTip": "BecReglabil.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAYwC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-15T16:09:59.431Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-15T15:55:38.939Z",
               "EditorCaption": ""
