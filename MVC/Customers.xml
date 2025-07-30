@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Customer>
+    <CustomerName>Georgia</CustomerName>
+    <Location>Cloud</Location>
+    <Project>Under Cover</Project>
+  </Customer>
+  <Customer>
+    <CustomerName>Arizona</CustomerName>
+    <Location>OnPremise</Location>
+    <Project>Project Base</Project>
+  </Customer>
+  <Customer>
+    <CustomerName>Softie Inc</CustomerName>
+    <Location>Cloud</Location>
+    <Project>Phase 1</Project>
+  </Customer>
+  <Customer>
+    <CustomerName>Hardie Inc</CustomerName>
+    <Location>Cloud</Location>
+    <Project>Phase 1</Project>
+  </Customer>
+  <Customer>
+    <CustomerName>Sunshine</CustomerName>
+    <Location>OnPremise</Location>
+    <Project>Project Under Cover</Project>
+  </Customer>
+  <Customer>
+    <CustomerName>Pop</CustomerName>
+    <Location>Home</Location>
+    <Project>Rest</Project>
+  </Customer>
+  <Customer>
+    <CustomerName>Dee</CustomerName>
+    <Location>Home</Location>
+    <Project>Sweety Pie</Project>
+  </Customer>
+</Root>

@@ -1,0 +1,29 @@
+﻿@model CustomerViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+<h1>Customers List</h1>
+
+@foreach (var item in Model.CustomerList) {
+        <tr>
+            <td>
+               @item
+            </td>
+        </tr>
+}
+
+@Html.ActionLink("Create customer", "AddCustomer", "Customer")
+    </tbody>
+</table>

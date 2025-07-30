@@ -6,4 +6,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\appsettings.Development.json" />
+    <Content Include="bin\Debug\net8.0\appsettings.json" />
+    <Content Include="bin\Debug\net8.0\MVC.deps.json" />
+    <Content Include="bin\Debug\net8.0\MVC.runtimeconfig.json" />
+    <Content Include="bin\Debug\net8.0\MVC.staticwebassets.endpoints.json" />
+    <Content Include="bin\Debug\net8.0\MVC.staticwebassets.runtime.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\MVC.dll" />
+    <None Include="bin\Debug\net8.0\MVC.exe" />
+    <None Include="bin\Debug\net8.0\MVC.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
 </Project>

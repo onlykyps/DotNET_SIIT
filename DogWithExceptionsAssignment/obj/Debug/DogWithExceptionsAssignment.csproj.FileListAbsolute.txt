@@ -1,0 +1,7 @@
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\obj\Debug\DogWithExceptionsAssignment.csproj.AssemblyReference.cache
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\obj\Debug\DogWithExceptionsAssignment.csproj.CoreCompileInputs.cache
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\bin\Debug\DogWithExceptionsAssignment.exe.config
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\bin\Debug\DogWithExceptionsAssignment.exe
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\bin\Debug\DogWithExceptionsAssignment.pdb
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\obj\Debug\DogWithExceptionsAssignment.exe
+C:\Users\adria\source\repos\DotNET_SIIT\DogWithExceptionsAssignment\obj\Debug\DogWithExceptionsAssignment.pdb

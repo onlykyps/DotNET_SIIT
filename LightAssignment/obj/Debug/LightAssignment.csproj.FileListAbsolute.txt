@@ -6,3 +6,11 @@ D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LightAssignment\obj\Debug\L
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.exe
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.pdb
 D:\Dropbox\Scoala Informala de IT\DotNET\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.exe.config
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.csproj.AssemblyReference.cache
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.exe.config
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.csproj.CoreCompileInputs.cache
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.exe
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\obj\Debug\LightAssignment.pdb
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\bin\Debug\LightAssignment.exe.config
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\bin\Debug\LightAssignment.exe
+C:\Users\adria\source\repos\DotNET_SIIT\LightAssignment\bin\Debug\LightAssignment.pdb
