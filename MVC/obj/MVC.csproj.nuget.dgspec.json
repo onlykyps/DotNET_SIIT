@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\MVC\\MVC.csproj": {}
+    "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\MVC\\MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\MVC\\MVC.csproj": {
+    "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\MVC\\MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\MVC\\MVC.csproj",
+        "projectUniqueName": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\MVC\\MVC.csproj",
         "projectName": "MVC",
-        "projectPath": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\MVC\\MVC.csproj",
-        "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\MVC\\obj\\",
+        "projectPath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\MVC\\MVC.csproj",
+        "packagesPath": "C:\\Users\\claud\\.nuget\\packages\\",
+        "outputPath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\claud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

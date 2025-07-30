@@ -35,4 +35,9 @@
     <Location>Home</Location>
     <Project>Sweety Pie</Project>
   </Customer>
+  <Customer>
+    <CustomerName>Clau</CustomerName>
+    <Location>Iasi</Location>
+    <Project>SIIT</Project>
+  </Customer>
 </Root>

@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\",
+  "WorkspaceRootPath": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\lightassignment\\candelabru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\lightassignment\\candelabru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|solutionrelative:candelabru.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\becreglabil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\becreglabil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|solutionrelative:becreglabil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1F4BDFA2-4D93-499C-A097-024B2BBC63B9}|LightAssignment.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Candelabru.cs",
-              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\Candelabru.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Candelabru.cs",
               "RelativeDocumentMoniker": "Candelabru.cs",
-              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\Candelabru.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Candelabru.cs",
               "RelativeToolTip": "Candelabru.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-19T10:01:35.869Z",
               "EditorCaption": ""
@@ -41,27 +41,25 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "BecReglabil.cs",
-              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\BecReglabil.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\BecReglabil.cs",
               "RelativeDocumentMoniker": "BecReglabil.cs",
-              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\BecReglabil.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\BecReglabil.cs",
               "RelativeToolTip": "BecReglabil.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T16:09:59.431Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T16:09:59.431Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\Program.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\LightAssignment\\Program.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\LightAssignment\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAQAAAAAzczMzMwMwBcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T15:55:38.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T15:55:38.939Z"
             }
           ]
         }
