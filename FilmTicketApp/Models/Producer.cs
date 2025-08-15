@@ -10,5 +10,7 @@ namespace FilmTicketApp.Models
       public string FullName { get; set; }
       public string Biography { get; set; }
 
+      public List<Film> Films { get; set; }  
+
    }
 }
