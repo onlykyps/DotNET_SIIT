@@ -1,4 +1,4 @@
-﻿namespace FilmTicketApp.Data
+﻿namespace FilmTicketApp.Data.Enums
 {
    public enum FilmGenre
    {

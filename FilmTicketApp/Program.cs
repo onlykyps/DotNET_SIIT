@@ -1,3 +1,5 @@
+using FilmTicketApp.Data;
+
 namespace FilmTicketApp
 {
     public class Program
@@ -8,8 +10,8 @@ namespace FilmTicketApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
-            var app = builder.Build();
+            builder.Services.AddDbContext<AppDBContext>();
+         var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -19,7 +21,8 @@ namespace FilmTicketApp
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+
+         app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
