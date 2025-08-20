@@ -18,6 +18,18 @@ namespace FilmTicketApp.Data
             atf.ActorID
          });
 
+         modelBuilder.Entity<Actor>().HasKey(c => c.Id);
+         modelBuilder.Entity<Actor>().Property(c => c.Id).ValueGeneratedOnAdd();
+
+         modelBuilder.Entity<Film>().HasKey(c => c.Id);
+         modelBuilder.Entity<Film>().Property(c => c.Id).ValueGeneratedOnAdd();
+
+         modelBuilder.Entity<Producer>().HasKey(c => c.Id);
+         modelBuilder.Entity<Producer>().Property(c => c.Id).ValueGeneratedOnAdd();
+
+         modelBuilder.Entity<Cinema>().HasKey(c => c.Id);
+         modelBuilder.Entity<Cinema>().Property(c => c.Id).ValueGeneratedOnAdd();
+
          modelBuilder.Entity<ActorToFilm>().HasOne( f => f.Film)
                                              .WithMany(f => f.FilmActors)
                                              .HasForeignKey(f => f.FilmID);

@@ -75,8 +75,7 @@
               "RelativeToolTip": "EFCore\\Entities\\Item.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T03:39:33.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:39:33.931Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "Models\\AddItemViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T03:38:07.151Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:38:07.151Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "Controllers\\CustomerController.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAkwB8AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T03:29:47.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:29:47.044Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "Views\\Customer\\Index.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-07T03:21:12.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:21:12.236Z"
             }
           ]
         },
@@ -146,8 +142,7 @@
               "RelativeToolTip": "EFCore\\MyCustomerContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T03:28:49.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:28:49.814Z"
             },
             {
               "$type": "Document",
@@ -159,8 +154,7 @@
               "RelativeToolTip": "EFCore\\Entities\\Customer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T16:24:47.836Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T16:24:47.836Z"
             },
             {
               "$type": "Document",
@@ -172,8 +166,7 @@
               "RelativeToolTip": "Models\\AddCustomerViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T03:25:36.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:25:36.318Z"
             },
             {
               "$type": "Document",
@@ -185,8 +178,7 @@
               "RelativeToolTip": "Views\\Customer\\AddCustomer.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-07T03:26:16.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T03:26:16.514Z"
             }
           ]
         }

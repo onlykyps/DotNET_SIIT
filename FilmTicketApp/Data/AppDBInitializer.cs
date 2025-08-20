@@ -179,18 +179,18 @@ namespace FilmTicketApp.Data
                   },
                   new ActorToFilm()
                   {
-                     ActorID = 5,
-                     FilmID = 5
+                     ActorID = 3,
+                     FilmID = 3
                   },
                   new ActorToFilm()
                   {
                      ActorID = 3,
-                     FilmID = 6
+                     FilmID = 2
                   },
                   new ActorToFilm()
                   {
-                    ActorID = 5,
-                    FilmID = 6
+                    ActorID = 2,
+                    FilmID = 2
                   },
                });
                context.SaveChanges();

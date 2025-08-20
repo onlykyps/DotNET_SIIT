@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\filmticketapp\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\filmticketapp\\models\\film.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:models\\film.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDBContext.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBContext.cs",
+              "RelativeToolTip": "Data\\AppDBContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T15:21:50.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Film.cs",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Models\\Film.cs",
               "RelativeDocumentMoniker": "Models\\Film.cs",
@@ -49,14 +66,14 @@
               "RelativeDocumentMoniker": "Data\\AppDBInitializer.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBInitializer.cs",
               "RelativeToolTip": "Data\\AppDBInitializer.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAUwK0AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T03:56:06.965Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -64,8 +81,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-20T03:46:03.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T03:46:03.396Z"
             },
             {
               "$type": "Document",
@@ -75,7 +91,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACkAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAArwCcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T03:44:55.608Z",
               "EditorCaption": ""
