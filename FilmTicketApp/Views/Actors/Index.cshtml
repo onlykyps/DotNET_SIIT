@@ -26,10 +26,12 @@
          </thead>
          <tbody>
             @foreach (var item in Model)
-                {<tr>
-                     <td class="align-middle">
-                        <img class="rounded-circle" src="@item.ProfilePicture" alt="@item.FullName" style="max-width:150px"/>
-                     </td>
+                {
+                   <tr>
+                   
+                      <td class="align-middle">
+                        <img class="rounded-circle" src="@item.ProfilePicture" style="max-width:150px"/>
+                      </td>
 
                      <td class="align-middle">
                         @Html.DisplayFor(modelItem => item.FullName)
@@ -54,7 +56,7 @@
                        </a>
 
                         </td>
-                    </tr>
+                  </tr>
                 }
          </tbody>
          

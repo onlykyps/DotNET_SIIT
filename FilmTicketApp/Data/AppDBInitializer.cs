@@ -50,26 +50,26 @@ namespace FilmTicketApp.Data
                {
                   new Actor()
                   {
+                     ProfilePicture = "Imgs\\photo-1578671815798-7b9b0ab22d73.jpeg",
                      FullName = "Actor 1",
-                     ProfilePicture = "https://unsplash.com/photos/turned-on-capitol-theatre-neon-light-signage-IOr6a62l4L4",
                      Biography = "Actor description"
                   },
                   new Actor()
                   {
+                     ProfilePicture = "Imgs\\photo-1609293519338-9e7a88404068.jpeg",
                      FullName = "Actor 2",
-                     ProfilePicture = "https://unsplash.com/photos/red-and-white-concrete-building-7kBkJbhl7IY",
                      Biography = "Actor description"
                   },
                   new Actor()
                   {
+                     ProfilePicture = "https://images.unsplash.com/photo-1578671815798-7b9b0ab22d73?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                      FullName = "Actor 3",
-                     ProfilePicture = "https://unsplash.com/photos/blue-and-red-neon-sign-NFBhiOLH-l8",
                      Biography = "Actor description"
                   },
                   new Actor()
                   {
-                     FullName = "Actor 4",
                      ProfilePicture = "https://unsplash.com/photos/a-movie-theater-at-night-with-lights-on-7-N13Zl_DAQ",
+                     FullName = "Actor 4",
                      Biography = "Actor description"
                   },
                });
