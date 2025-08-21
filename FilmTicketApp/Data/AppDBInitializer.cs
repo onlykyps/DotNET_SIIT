@@ -11,6 +11,7 @@ namespace FilmTicketApp.Data
             var context = serviceScope.ServiceProvider.GetService<AppDBContext>();
 
             context.Database.EnsureCreated();
+           
 
             if (!context.Cinemas.Any())
             {

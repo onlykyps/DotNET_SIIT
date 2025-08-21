@@ -32,12 +32,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Dropbox/Scoala Informala de IT/DotNET/DotNET_SIIT/FilmTicketApp/Views/Cinemas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Dropbox/Scoala Informala de IT/DotNET/DotNET_SIIT/FilmTicketApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dropbox/Scoala Informala de IT/DotNET/DotNET_SIIT/FilmTicketApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Dropbox/Scoala Informala de IT/DotNET/DotNET_SIIT/FilmTicketApp/Views/Producers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dropbox/Scoala Informala de IT/DotNET/DotNET_SIIT/FilmTicketApp/Views/Shared/Error.cshtml]
