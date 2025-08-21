@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\filmticketapp\\controllers\\filmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:controllers\\filmscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|d:\\dropbox\\scoala informala de it\\dotnet\\dotnet_siit\\filmticketapp\\data\\appdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:data\\appdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDBInitializer.cs",
+              "DocumentMoniker": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBInitializer.cs",
+              "RelativeDocumentMoniker": "Data\\AppDBInitializer.cs",
+              "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBInitializer.cs",
+              "RelativeToolTip": "Data\\AppDBInitializer.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAAHMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T16:59:21.788Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +45,7 @@
               "RelativeDocumentMoniker": "Views\\Films\\Index.cshtml",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Views\\Films\\Index.cshtml",
               "RelativeToolTip": "Views\\Films\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAD8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-21T16:00:20.075Z",
               "EditorCaption": ""
@@ -41,7 +58,7 @@
               "RelativeDocumentMoniker": "Controllers\\FilmsController.cs",
               "ToolTip": "D:\\Dropbox\\Scoala Informala de IT\\DotNET\\DotNET_SIIT\\FilmTicketApp\\Controllers\\FilmsController.cs",
               "RelativeToolTip": "Controllers\\FilmsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T15:59:38.718Z",
               "EditorCaption": ""
