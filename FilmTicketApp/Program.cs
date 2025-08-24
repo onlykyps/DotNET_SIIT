@@ -1,4 +1,5 @@
 using FilmTicketApp.Data;
+using FilmTicketApp.Data.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -14,6 +15,8 @@ namespace FilmTicketApp
          builder.Services.AddControllersWithViews();
          builder.Services.AddDbContext<AppDBContext>();
          builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+         builder.Services.AddScoped<IActorsService, ActorsService>();
 
          var app = builder.Build();
 
