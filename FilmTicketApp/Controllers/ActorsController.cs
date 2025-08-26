@@ -37,5 +37,19 @@ namespace FilmTicketApp.Controllers
 
          return RedirectToAction(nameof(Index));
       }
+
+      public async Task<IActionResult> Details(int id)
+      {
+         var actorDetails = _service.GetById(id);
+
+         if(actorDetails == null)
+         {
+            return View("Empty");
+         }
+         else
+         {
+            return View(actorDetails);
+         }
+      }
    }
 }

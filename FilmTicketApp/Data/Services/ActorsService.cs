@@ -1,5 +1,6 @@
 ﻿using FilmTicketApp.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace FilmTicketApp.Data.Services
 {
@@ -12,10 +13,10 @@ namespace FilmTicketApp.Data.Services
             _dbContext = dbContext;
       }
 
-      void IActorsService.Add(Actor actor)
+      public async Task Add(Actor actor)
       {
-         _dbContext.Actors.Add(actor);
-         _dbContext.SaveChanges();
+         await _dbContext.Actors.AddAsync(actor);
+         await _dbContext.SaveChangesAsync();
       }
 
       void IActorsService.Delete(int id)
@@ -29,9 +30,11 @@ namespace FilmTicketApp.Data.Services
          return result;
       }
 
-      Actor IActorsService.GetById(int id)
+      public async Task<Actor> GetById(int id)
       {
-         throw new NotImplementedException();
+          var results = await _dbContext.Actors.FirstOrDefaultAsync(x => x.Id == id);
+
+         return results;
       }
 
       Actor IActorsService.Update(int id, Actor newActor)
