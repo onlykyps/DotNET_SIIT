@@ -14,7 +14,8 @@ namespace FilmTicketApp.Data.Services
 
       void IActorsService.Add(Actor actor)
       {
-         throw new NotImplementedException();
+         _dbContext.Actors.Add(actor);
+         _dbContext.SaveChanges();
       }
 
       void IActorsService.Delete(int id)

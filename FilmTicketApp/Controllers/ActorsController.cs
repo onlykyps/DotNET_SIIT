@@ -1,5 +1,6 @@
 ﻿using FilmTicketApp.Data;
 using FilmTicketApp.Data.Services;
+using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmTicketApp.Controllers
@@ -19,6 +20,22 @@ namespace FilmTicketApp.Controllers
          return View(data);
       }
 
-      
+      public async Task<IActionResult> Create()
+      {
+         return View();
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> Create([Bind("FullName, ProfilePicture, Biography")]Actor actor)
+      {
+         if(!ModelState.IsValid)
+         {
+            return View(actor);
+         }
+
+         _service.Add(actor);
+
+         return RedirectToAction(nameof(Index));
+      }
    }
 }

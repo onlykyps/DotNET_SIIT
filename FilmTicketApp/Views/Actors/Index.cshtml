@@ -10,57 +10,66 @@
 @*Write Code*@
 
 <h1>
-   Welcome to Actors view
+    Welcome to Actors view
 </h1>
 
 <div class="row">
-   <div class="col-md-8 offset-md-2">
-      <table class="table">
-         <thead>
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.ProfilePicture)</th>
                     <th>@Html.DisplayNameFor(model => model.FullName)</th>
                     <th>@Html.DisplayNameFor(model => model.Biography)</th>
                     <th>Actions</th>
                 </tr>
-         </thead>
-         <tbody>
-            @foreach (var item in Model)
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                   <tr>
-                   
-                      <td class="align-middle">
-                        <img class="rounded-circle" src="@item.ProfilePicture" style="max-width:150px"/>
-                      </td>
+                    <tr>
 
-                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.FullName)
-                     </td>
+                        <td class="align-middle">
+                            <img class="rounded-circle" src="@item.ProfilePicture" style="max-width:150px" />
+                        </td>
 
-                     <td class="align-middle">
-                        @Html.DisplayFor(modelItem => item.Biography)
-                     </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
 
-                     <td class="align-middle">
-                        
-                        <a class="btn btn-outline-primary">
-                           <i class="bi bi-pencil-square">Edit</i>
-                        </a> |
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Biography)
+                        </td>
 
-                       <a class="btn btn-outline-info">
-                           <i class="bi bi-pencil-eye">Details</i>
-                       </a> |
+                        <td class="align-middle">
 
-                       <a class="btn btn-danger">
-                           <i class="bi bi-trash">Delete</i>
-                       </a>
+                            <a class="btn btn-outline-primary">
+                                <i class="bi bi-pencil-square">Edit</i>
+                            </a> |
+
+                            <a class="btn btn-outline-info">
+                                <i class="bi bi-pencil-eye">Details</i>
+                            </a> |
+
+                            <a class="btn btn-danger">
+                                <i class="bi bi-trash">Delete</i>
+                            </a>
 
                         </td>
-                  </tr>
+                    </tr>
                 }
-         </tbody>
-         
-      </table>
+            </tbody>
 
-   </div>
+        </table>
+
+    </div>
+</div>
+
+<div class="text-white">
+    <a asp-controller="Actors" asp-action="Create" class="btn btn-success">
+        <i class="bi bu-plus-circle">
+            Add new
+        </i>
+    </a>
+
 </div>
