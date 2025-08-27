@@ -34,19 +34,21 @@ namespace FilmTicketApp.Controllers
             return View(actor);
          }
 
-         _service.Add(actor);
+         await _service.Add(actor);
 
          return RedirectToAction(nameof(Index));
       }
 
       [AllowAnonymous]
-      public async Task<IActionResult> Details(int id)
+      public IActionResult Details(int id)
       {
+         if (id == 0) return View(this);
+
          Actor actorDetails = _service.GetById(id).Result;
 
          if (actorDetails == null)
          {
-            return View("Empty");
+            return View("Details");
          }
          else
          {
@@ -54,13 +56,13 @@ namespace FilmTicketApp.Controllers
          }
       }
 
-      public async Task<IActionResult> Edit(int id)
+      public IActionResult Edit(int id)
       {
          Actor actorDetails = _service.GetById(id).Result;
 
          if (actorDetails == null)
          {
-            return View("Empty");
+            return View("Details");
          }
          else
          {

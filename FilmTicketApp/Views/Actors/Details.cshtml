@@ -1,8 +1,6 @@
 ﻿@model Actor
 
-@{
-    ViewData["Title"] = "Add a new actor";
-}
+
 
 <div class="row text">
     <div class="col-md-8 offset-2">
@@ -35,8 +33,9 @@
                 </div>
 
                 <div>
-                    <a class="btn btn-outline-success float-right" 
-                                 asp-action="Edit"> Edit</a>
+                    <a class="btn btn-outline-success float-right"
+                                 asp-action="Edit" 
+                                 asp-route-id="@Model.Id"> Edit</a>
                     <a class="btn btn-outline-secondary" 
                                  asp-action="Index"> Show All</a>
                 </div>
