@@ -1,6 +1,7 @@
 ﻿using FilmTicketApp.Data;
 using FilmTicketApp.Data.Services;
 using FilmTicketApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmTicketApp.Controllers
@@ -38,9 +39,10 @@ namespace FilmTicketApp.Controllers
          return RedirectToAction(nameof(Index));
       }
 
+      [AllowAnonymous]
       public async Task<IActionResult> Details(int id)
       {
-         var actorDetails = _service.GetById(id);
+         Actor actorDetails = _service.GetById(id).Result;
 
          if(actorDetails == null)
          {
