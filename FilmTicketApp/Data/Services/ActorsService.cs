@@ -37,9 +37,12 @@ namespace FilmTicketApp.Data.Services
          return results;
       }
 
-      Actor IActorsService.Update(int id, Actor newActor)
+      public async Task<Actor> Update(int id, Actor newActor)
       {
-         throw new NotImplementedException();
+         _dbContext.Update(newActor);
+         await _dbContext.SaveChangesAsync();
+
+         return newActor;
       }
    }
 }

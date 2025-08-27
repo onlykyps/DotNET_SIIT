@@ -7,7 +7,7 @@ namespace FilmTicketApp.Data.Services
       Task<IEnumerable<Actor>> GetActors();
       Task<Actor> GetById(int id);
       Task Add(Actor actor);
-      Actor Update(int id, Actor newActor);
+      Task<Actor> Update(int id, Actor newActor);
       void Delete(int id);
    }
 }

@@ -27,9 +27,9 @@ namespace FilmTicketApp.Controllers
       }
 
       [HttpPost]
-      public async Task<IActionResult> Create([Bind("FullName, ProfilePicture, Biography")]Actor actor)
+      public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Biography")] Actor actor)
       {
-         if(!ModelState.IsValid)
+         if (!ModelState.IsValid)
          {
             return View(actor);
          }
@@ -44,7 +44,7 @@ namespace FilmTicketApp.Controllers
       {
          Actor actorDetails = _service.GetById(id).Result;
 
-         if(actorDetails == null)
+         if (actorDetails == null)
          {
             return View("Empty");
          }
@@ -52,6 +52,33 @@ namespace FilmTicketApp.Controllers
          {
             return View(actorDetails);
          }
+      }
+
+      public async Task<IActionResult> Edit(int id)
+      {
+         Actor actorDetails = _service.GetById(id).Result;
+
+         if (actorDetails == null)
+         {
+            return View("Empty");
+         }
+         else
+         {
+            return View(actorDetails);
+         }
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,ProfilePicture,Biography")] Actor actor)
+      {
+         if (!ModelState.IsValid)
+         {
+            return View(actor);
+         }
+
+         await _service.Update(id, actor);
+
+         return RedirectToAction(nameof(Index));
       }
    }
 }
