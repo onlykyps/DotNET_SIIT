@@ -19,9 +19,12 @@ namespace FilmTicketApp.Data.Services
          await _dbContext.SaveChangesAsync();
       }
 
-      void IActorsService.Delete(int id)
+      public async Task Delete(int id)
       {
-         throw new NotImplementedException();
+         var result = await _dbContext.Actors.FirstOrDefaultAsync(x => x.Id == id);
+
+         _dbContext.Actors.Remove(result);
+         await _dbContext.SaveChangesAsync();
       }
 
       public async Task<IEnumerable<Actor>> GetActors()

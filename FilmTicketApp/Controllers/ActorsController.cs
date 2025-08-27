@@ -82,5 +82,33 @@ namespace FilmTicketApp.Controllers
 
          return RedirectToAction(nameof(Index));
       }
+
+      public IActionResult Delete(int id)
+      {
+         if (id == 0) return View(this);
+
+         Actor actorDetails = _service.GetById(id).Result;
+
+         if (actorDetails == null)
+         {
+            return View("Details");
+         }
+         else
+         {
+            return View(actorDetails);
+         }
+      }
+
+      [HttpPost, ActionName("Delete")]
+      public async Task<IActionResult> DeleteConfirmed(int id)
+      {
+         Actor actorDetails = _service.GetById(id).Result;
+         if (actorDetails == null) 
+            return View(this);
+
+         await _service.Delete(id);
+
+         return RedirectToAction(nameof(Index));
+      }
    }
 }

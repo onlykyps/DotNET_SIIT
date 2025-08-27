@@ -175,22 +175,22 @@ namespace FilmTicketApp.Data
                {
                   new ActorToFilm()
                   {
-                     ActorID = 1,
+                     ActorID = 6,
                      FilmID = 1
                   },
                   new ActorToFilm()
                   {
-                     ActorID = 3,
+                     ActorID = 7,
                      FilmID = 3
                   },
                   new ActorToFilm()
                   {
-                     ActorID = 3,
+                     ActorID = 8,
                      FilmID = 2
                   },
                   new ActorToFilm()
                   {
-                    ActorID = 2,
+                    ActorID = 9,
                     FilmID = 2
                   },
                });
