@@ -17,6 +17,7 @@ namespace FilmTicketApp.Data.Base
       public async Task Add(T entity)
       {
          await _dbContext.Set<T>().AddAsync(entity);
+         await _dbContext.SaveChangesAsync();
       }
 
       public async Task Delete(int id)
@@ -26,6 +27,8 @@ namespace FilmTicketApp.Data.Base
          EntityEntry entityEntry = _dbContext.Entry<T>(entity);
 
          entityEntry.State = EntityState.Deleted;
+
+         await _dbContext.SaveChangesAsync();
       }
 
       public async Task<IEnumerable<T>> GetAll()
@@ -46,6 +49,8 @@ namespace FilmTicketApp.Data.Base
          EntityEntry entityEntry = _dbContext.Entry<T>(entity);
 
          entityEntry.State = EntityState.Modified;
+
+         await _dbContext.SaveChangesAsync();
 
       }
 

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FilmTicketApp.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmTicketApp.Models
 {
-   public class Actor
+   public class Actor: IEntityBase
    {
       [Key]
       public int Id { get; set; }

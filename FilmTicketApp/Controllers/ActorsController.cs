@@ -17,7 +17,7 @@ namespace FilmTicketApp.Controllers
 
       public async Task<IActionResult> Index()
       {
-         var data = await _service.GetActors();
+         var data = await _service.GetAll();
          return View(data);
       }
 
