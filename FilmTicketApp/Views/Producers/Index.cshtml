@@ -47,7 +47,9 @@
                                 <i class="bi bi-pencil-square">Edit</i>
                             </a> |
 
-                            <a class="btn btn-outline-info">
+                            <a class="btn btn-outline-info"
+                               asp-action="Details"
+                               asp-route-id="@item.Id">
                                 <i class="bi bi-pencil-eye">Details</i>
                             </a> |
 
@@ -63,4 +65,13 @@
         </table>
 
     </div>
+</div>
+
+<div class="text-white">
+    <a asp-controller="Producers" asp-action="Create" class="btn btn-success">
+        <i class="bi bu-plus-circle">
+            Add new
+        </i>
+    </a>
+
 </div>

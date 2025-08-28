@@ -17,6 +17,7 @@ namespace FilmTicketApp
          builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
          builder.Services.AddScoped<IActorsService, ActorsService>();
+         builder.Services.AddScoped<IProducersService, ProducersService>();
 
          var app = builder.Build();
 

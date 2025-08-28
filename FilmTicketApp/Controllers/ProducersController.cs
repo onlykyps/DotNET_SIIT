@@ -1,21 +1,53 @@
 ﻿using FilmTicketApp.Data;
+using FilmTicketApp.Data.Services;
+using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmTicketApp.Controllers
 {
    public class ProducersController : Controller
    {
-      private readonly AppDBContext _dbContext;
+      private readonly IProducersService _producersService;
 
-      public ProducersController(AppDBContext dbContext)
+      public ProducersController(IProducersService producersService)
       {
-         _dbContext = dbContext;
+         _producersService = producersService;
       }
 
-      public IActionResult Index()
+      public async Task<IActionResult> Index()
       {
-         var data = _dbContext.Producers.ToList();
+         var data = await _producersService.GetAll();
          return View(data);
+      }
+
+      public async Task<IActionResult> Details(int id)
+      {
+         var producerDetails = await _producersService.GetById(id);
+
+         if (producerDetails == null)
+         {
+            return View("NotFound");
+         }
+
+         return View(producerDetails);
+      }
+
+      public IActionResult Create() 
+      {
+         return View();
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Biography")] Producer producer)
+      {
+         if(!ModelState.IsValid)
+         {
+            return View(producer);
+         }
+
+         await _producersService.Add(producer);
+
+         return RedirectToAction(nameof(Index));
       }
    }
 }
