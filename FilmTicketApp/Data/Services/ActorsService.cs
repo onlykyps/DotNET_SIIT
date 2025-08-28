@@ -27,19 +27,6 @@ namespace FilmTicketApp.Data.Services
          await _dbContext.SaveChangesAsync();
       }
 
-      public async Task<IEnumerable<Actor>> GetActors()
-      {
-         var result = await _dbContext.Actors.ToListAsync();
-         return result;
-      }
-
-      public async Task<Actor> GetById(int id)
-      {
-          var results = await _dbContext.Actors.FirstOrDefaultAsync(x => x.Id == id);
-
-         return results;
-      }
-
       public async Task<Actor> Update(int id, Actor newActor)
       {
          _dbContext.Update(newActor);

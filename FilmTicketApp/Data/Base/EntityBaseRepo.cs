@@ -1,31 +1,62 @@
 ﻿
+using FilmTicketApp.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+
 namespace FilmTicketApp.Data.Base
 {
    public class EntityBaseRepo<T> : IEntityBaseRepo<T> where T : class, IEntityBase, new()
    {
-      public Task Add(T entity)
+      private readonly AppDBContext _dbContext;
+
+      public EntityBaseRepo(AppDBContext dbContext)
       {
-         throw new NotImplementedException();
+         _dbContext = dbContext;
       }
 
-      public Task Delete(int id)
+      public async Task Add(T entity)
       {
-         throw new NotImplementedException();
+         await _dbContext.Set<T>().AddAsync(entity);
       }
 
-      public Task<IEnumerable<T>> GetAll()
+      public async Task Delete(int id)
       {
-         throw new NotImplementedException();
+         var entity = await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+
+         EntityEntry entityEntry = _dbContext.Entry<T>(entity);
+
+         entityEntry.State = EntityState.Deleted;
       }
 
-      public Task<T> GetById(int id)
+      public async Task<IEnumerable<T>> GetAll()
       {
-         throw new NotImplementedException();
+         var result = await _dbContext.Set<T>().ToListAsync();
+         return result;
       }
 
-      public Task<T> Update(int id, T entity)
+      public async Task<T> GetById(int id)
       {
-         throw new NotImplementedException();
+         var results = await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+
+         return results;
       }
+
+      public async Task Update(int id, T entity)
+      {
+         EntityEntry entityEntry = _dbContext.Entry<T>(entity);
+
+         entityEntry.State = EntityState.Modified;
+
+      }
+
+      //public async Task<IEnumerable<Actor>> GetActors()
+      //{
+        
+      //}
+
+      //public async Task<Actor> GetById(int id)
+      //{
+        
+      //}
    }
 }
