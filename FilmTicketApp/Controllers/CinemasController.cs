@@ -38,5 +38,16 @@ namespace FilmTicketApp.Controllers
          return RedirectToAction(nameof(Index));
       }
 
+      public async Task<IActionResult> Details(int id)
+      {
+         var cinemaDetails = await _cinemasService.GetById(id);
+
+         if (cinemaDetails == null)
+         {
+            return View("NotFound");
+         }
+
+         return View(cinemaDetails);
+      }
    }
 }
