@@ -2,6 +2,7 @@
 using FilmTicketApp.Data.Services;
 using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace FilmTicketApp.Controllers
 {
@@ -32,7 +33,7 @@ namespace FilmTicketApp.Controllers
          return View(producerDetails);
       }
 
-      public IActionResult Create() 
+      public async Task<IActionResult> Create() 
       {
          return View();
       }
