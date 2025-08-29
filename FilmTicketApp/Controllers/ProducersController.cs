@@ -50,5 +50,36 @@ namespace FilmTicketApp.Controllers
 
          return RedirectToAction(nameof(Index));
       }
+
+      public async Task<IActionResult> Edit(int id)
+      {
+         var details = await _producersService.GetById(id);
+
+         if (details == null)
+         {
+            return View("NotFound");
+         }
+
+         return View(details);
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,ProfilePicture,Biography")] Producer producer)
+      {
+         if (!ModelState.IsValid)
+         {
+            return View(producer);
+         }
+
+         if(id == producer.Id)
+         {
+            await _producersService.Update(id, producer);
+
+            return RedirectToAction(nameof(Index));
+         }
+
+         return View(producer);
+      }
+
    }
 }
