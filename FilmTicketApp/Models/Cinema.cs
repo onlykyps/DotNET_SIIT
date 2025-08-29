@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FilmTicketApp.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace FilmTicketApp.Models
 {
-   public class Cinema
+   public class Cinema: IEntityBase
    {
       [Key]
       public int Id { get; set; }
@@ -16,6 +17,6 @@ namespace FilmTicketApp.Models
       [Display(Name = "Description")]
       public string Description { get; set; }
 
-      public List<Film> Films { get; set; }
+      public List<Film>? Films { get; set; }
    }
 }

@@ -1,19 +1,20 @@
 ﻿using FilmTicketApp.Data;
+using FilmTicketApp.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmTicketApp.Controllers
 {
    public class CinemasController : Controller
    {
-      private readonly AppDBContext _dbContext;
+      private readonly ICinemasService _cinemasService;
 
-      public CinemasController(AppDBContext dbContext)
+      public CinemasController(ICinemasService cinemasService)
       {
-         _dbContext = dbContext;
+         _cinemasService = cinemasService;
       }
-      public IActionResult Index()
+      public async Task<IActionResult> Index()
       {
-         var data = _dbContext.Cinemas.ToList();
+         var data = await _cinemasService.GetAll();
          return View(data);
       }
    }
