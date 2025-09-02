@@ -49,5 +49,35 @@ namespace FilmTicketApp.Controllers
 
          return View(cinemaDetails);
       }
+
+      public async Task<IActionResult> Edit(int id)
+      {
+         var details = await _cinemasService.GetById(id);
+
+         if (details == null)
+         {
+            return View("NotFound");
+         }
+
+         return View(details);
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> Edit(int id, [Bind("Logo,Name,Description")] Cinema cinema)
+      {
+         if (!ModelState.IsValid)
+         {
+            return View(cinema);
+         }
+
+         if (id == cinema.Id)
+         {
+            await _cinemasService.Update(id, cinema);
+
+            return RedirectToAction(nameof(Index));
+         }
+
+         return View(cinema);
+      }
    }
 }
