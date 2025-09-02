@@ -1,4 +1,5 @@
 ﻿using FilmTicketApp.Data;
+using FilmTicketApp.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,17 +7,15 @@ namespace FilmTicketApp.Controllers
 {
    public class FilmsController : Controller
    {
-      private readonly AppDBContext _dbContext;
+      private readonly IFilmsService _filmsService;
 
-      public FilmsController(AppDBContext dbContext)
+      public FilmsController(IFilmsService filmsService)
       {
-         _dbContext = dbContext;
+         _filmsService = filmsService;
       }
-      public IActionResult Index()
+      public async Task<IActionResult> Index()
       {
-         var data = _dbContext.Films.Include(x => x.Cinema)
-                                    .OrderBy(x => x.Name)
-                                    .ToList();
+         var data =  await _filmsService.GetAll();
          return View(data);
       }
    }
