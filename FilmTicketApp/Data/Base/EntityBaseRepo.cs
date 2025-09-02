@@ -2,6 +2,7 @@
 using FilmTicketApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Linq.Expressions;
 
 namespace FilmTicketApp.Data.Base
 {
@@ -35,6 +36,14 @@ namespace FilmTicketApp.Data.Base
       {
          var result = await _dbContext.Set<T>().ToListAsync();
          return result;
+      }
+
+      public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] expr)
+      {
+         IQueryable<T> query = _dbContext.Set<T>();
+         query = expr.Aggregate(query, (current, expr) => current.Include(expr));
+
+         return await query.ToListAsync();
       }
 
       public async Task<T> GetById(int id)
