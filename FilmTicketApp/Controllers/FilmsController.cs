@@ -13,10 +13,19 @@ namespace FilmTicketApp.Controllers
       {
          _filmsService = filmsService;
       }
+
       public async Task<IActionResult> Index()
       {
          var data = await _filmsService.GetAll(n => n.Cinema);
          return View(data);
       }
+
+      public async Task<IActionResult> Details(int id)
+      {
+         var filmDetail = await _filmsService.GetFilmById(id);
+
+         return View(filmDetail);   
+      }
+
    }
 }
