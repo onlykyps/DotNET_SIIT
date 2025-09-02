@@ -50,16 +50,18 @@ namespace FilmTicketApp.Controllers
          return View(cinemaDetails);
       }
 
-      public async Task<IActionResult> Edit(int id)
+      public IActionResult Edit(int id)
       {
-         var details = await _cinemasService.GetById(id);
+         Cinema cinemaDetails = _cinemasService.GetById(id).Result;
 
-         if (details == null)
+         if (cinemaDetails == null)
          {
-            return View("NotFound");
+            return View("Details");
          }
-
-         return View(details);
+         else
+         {
+            return View(cinemaDetails);
+         }
       }
 
       [HttpPost]
@@ -70,14 +72,15 @@ namespace FilmTicketApp.Controllers
             return View(cinema);
          }
 
-         if (id == cinema.Id)
-         {
+         if(cinema.Id == id)
             await _cinemasService.Update(id, cinema);
-
-            return RedirectToAction(nameof(Index));
+         else
+         {
+            cinema.Id = id;
+            await _cinemasService.Update(id, cinema);
          }
 
-         return View(cinema);
+            return RedirectToAction(nameof(Index));
       }
 
       public async Task<IActionResult> Delete(int id)
