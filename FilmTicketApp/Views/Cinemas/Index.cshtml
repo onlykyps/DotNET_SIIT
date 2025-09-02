@@ -55,7 +55,9 @@
                                 <i class="bi bi-pencil-eye">Details</i>
                             </a> |
 
-                            <a class="btn btn-danger">
+                            <a class="btn btn-danger"
+                               asp-action="Delete"
+                               asp-route-id="@item.Id">
                                 <i class="bi bi-trash">Delete</i>
                             </a>
 
