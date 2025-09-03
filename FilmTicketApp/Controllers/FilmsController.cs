@@ -1,5 +1,6 @@
 ﻿using FilmTicketApp.Data;
 using FilmTicketApp.Data.Services;
+using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,27 @@ namespace FilmTicketApp.Controllers
          var filmDetail = await _filmsService.GetFilmById(id);
 
          return View(filmDetail);   
+      }
+
+      public async Task<IActionResult> Create()
+      {
+         ViewData["Welcome"] = "Welcome to the cinema";
+         ViewBag.Description = "This is the cinema description";
+
+         return View();
+      }
+
+      [HttpPost]
+      public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Biography")] Film film)
+      {
+         if (!ModelState.IsValid)
+         {
+            return View(film);
+         }
+
+         await _filmsService.Add(film);
+
+         return RedirectToAction(nameof(Index));
       }
 
    }
