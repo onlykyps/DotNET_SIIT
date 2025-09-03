@@ -7,6 +7,8 @@ namespace FilmTicketApp.Models
 {
    public class NewFilmVM
    {
+      public int Id { get; set; }
+
       [Display(Name = "Film name")]
       public string Name { get; set; }
 
