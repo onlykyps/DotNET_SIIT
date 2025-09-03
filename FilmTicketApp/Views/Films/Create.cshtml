@@ -1,5 +1,6 @@
 ﻿@model NewFilmVM
 @using FilmTicketApp.Data;
+@using FilmTicketApp.Data.Enums
 
 @{
     ViewData["Title"] = "Create a new film";
@@ -51,25 +52,25 @@
                         <div class="coll-md-6">
                             <div class="form-group">
                                 <label asp-for="CinemaID" class="control-label"></label>
-                                <select asp-for="CinemaID" class="form-control" />
+                                <select asp-for="CinemaID" class="form-control" asp-items="ViewBag.CinemaId"/>
                                 <span asp-validation-for="CinemaID" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label asp-for="FilmGenre" class="control-label"></label>
-                                <select asp-for="FilmGenre" class="form-control" />
+                                <select asp-for="FilmGenre" class="form-control" asp-items="Html.GetEnumSelectList<FilmGenre>()" />
                                 <span asp-validation-for="FilmGenre" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label asp-for="ProducerID" class="control-label"></label>
-                                <select asp-for="ProducerID" class="form-control" />
+                                <select asp-for="ProducerID" class="form-control" asp-items="ViewBag.ProducerId" />
                                 <span asp-validation-for="ProducerID" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label asp-for="ActorIDs" class="control-label"></label>
-                                <select asp-for="ActorIDs" class="form-control" multiple />
+                                <select asp-for="ActorIDs" class="form-control" multiple asp-items="ViewBag.ActorId" />
                                 <span asp-validation-for="ActorIDs" class="text-danger"></span>
                             </div>
 

@@ -2,6 +2,7 @@
 using FilmTicketApp.Data.Services;
 using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace FilmTicketApp.Controllers
@@ -30,8 +31,11 @@ namespace FilmTicketApp.Controllers
 
       public async Task<IActionResult> Create()
       {
-         ViewData["Welcome"] = "Welcome to the cinema";
-         ViewBag.Description = "This is the cinema description";
+        var filmDropdownsData = await _filmsService.GetNewFilmDropdownsValues();
+
+         ViewBag.CinemaId = new SelectList(filmDropdownsData.Cinemas, "Id", "Name");
+         ViewBag.ProducerId = new SelectList(filmDropdownsData.Producers, "Id", "FullName");
+         ViewBag.ActorId = new SelectList(filmDropdownsData.Actors, "Id", "FullName");
 
          return View();
       }
