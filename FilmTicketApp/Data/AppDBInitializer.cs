@@ -1,4 +1,5 @@
 ﻿using FilmTicketApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FilmTicketApp.Data
 {
@@ -11,7 +12,9 @@ namespace FilmTicketApp.Data
             var context = serviceScope.ServiceProvider.GetService<AppDBContext>();
 
             context.Database.EnsureCreated();
-           
+            
+
+
 
             if (!context.Cinemas.Any())
             {
@@ -175,27 +178,29 @@ namespace FilmTicketApp.Data
                {
                   new ActorToFilm()
                   {
-                     ActorID = 6,
+                     ActorID = 1,
                      FilmID = 1
                   },
                   new ActorToFilm()
                   {
-                     ActorID = 7,
+                     ActorID = 2,
                      FilmID = 3
                   },
                   new ActorToFilm()
                   {
-                     ActorID = 8,
+                     ActorID = 3,
                      FilmID = 2
                   },
                   new ActorToFilm()
                   {
-                    ActorID = 9,
+                    ActorID = 4,
                     FilmID = 2
                   },
                });
                context.SaveChanges();
             }
+
+            context.Database.Migrate();
 
          }
 
