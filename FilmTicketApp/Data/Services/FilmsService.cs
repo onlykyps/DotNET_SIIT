@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmTicketApp.Data.Services
 {
-   public class FilmsService : EntityBaseRepo<Film>, IFilmsService
+    public class FilmsService : EntityBaseRepo<Film>, IFilmsService
    {
       private readonly AppDBContext _dbContext;
 
@@ -36,5 +36,29 @@ namespace FilmTicketApp.Data.Services
 
          return response;
       }
-   }
+
+        public async Task<IEnumerable<Film>> SearchAsync(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return await GetAll();
+
+            searchTerm = searchTerm.ToLower();
+            return await _dbContext.Films
+                .Where(m => m.Name.ToLower().Contains(searchTerm) ||
+                           m.Description.ToLower().Contains(searchTerm) ||
+                           m.Genre.ToLower().Contains(searchTerm))
+                .OrderBy(m => m.Name)
+                .ToListAsync();
+        }
+
+        Task<Film> IFilmsService.Create(Film movie)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IFilmsService.Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

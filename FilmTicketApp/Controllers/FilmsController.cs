@@ -22,6 +22,23 @@ namespace FilmTicketApp.Controllers
             return View(data);
         }
 
+        public async Task<IActionResult> Index(string searchTerm)
+        {
+            IEnumerable<Film> movies;
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                movies = await _filmsService.SearchAsync(searchTerm);
+                ViewBag.SearchTerm = searchTerm;
+            }
+            else
+            {
+                movies = await _filmsService.GetAll();
+            }
+
+            return View(movies);
+        }
+
         public async Task<IActionResult> Details(int id)
         {
             var filmDetail = await _filmsService.GetFilmById(id);

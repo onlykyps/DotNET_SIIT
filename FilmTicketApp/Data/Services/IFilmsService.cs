@@ -10,5 +10,6 @@ namespace FilmTicketApp.Data.Services
         Task<NewFilmDropdownsVM> GetNewFilmDropdownsValues();
         Task<bool> Delete(int id);
         Task<Film> Create(Film movie);
+        Task<IEnumerable<Film>> SearchAsync(string searchTerm);
     }
 }
