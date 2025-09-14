@@ -7,5 +7,6 @@ namespace FilmTicketApp.Data.Services
    {
         Task<Cinema> CreateAsync(Cinema cinema);
         Task<Cinema> UpdateAsync(Cinema cinema);
+        Task<bool> DeleteAsync(int id);
     }
 }

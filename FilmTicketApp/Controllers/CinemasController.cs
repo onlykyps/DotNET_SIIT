@@ -110,13 +110,29 @@ namespace FilmTicketApp.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            Cinema producerDetails = _cinemasService.GetById(id).Result;
-            if (producerDetails == null)
-                return View(this);
-
-            await _cinemasService.Delete(id);
+            try
+            {
+                var success = await _cinemasService.DeleteAsync(id);
+                if (success)
+                {
+                    TempData["SuccessMessage"] = "Cinema and all associated seats deleted successfully!";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Cinema not found.";
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error deleting cinema: {ex.Message}";
+            }
 
             return RedirectToAction(nameof(Index));
         }
