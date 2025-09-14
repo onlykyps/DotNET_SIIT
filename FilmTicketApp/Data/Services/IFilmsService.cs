@@ -9,5 +9,6 @@ namespace FilmTicketApp.Data.Services
         Task<Film> GetFilmById(int id);
         Task<NewFilmDropdownsVM> GetNewFilmDropdownsValues();
         Task<bool> Delete(int id);
+        Task<Film> Create(Film movie);
     }
 }
