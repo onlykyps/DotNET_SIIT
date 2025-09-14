@@ -53,5 +53,42 @@ namespace FilmTicketApp.Controllers
          return RedirectToAction(nameof(Index));
       }
 
-   }
+        // GET: Movies/Delete/5
+        public async Task<IActionResult> Delete(int id)
+        {
+            var movie = await _filmsService.GetById(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return View(movie);
+        }
+
+        // POST: Movies/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            try
+            {
+                var success = await _filmsService.Delete(id);
+                if (success)
+                {
+                    TempData["SuccessMessage"] = "Movie deleted successfully!";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Movie not found.";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error deleting movie: {ex.Message}";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+    }
 }
