@@ -28,17 +28,23 @@ namespace FilmTicketApp.Controllers
       [HttpPost]
       public async Task<IActionResult> Create([Bind("Logo,Name,Description")] Cinema cinema)
       {
-         if (!ModelState.IsValid)
-         {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _cinemasService.CreateAsync(cinema);
+                    TempData["SuccessMessage"] = "Cinema created successfully with 400 seats (20x20 layout)!";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", $"Error creating cinema: {ex.Message}");
+                }
+            }
             return View(cinema);
-         }
+        }
 
-         await _cinemasService.Add(cinema);
-
-         return RedirectToAction(nameof(Index));
-      }
-
-      public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int id)
       {
          var cinemaDetails = await _cinemasService.GetById(id);
 
