@@ -1,0 +1,156 @@
+@model Film
+
+@{
+    ViewData["Title"] = "Delete a film";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3><i class="fas fa-exclamation-triangle me-2"></i>Delete Movie</h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Warning!</strong> Are you sure you want to delete this movie? This action cannot be undone.
+                    </div>
+                  
+                    
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            @if (!string.IsNullOrEmpty(Model.PosterImageUrl))
+                            {
+                                <img src="@Model.PosterImageUrl" alt="@Model.Name Poster" class="img-fluid rounded mb-3" style="max-height: 200px;">
+                            }
+                            else
+                            {
+                                <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+                                    <i class="fas fa-film fa-3x text-muted"></i>
+                                </div>
+                            }
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <h4>@Model.Name</h4>
+                            
+                            <dl class="row">
+                                <dt class="col-sm-4">Description:</dt>
+                                <dd class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Description))
+                                    {
+                                        if (Model.Description.Length > 150)
+                                        {
+                                            <span>@Model.Description.Substring(0, 150)...</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.Description</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">No description</span>
+                                    }
+                                </dd>
+                                
+                                <dt class="col-sm-4">Duration:</dt>
+                                <dd class="col-sm-8">
+                                    @if (Model.DurationMinutes > 0)
+                                    {
+                                        var hours = Model.DurationMinutes / 60;
+                                        var minutes = Model.DurationMinutes % 60;
+                                        if (hours > 0)
+                                        {
+                                            <span>@hours h @minutes min</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.DurationMinutes min</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not specified</span>
+                                    }
+                                </dd>
+                                
+                                <dt class="col-sm-4">Release Date:</dt>
+                                <dd class="col-sm-8">
+                                    @if (Model.ReleaseDate != default(DateTime))
+                                    {
+                                        <span>@Model.ReleaseDate.ToString("MMM dd, yyyy")</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not specified</span>
+                                    }
+                                </dd>
+                                
+                                <dt class="col-sm-4">Genre:</dt>
+                                <dd class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Genre))
+                                    {
+                                        <span class="badge bg-primary">@Model.Genre</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not specified</span>
+                                    }
+                                </dd>
+                                
+                                <dt class="col-sm-4">Rating:</dt>
+                                <dd class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Rating))
+                                    {
+                                        <span class="badge bg-warning text-dark">@Model.Rating</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not rated</span>
+                                    }
+                                </dd>
+                                
+                                <dt class="col-sm-4">Director:</dt>
+                                <dd class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Director))
+                                    {
+                                        <span>@Model.Director</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not specified</span>
+                                    }
+                                </dd>
+                                
+                                <dt class="col-sm-4">Status:</dt>
+                               
+                            </dl>
+                        </div>
+                    </div>
+                    
+                             
+                    <form asp-action="Delete" method="post" class="mt-4">
+                        <input asp-for="Id" type="hidden">
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Back to List
+                            </a>
+                            <div>
+                                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info me-2">
+                                    <i class="fas fa-eye me-1"></i>View Details
+                                </a>
+                                <button type="submit" class="btn btn-danger" 
+                                        onclick="return confirm('Are you absolutely sure you want to delete this movie? This action cannot be undone.')">
+                                    <i class="fas fa-trash me-1"></i>Delete Movie
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

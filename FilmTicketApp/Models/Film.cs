@@ -34,6 +34,9 @@ namespace FilmTicketApp.Models
 
         public FilmGenre FilmGenre { get; set; }
 
+        [Display(Name = "Genre")]
+        public string Genre { get; set; } = string.Empty;
+
         public List<ActorToFilm> FilmActors { get; set; }
 
         [Display(Name = "Duration (minutes)")]
@@ -50,6 +53,9 @@ namespace FilmTicketApp.Models
 
         [Display(Name = "Rating")]
         public string Rating { get; set; } = string.Empty;
+
+        [Display(Name = "Director")]
+        public string? Director { get; set; }
 
     }
 }
