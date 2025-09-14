@@ -1,0 +1,152 @@
+@model Film
+
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-edit me-2"></i>Edit Movie: @Model.Name</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <input asp-for="Id" type="hidden">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Name" class="form-label">Movie Title *</label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter movie title">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Description" class="form-label">Description</label>
+                                <textarea asp-for="Description" class="form-control" rows="4" 
+                                          placeholder="Enter movie description..."></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="DurationMinutes" class="form-label">Duration (minutes)</label>
+                                <input asp-for="DurationMinutes" type="number" class="form-control" 
+                                       placeholder="e.g., 120" min="1" max="600">
+                                <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+                                <div class="form-text">Enter duration in minutes (e.g., 120 for 2 hours)</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ReleaseDate" class="form-label">Release Date</label>
+                                <input asp-for="ReleaseDate" type="date" class="form-control">
+                                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Genre" class="form-label">Genre</label>
+                                <input asp-for="Genre" class="form-control" placeholder="e.g., Action, Comedy, Drama">
+                                <span asp-validation-for="Genre" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Rating" class="form-label">Rating</label>
+                                <select asp-for="Rating" class="form-select">
+                                    <option value="">Select Rating</option>
+                                    <option value="G">G - General Audiences</option>
+                                    <option value="PG">PG - Parental Guidance</option>
+                                    <option value="PG-13">PG-13 - Parents Strongly Cautioned</option>
+                                    <option value="R">R - Restricted</option>
+                                    <option value="NC-17">NC-17 - Adults Only</option>
+                                </select>
+                                <span asp-validation-for="Rating" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Director" class="form-label">Director</label>
+                                <input asp-for="Director" class="form-control" placeholder="Director name">
+                                <span asp-validation-for="Director" class="text-danger"></span>
+                            </div>
+                           
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Cast" class="form-label">Cast</label>
+                                <textarea asp-for="Cast" class="form-control" rows="2" 
+                                          placeholder="Main cast members (comma separated)"></textarea>
+                                <span asp-validation-for="Cast" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="PosterImageUrl" class="form-label">Poster URL</label>
+                                <input asp-for="PosterImageUrl" type="url" class="form-control" 
+                                       placeholder="https://example.com/poster.jpg">
+                                <span asp-validation-for="PosterImageUrl" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="TrailerUrl" class="form-label">Trailer URL</label>
+                                <input asp-for="TrailerUrl" type="url" class="form-control" 
+                                       placeholder="https://youtube.com/watch?v=...">
+                                <span asp-validation-for="TrailerUrl" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Back to List
+                            </a>
+                            <div>
+                                <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info me-2">
+                                    <i class="fas fa-eye me-1"></i>View Details
+                                </a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-1"></i>Update Movie
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Auto-calculate duration display
+        $('#DurationMinutes').on('input', function() {
+            var minutes = parseInt($(this).val());
+            if (minutes && minutes > 0) {
+                var hours = Math.floor(minutes / 60);
+                var remainingMinutes = minutes % 60;
+                var display = '';
+                if (hours > 0) {
+                    display += hours + 'h ';
+                }
+                if (remainingMinutes > 0) {
+                    display += remainingMinutes + 'm';
+                }
+                $(this).next('.form-text').text('Duration: ' + display + ' (' + minutes + ' minutes)');
+            }
+        });
+        
+        // Trigger on page load
+        $('#DurationMinutes').trigger('input');
+    </script>
+}
