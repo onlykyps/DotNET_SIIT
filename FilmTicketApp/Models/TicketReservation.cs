@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace FilmTicketApp.Models
 {
-    public class TicketReservation: IEntityBase
+    public class TicketReservation : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -21,6 +21,8 @@ namespace FilmTicketApp.Models
         [Required]
         [Display(Name = "Session")]
         public int SessionId { get; set; }
+
+
 
         [Required]
         [Display(Name = "Reservation Date")]
@@ -40,6 +42,11 @@ namespace FilmTicketApp.Models
         [Display(Name = "Cancelled Date")]
         public DateTime? CancelledDate { get; set; }
 
+        // Legacy fields for backward compatibility
+        public string? CustomerName { get; set; }
+        public string? CustomerEmail { get; set; }
+
+        // Navigation properties
         [ForeignKey("SeatId")]
         public virtual Seat Seat { get; set; } = null!;
 
@@ -49,5 +56,12 @@ namespace FilmTicketApp.Models
         [ForeignKey("SessionId")]
         public virtual Session Session { get; set; } = null!;
 
+
+
+        // Helper methods
+        public void GenerateBookingReference()
+        {
+            BookingReference = $"BK{DateTime.Now:yyyyMMdd}{Id:D6}";
+        }
     }
 }
