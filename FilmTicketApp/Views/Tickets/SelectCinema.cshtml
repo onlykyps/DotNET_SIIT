@@ -1,0 +1,61 @@
+@model List<Cinema>
+@{
+    ViewData["Title"] = "Select Cinema";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">
+                        <i class="bi bi-building me-2"></i>Select Cinema
+                    </h3>
+                </div>
+                <div class="card-body">
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="row g-3">
+                            @foreach (var cinema in Model)
+                            {
+                                <div class="col-md-6">
+                                    <div class="card h-100 cinema-card">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-building display-4 text-primary mb-3"></i>
+                                            <h5 class="card-title">@cinema.Name</h5>
+                                            <p class="card-text text-muted">@cinema.Description</p>
+                                            <a href="@Url.Action("SelectMovie", new { cinemaId = cinema.Id })" 
+                                               class="btn btn-primary btn-lg">
+                                                <i class="bi bi-arrow-right me-2"></i>Select Movies
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="bi bi-exclamation-triangle display-1 text-warning"></i>
+                            <h4 class="mt-3">No Cinemas Available</h4>
+                            <p class="text-muted">Please contact the administrator to add cinemas.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.cinema-card {
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.cinema-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+</style>

@@ -57,5 +57,7 @@ namespace FilmTicketApp.Models
         [Display(Name = "Director")]
         public string? Director { get; set; }
 
+        public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
+
     }
 }

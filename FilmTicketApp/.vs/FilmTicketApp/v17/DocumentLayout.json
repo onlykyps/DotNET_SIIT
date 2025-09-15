@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\models\\tickettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:models\\tickettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\models\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:models\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\models\\ticketreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:models\\ticketreservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +39,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TicketType.cs",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\TicketType.cs",
+              "RelativeDocumentMoniker": "Models\\TicketType.cs",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\TicketType.cs",
+              "RelativeToolTip": "Models\\TicketType.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T05:10:41.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Session.cs",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\Session.cs",
+              "RelativeDocumentMoniker": "Models\\Session.cs",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\Session.cs",
+              "RelativeToolTip": "Models\\Session.cs",
+              "ViewState": "AgIAABEAAADAmZmZmZkpwDUAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T05:10:36.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TicketReservation.cs",
               "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\TicketReservation.cs",
               "RelativeDocumentMoniker": "Models\\TicketReservation.cs",
               "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\TicketReservation.cs",
               "RelativeToolTip": "Models\\TicketReservation.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAADwvxUAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAzczMzMw8wBoAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-14T16:18:47.305Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CinemasController.cs",
               "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Controllers\\CinemasController.cs",
               "RelativeDocumentMoniker": "Controllers\\CinemasController.cs",
@@ -51,12 +85,11 @@
               "RelativeToolTip": "Controllers\\CinemasController.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAIwH4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T16:16:07.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T16:16:07.927Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Seat.cs",
               "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\Seat.cs",
               "RelativeDocumentMoniker": "Models\\Seat.cs",
@@ -64,12 +97,11 @@
               "RelativeToolTip": "Models\\Seat.cs",
               "ViewState": "AgIAAAQAAABAMzMzMzMrwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T16:12:36.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T16:12:36.137Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -77,8 +109,7 @@
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T16:11:26.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T16:11:26.327Z"
             }
           ]
         }
