@@ -52,5 +52,7 @@ namespace FilmTicketApp.Models
         
         [NotMapped]
         public bool IsExpired => DateTime.Now > SessionDateTime.AddMinutes(30);
+
+
     }
 }

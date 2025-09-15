@@ -59,5 +59,8 @@ namespace FilmTicketApp.Models
 
         public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 
+        [Display(Name = "Is Active")]
+        public bool IsActive { get; set; } = true;
+
     }
 }
