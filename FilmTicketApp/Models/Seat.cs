@@ -35,6 +35,15 @@ namespace FilmTicketApp.Models
         
         [Display(Name = "Is Active")]
         public bool IsActive { get; set; } = true;
+        public virtual ICollection<TicketReservation> Reservations { get; set; } = new List<TicketReservation>();
 
+        // Helper properties
+        [NotMapped]
+        public string SeatLabel => $"{Row}-{SeatNumber:D2}";
+
+        public bool IsAvailableForSession(int sessionId)
+        {
+            return !Reservations.Any(r => r.SessionId == sessionId && r.IsActive);
+        }
     }
 }
