@@ -4,12 +4,15 @@ using FilmTicketApp.Models;
 
 namespace FilmTicketApp.Data.Services
 {
-    public interface IFilmsService : IEntityBaseRepo<Film>
+    public interface IFilmsService
     {
-        Task<Film> GetFilmById(int id);
-        Task<NewFilmDropdownsVM> GetNewFilmDropdownsValues();
-        Task<bool> Delete(int id);
-        Task<Film> Create(Film movie);
+        Task<IEnumerable<Film>> GetAllAsync();
+        Task<Film?> GetByIdAsync(int id);
+        Task<Film> CreateAsync(Film Film);
+        Task<Film> UpdateAsync(Film Film);
+        Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<Film>> GetActiveFilmsAsync();
+        Task<bool> ExistsAsync(int id);
         Task<IEnumerable<Film>> SearchAsync(string searchTerm);
     }
 }

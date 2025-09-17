@@ -10,7 +10,7 @@ namespace FilmTicketApp.Data.Services
         Task<Session> UpdateAsync(Session session);
         Task<bool> DeleteAsync(int id);
         Task<IEnumerable<Session>> GetActiveSessionsAsync();
-        Task<IEnumerable<Session>> GetSessionsByMovieAsync(int movieId);
+        Task<IEnumerable<Session>> GetSessionsByFilmAsync(int movieId);
         Task<IEnumerable<Session>> GetSessionsByCinemaAsync(int cinemaId);
         Task<IEnumerable<Session>> GetSessionsByDateAsync(DateTime date);
         Task<bool> ExistsAsync(int id);

@@ -6,59 +6,118 @@ using System.Threading.Tasks;
 
 namespace FilmTicketApp.Data.Services
 {
-    public class FilmsService : EntityBaseRepo<Film>, IFilmsService
-   {
-      private readonly AppDBContext _dbContext;
+    public class FilmService : IFilmsService
+    {
+        private readonly AppDBContext _context;
 
-      public FilmsService(AppDBContext dbContext) : base(dbContext)
-      {
-         _dbContext = dbContext;
-      }
+        public FilmService(AppDBContext context)
+        {
+            _context = context;
+        }
 
-      public async Task<Film> GetFilmById(int id)
-      {
-         var filmDetails = await _dbContext.Films.Include(f => f.Cinema)
-                                             .Include(p => p.Producer)
-                                             .Include(fa => fa.FilmActors)
-                                             .ThenInclude(a => a.Actor)
-                                             .FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<IEnumerable<Film>> GetAllAsync()
+        {
+            return await _context.Films
+                .Include(m => m.Sessions)
+                .OrderBy(m => m.Title)
+                .ToListAsync();
+        }
 
-         return filmDetails;
-      }
+        public async Task<Film?> GetByIdAsync(int id)
+        {
+            return await _context.Films
+                .Include(m => m.Sessions)
+                .ThenInclude(s => s.Cinema)
+                .FirstOrDefaultAsync(m => m.Id == id);
+        }
 
-      public async Task<NewFilmDropdownsVM> GetNewFilmDropdownsValues()
-      {
-         var response = new NewFilmDropdownsVM();
+        public async Task<Film> CreateAsync(Film Film)
+        {
+            if (Film == null)
+                throw new ArgumentNullException(nameof(Film));
 
-         response.Actors = await _dbContext.Actors.OrderBy(a => a.FullName).ToListAsync();
-         response.Cinemas = await _dbContext.Cinemas.OrderBy(a => a.Name).ToListAsync();
-         response.Producers = await _dbContext.Producers.OrderBy(a => a.FullName).ToListAsync();
+            Film.Id = 0; // Ensure new entity
+            _context.Films.Add(Film);
+            await _context.SaveChangesAsync();
+            return Film;
+        }
 
-         return response;
-      }
+        public async Task<Film> UpdateAsync(Film Film)
+        {
+            if (Film == null)
+                throw new ArgumentNullException(nameof(Film));
+
+            var existingFilm = await _context.Films.FindAsync(Film.Id);
+            if (existingFilm == null)
+                throw new InvalidOperationException($"Film with ID {Film.Id} not found.");
+
+            // Update properties
+            existingFilm.Title = Film.Title;
+            existingFilm.Description = Film.Description;
+            existingFilm.DurationMinutes = Film.DurationMinutes;
+            existingFilm.Genre = Film.Genre;
+            existingFilm.Rating = Film.Rating;
+            existingFilm.ReleaseDate = Film.ReleaseDate;
+            existingFilm.PosterImageUrl = Film.PosterImageUrl;
+            existingFilm.IsActive = Film.IsActive;
+
+            await _context.SaveChangesAsync();
+            return existingFilm;
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var Film = await _context.Films.FindAsync(id);
+            if (Film == null)
+                return false;
+
+            // Check if Film has active sessions
+            var hasActiveSessions = await _context.Sessions
+                .AnyAsync(s => s.FilmId == id && s.IsActive);
+
+            if (hasActiveSessions)
+            {
+                // Soft delete - mark as inactive
+                Film.IsActive = false;
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                // Hard delete if no active sessions
+                _context.Films.Remove(Film);
+                await _context.SaveChangesAsync();
+            }
+
+            return true;
+        }
+
+        public async Task<IEnumerable<Film>> GetActiveFilmsAsync()
+        {
+            return await _context.Films
+                .Where(m => m.IsActive)
+                .Include(m => m.Sessions.Where(s => s.IsActive))
+                .OrderBy(m => m.Title)
+                .ToListAsync();
+        }
+
+        public async Task<bool> ExistsAsync(int id)
+        {
+            return await _context.Films.AnyAsync(m => m.Id == id);
+        }
 
         public async Task<IEnumerable<Film>> SearchAsync(string searchTerm)
         {
             if (string.IsNullOrWhiteSpace(searchTerm))
-                return await GetAll();
+                return await GetAllAsync();
 
             searchTerm = searchTerm.ToLower();
-            return await _dbContext.Films
-                .Where(m => m.Name.ToLower().Contains(searchTerm) ||
+            return await _context.Films
+                .Where(m => m.Title.ToLower().Contains(searchTerm) ||
                            m.Description.ToLower().Contains(searchTerm) ||
                            m.Genre.ToLower().Contains(searchTerm))
-                .OrderBy(m => m.Name)
+                .Include(m => m.Sessions)
+                .OrderBy(m => m.Title)
                 .ToListAsync();
-        }
-
-        Task<Film> IFilmsService.Create(Film movie)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<bool> IFilmsService.Delete(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

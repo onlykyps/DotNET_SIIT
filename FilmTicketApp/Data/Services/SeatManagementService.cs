@@ -38,7 +38,7 @@ namespace FilmTicketApp.Data.Services
                 .Include(s => s.Film)
                 .Include(s => s.Cinema)
                 .ToListAsync();
-            
+
             return sessions
                 .Where(s => s.SessionDate.Add(s.StartTime) > currentDateTime)
                 .OrderBy(s => s.SessionDate.Add(s.StartTime))
@@ -65,15 +65,16 @@ namespace FilmTicketApp.Data.Services
 
                     if (seat == null)
                     {
-                        return false; 
+                        return false; // Seat not found
                     }
-                    
+
+                    // Check if seat is available for this session
                     var existingReservation = await _context.TicketReservations
                         .AnyAsync(tr => tr.SeatId == seat.Id && tr.SessionId == sessionId && tr.IsActive);
-                    
+
                     if (existingReservation)
                     {
-                        return false; 
+                        return false; // Seat already reserved for this session
                     }
 
                     var reservation = new TicketReservation
@@ -92,6 +93,7 @@ namespace FilmTicketApp.Data.Services
                 _context.TicketReservations.AddRange(reservations);
                 await _context.SaveChangesAsync();
 
+                // Generate booking references after saving to get IDs
                 foreach (var reservation in reservations)
                 {
                     reservation.GenerateBookingReference();
@@ -102,6 +104,7 @@ namespace FilmTicketApp.Data.Services
             }
             catch (Exception ex)
             {
+                // Log the exception
                 return false;
             }
         }
@@ -114,6 +117,7 @@ namespace FilmTicketApp.Data.Services
                 var reservationsToReturn = new List<TicketReservation>();
                 decimal totalRefund = 0;
 
+                // Find reservations for the specified seats
                 for (int i = 0; i < numberOfTickets; i++)
                 {
                     int seatNumber = firstSeat + i;
@@ -137,6 +141,7 @@ namespace FilmTicketApp.Data.Services
                     return 0;
                 }
 
+                // Return the tickets
                 foreach (var reservation in reservationsToReturn)
                 {
                     reservation.Seat.IsOccupied = false;
@@ -168,7 +173,7 @@ namespace FilmTicketApp.Data.Services
             try
             {
                 var updatedTicketTypes = new List<TicketType>();
-                
+
                 foreach (var kvp in ticketTypePrices)
                 {
                     var ticketType = await _context.TicketTypes.FindAsync(kvp.Key);
@@ -180,12 +185,13 @@ namespace FilmTicketApp.Data.Services
                 }
 
                 await _context.SaveChangesAsync();
-                
+
+                // Notify all connected clients about price updates
                 if (updatedTicketTypes.Any())
                 {
                     await _priceNotificationService.NotifyPriceUpdateAsync(updatedTicketTypes);
                 }
-                
+
                 return true;
             }
             catch
@@ -201,7 +207,7 @@ namespace FilmTicketApp.Data.Services
 
             var cinemas = await _context.Cinemas.ToListAsync();
             var seats = new List<Seat>();
-            
+
             foreach (var cinema in cinemas)
             {
                 for (int row = 1; row <= 20; row++)
@@ -236,6 +242,7 @@ namespace FilmTicketApp.Data.Services
                 seatGrid.Add(rowSeats);
             }
 
+            // Calculate occupied seats based on active reservations, not the IsOccupied property
             var occupiedSeats = await _context.TicketReservations
                 .Where(tr => tr.IsActive)
                 .Select(tr => tr.SeatId)

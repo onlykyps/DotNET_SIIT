@@ -41,24 +41,26 @@ namespace FilmTicketApp.Data.Services
             if (session == null)
                 throw new ArgumentNullException(nameof(session));
 
-            var filmExists = await _context.Films.AnyAsync(m => m.Id == session.FilmId);
+            // Validate Film and cinema exist
+            var FilmExists = await _context.Films.AnyAsync(m => m.Id == session.FilmId);
             var cinemaExists = await _context.Cinemas.AnyAsync(c => c.Id == session.CinemaId);
 
-            if (!filmExists)
-                throw new InvalidOperationException($"film with ID {session.FilmId} not found.");
+            if (!FilmExists)
+                throw new InvalidOperationException($"Film with ID {session.FilmId} not found.");
             if (!cinemaExists)
                 throw new InvalidOperationException($"Cinema with ID {session.CinemaId} not found.");
 
+            // Check for conflicting sessions
             var hasConflict = await HasConflictingSessionAsync(
-                session.CinemaId, 
-                session.SessionDate, 
-                session.StartTime, 
+                session.CinemaId,
+                session.SessionDate,
+                session.StartTime,
                 session.EndTime);
 
             if (hasConflict)
                 throw new InvalidOperationException("A session already exists at this time in the selected cinema.");
 
-            session.Id = 0;
+            session.Id = 0; // Ensure new entity
             session.CreatedDate = DateTime.Now;
             _context.Sessions.Add(session);
             await _context.SaveChangesAsync();
@@ -74,24 +76,27 @@ namespace FilmTicketApp.Data.Services
             if (existingSession == null)
                 throw new InvalidOperationException($"Session with ID {session.Id} not found.");
 
-            var filmExists = await _context.Films.AnyAsync(m => m.Id == session.FilmId);
+            // Validate Film and cinema exist
+            var FilmExists = await _context.Films.AnyAsync(m => m.Id == session.FilmId);
             var cinemaExists = await _context.Cinemas.AnyAsync(c => c.Id == session.CinemaId);
 
-            if (!filmExists)
-                throw new InvalidOperationException($"film with ID {session.FilmId} not found.");
+            if (!FilmExists)
+                throw new InvalidOperationException($"Film with ID {session.FilmId} not found.");
             if (!cinemaExists)
                 throw new InvalidOperationException($"Cinema with ID {session.CinemaId} not found.");
 
+            // Check for conflicting sessions (excluding current session)
             var hasConflict = await HasConflictingSessionAsync(
-                session.CinemaId, 
-                session.SessionDate, 
-                session.StartTime, 
-                session.EndTime, 
+                session.CinemaId,
+                session.SessionDate,
+                session.StartTime,
+                session.EndTime,
                 session.Id);
 
             if (hasConflict)
                 throw new InvalidOperationException("A session already exists at this time in the selected cinema.");
 
+            // Update properties
             existingSession.SessionDate = session.SessionDate;
             existingSession.StartTime = session.StartTime;
             existingSession.EndTime = session.EndTime;
@@ -109,16 +114,19 @@ namespace FilmTicketApp.Data.Services
             if (session == null)
                 return false;
 
+            // Check if session has active reservations
             var hasActiveReservations = await _context.TicketReservations
                 .AnyAsync(tr => tr.SessionId == id && tr.IsActive);
 
             if (hasActiveReservations)
             {
+                // Soft delete - mark as inactive
                 session.IsActive = false;
                 await _context.SaveChangesAsync();
             }
             else
             {
+                // Hard delete if no active reservations
                 _context.Sessions.Remove(session);
                 await _context.SaveChangesAsync();
             }
@@ -137,10 +145,10 @@ namespace FilmTicketApp.Data.Services
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Session>> GetSessionsByfilmAsync(int filmId)
+        public async Task<IEnumerable<Session>> GetSessionsByFilmAsync(int FilmId)
         {
             return await _context.Sessions
-                .Where(s => s.FilmId == filmId && s.IsActive)
+                .Where(s => s.FilmId == FilmId && s.IsActive)
                 .Include(s => s.Film)
                 .Include(s => s.Cinema)
                 .OrderBy(s => s.SessionDate)
@@ -177,8 +185,8 @@ namespace FilmTicketApp.Data.Services
         public async Task<bool> HasConflictingSessionAsync(int cinemaId, DateTime sessionDate, TimeSpan startTime, TimeSpan endTime, int? excludeSessionId = null)
         {
             var query = _context.Sessions
-                .Where(s => s.CinemaId == cinemaId && 
-                           s.SessionDate.Date == sessionDate.Date && 
+                .Where(s => s.CinemaId == cinemaId &&
+                           s.SessionDate.Date == sessionDate.Date &&
                            s.IsActive &&
                            ((s.StartTime < endTime && s.EndTime > startTime)));
 
@@ -194,19 +202,14 @@ namespace FilmTicketApp.Data.Services
         {
             var now = DateTime.Now;
             return await _context.Sessions
-                .Where(s => s.IsActive && 
-                           (s.SessionDate.Date > now.Date || 
+                .Where(s => s.IsActive &&
+                           (s.SessionDate.Date > now.Date ||
                             (s.SessionDate.Date == now.Date && s.StartTime > now.TimeOfDay)))
                 .Include(s => s.Film)
                 .Include(s => s.Cinema)
                 .OrderBy(s => s.SessionDate)
                 .ThenBy(s => s.StartTime)
                 .ToListAsync();
-        }
-
-        public Task<IEnumerable<Session>> GetSessionsByMovieAsync(int movieId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

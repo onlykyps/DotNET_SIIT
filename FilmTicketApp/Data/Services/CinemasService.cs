@@ -132,29 +132,6 @@ namespace FilmTicketApp.Data.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Cinema>> GetAllCinemasAsync()
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<Cinema?> GetCinemaByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Cinema> CreateCinemaAsync(Cinema cinema)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Cinema> UpdateCinemaAsync(Cinema cinema)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> DeleteCinemaAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -54,7 +54,7 @@ namespace FilmTicketApp.Controllers
                 HttpContext.Session.SetString("AdminId", admin.Id.ToString());
                 HttpContext.Session.SetString("AdminEmail", admin.Email);
                 HttpContext.Session.SetString("UserRole", "Admin");
-                
+
                 // Also set authentication cookie for [Authorize] attributes
                 var claims = new List<Claim>
                 {
@@ -69,7 +69,7 @@ namespace FilmTicketApp.Controllers
                     ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
                 };
                 await HttpContext.SignInAsync("Cookies", new ClaimsPrincipal(claimsIdentity), authProperties);
-                
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -82,7 +82,7 @@ namespace FilmTicketApp.Controllers
                 HttpContext.Session.SetString("UserId", userId);
                 HttpContext.Session.SetString("UserEmail", model.Email);
                 HttpContext.Session.SetString("UserRole", "User");
-                
+
                 // Also set authentication cookie for [Authorize] attributes
                 var claims = new List<Claim>
                 {
@@ -97,7 +97,7 @@ namespace FilmTicketApp.Controllers
                     ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
                 };
                 await HttpContext.SignInAsync("Cookies", new ClaimsPrincipal(claimsIdentity), authProperties);
-                
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -176,7 +176,7 @@ namespace FilmTicketApp.Controllers
         // Helper method to check if user is authenticated
         public static bool IsAuthenticated(HttpContext httpContext)
         {
-            return !string.IsNullOrEmpty(httpContext.Session.GetString("AdminId")) || 
+            return !string.IsNullOrEmpty(httpContext.Session.GetString("AdminId")) ||
                    !string.IsNullOrEmpty(httpContext.Session.GetString("UserId"));
         }
 
@@ -189,7 +189,7 @@ namespace FilmTicketApp.Controllers
         // Helper method to get current user email
         public static string GetUserEmail(HttpContext httpContext)
         {
-            return httpContext.Session.GetString("AdminEmail") ?? 
+            return httpContext.Session.GetString("AdminEmail") ??
                    httpContext.Session.GetString("UserEmail") ?? string.Empty;
         }
 

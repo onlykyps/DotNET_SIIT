@@ -1,5 +1,4 @@
-﻿using FilmTicketApp.Data;
-using FilmTicketApp.Data.Services;
+﻿using FilmTicketApp.Data.Services;
 using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,32 +6,60 @@ namespace FilmTicketApp.Controllers
 {
     public class CinemasController : Controller
     {
-        private readonly ICinemaService _cinemasService;
+        private readonly ICinemaService _cinemaService;
 
-        public CinemasController(ICinemaService cinemasService)
+        public CinemasController(ICinemaService cinemaService)
         {
-            _cinemasService = cinemasService;
+            _cinemaService = cinemaService;
         }
 
-        public async Task<IActionResult> Index()
+        // GET: Cinemas
+        public async Task<IActionResult> Index(string searchTerm)
         {
-            var data = await _cinemasService.GetAllAsync();
-            return View(data);
+            IEnumerable<Cinema> cinemas;
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                cinemas = await _cinemaService.SearchAsync(searchTerm);
+                ViewBag.SearchTerm = searchTerm;
+            }
+            else
+            {
+                cinemas = await _cinemaService.GetAllAsync();
+            }
+
+            return View(cinemas);
         }
 
-        public async Task<IActionResult> Create()
+        // GET: Cinemas/Details/5
+        public async Task<IActionResult> Details(int id)
+        {
+            var cinema = await _cinemaService.GetByIdAsync(id);
+            if (cinema == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.SeatCount = await _cinemaService.GetSeatCountAsync(id);
+            return View(cinema);
+        }
+
+        // GET: Cinemas/Create
+        public IActionResult Create()
         {
             return View();
         }
 
+        // POST: Cinemas/Create
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Logo,Name,Description")] Cinema cinema)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Cinema cinema)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _cinemasService.CreateAsync(cinema);
+                    await _cinemaService.CreateAsync(cinema);
                     TempData["SuccessMessage"] = "Cinema created successfully with 400 seats (20x20 layout)!";
                     return RedirectToAction(nameof(Index));
                 }
@@ -44,34 +71,21 @@ namespace FilmTicketApp.Controllers
             return View(cinema);
         }
 
-        public async Task<IActionResult> Details(int id)
+        // GET: Cinemas/Edit/5
+        public async Task<IActionResult> Edit(int id)
         {
-            var cinemaDetails = await _cinemasService.GetByIdAsync(id);
-
-            if (cinemaDetails == null)
+            var cinema = await _cinemaService.GetByIdAsync(id);
+            if (cinema == null)
             {
-                return View("NotFound");
+                return NotFound();
             }
-
-            return View(cinemaDetails);
+            return View(cinema);
         }
 
-        public IActionResult Edit(int id)
-        {
-            Cinema cinemaDetails = _cinemasService.GetCinemaByIdAsync(id).Result;
-
-            if (cinemaDetails == null)
-            {
-                return View("Details");
-            }
-            else
-            {
-                return View(cinemaDetails);
-            }
-        }
-
+        // POST: Cinemas/Edit/5
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Logo,Name,Description")] Cinema cinema)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Cinema cinema)
         {
             if (id != cinema.Id)
             {
@@ -82,7 +96,7 @@ namespace FilmTicketApp.Controllers
             {
                 try
                 {
-                    await _cinemasService.UpdateAsync(cinema);
+                    await _cinemaService.UpdateAsync(cinema);
                     TempData["SuccessMessage"] = "Cinema updated successfully!";
                     return RedirectToAction(nameof(Index));
                 }
@@ -97,25 +111,28 @@ namespace FilmTicketApp.Controllers
             }
             return View(cinema);
         }
+
+        // GET: Cinemas/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            var details = await _cinemasService.GetByIdAsync(id);
-
-            if (details == null)
+            var cinema = await _cinemaService.GetByIdAsync(id);
+            if (cinema == null)
             {
-                return View("NotFound");
+                return NotFound();
             }
 
-            return View(details);
+            ViewBag.SeatCount = await _cinemaService.GetSeatCountAsync(id);
+            return View(cinema);
         }
 
+        // POST: Cinemas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                var success = await _cinemasService.DeleteCinemaAsync(id);
+                var success = await _cinemaService.DeleteAsync(id);
                 if (success)
                 {
                     TempData["SuccessMessage"] = "Cinema and all associated seats deleted successfully!";
@@ -137,5 +154,37 @@ namespace FilmTicketApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // API endpoint for getting all cinemas (for AJAX calls)
+        [HttpGet]
+        public async Task<IActionResult> GetAllCinemas()
+        {
+            try
+            {
+                var cinemas = await _cinemaService.GetAllAsync();
+                return Json(cinemas.Select(c => new {
+                    id = c.Id,
+                    name = c.Name,
+                    description = c.Description,
+                    logo = c.Logo
+                }));
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
+
+        // GET: Cinemas/SeatLayout/5
+        public async Task<IActionResult> SeatLayout(int id)
+        {
+            var cinema = await _cinemaService.GetByIdAsync(id);
+            if (cinema == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.SeatCount = await _cinemaService.GetSeatCountAsync(id);
+            return View(cinema);
+        }
     }
 }

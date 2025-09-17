@@ -1,128 +1,195 @@
-﻿using FilmTicketApp.Data;
-using FilmTicketApp.Data.Services;
+﻿using FilmTicketApp.Data.Services;
 using FilmTicketApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace FilmTicketApp.Controllers
 {
     public class FilmsController : Controller
     {
-        private readonly IFilmsService _filmsService;
+        private readonly IFilmsService _filmService;
 
-        public FilmsController(IFilmsService filmsService)
+        public FilmsController(IFilmsService filmService)
         {
-            _filmsService = filmsService;
+            _filmService = filmService;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var data = await _filmsService.GetAll(n => n.Cinema);
-            return View(data);
-        }
-
+        // GET: Films
         public async Task<IActionResult> Index(string searchTerm)
         {
-            IEnumerable<Film> movies;
+            IEnumerable<Film> Films;
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-                movies = await _filmsService.SearchAsync(searchTerm);
+                Films = await _filmService.SearchAsync(searchTerm);
                 ViewBag.SearchTerm = searchTerm;
             }
             else
             {
-                movies = await _filmsService.GetAll();
+                Films = await _filmService.GetAllAsync();
             }
 
-            return View(movies);
+            return View(Films);
         }
 
+        // GET: Films/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            var filmDetail = await _filmsService.GetFilmById(id);
-
-            return View(filmDetail);
+            var Film = await _filmService.GetByIdAsync(id);
+            if (Film == null)
+            {
+                return NotFound();
+            }
+            return View(Film);
         }
 
+        // GET: Films/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Films/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Film film)
+        public async Task<IActionResult> Create(Film Film)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _filmsService.Create(film);
-                    TempData["SuccessMessage"] = "Movie created successfully!";
+                    await _filmService.CreateAsync(Film);
+                    TempData["SuccessMessage"] = "Film created successfully!";
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
                 {
-                    ModelState.AddModelError("", $"Error creating movie: {ex.Message}");
+                    ModelState.AddModelError("", $"Error creating Film: {ex.Message}");
                 }
             }
-
-
-            var filmDropdownsData = await _filmsService.GetNewFilmDropdownsValues();
-
-            ViewBag.CinemaId = new SelectList(filmDropdownsData.Cinemas, "Id", "Name");
-            ViewBag.ProducerId = new SelectList(filmDropdownsData.Producers, "Id", "FullName");
-            ViewBag.ActorId = new SelectList(filmDropdownsData.Actors, "Id", "FullName");
-
-            return View();
+            return View(Film);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Biography")] Film film)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(film);
-        //    }
-
-        //    await _filmsService.Add(film);
-
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        // GET: Movies/Delete/5
-        public async Task<IActionResult> Delete(int id)
+        // GET: Films/Edit/5
+        public async Task<IActionResult> Edit(int id)
         {
-            var movie = await _filmsService.GetById(id);
-            if (movie == null)
+            var Film = await _filmService.GetByIdAsync(id);
+            if (Film == null)
             {
                 return NotFound();
             }
-            return View(movie);
+            return View(Film);
         }
 
-        // POST: Movies/Delete/5
+        // POST: Films/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Film Film)
+        {
+            if (id != Film.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _filmService.UpdateAsync(Film);
+                    TempData["SuccessMessage"] = "Film updated successfully!";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (InvalidOperationException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", $"Error updating Film: {ex.Message}");
+                }
+            }
+            return View(Film);
+        }
+
+        // GET: Films/Delete/5
+        public async Task<IActionResult> Delete(int id)
+        {
+            var Film = await _filmService.GetByIdAsync(id);
+            if (Film == null)
+            {
+                return NotFound();
+            }
+            return View(Film);
+        }
+
+        // POST: Films/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                var success = await _filmsService.Delete(id);
+                var success = await _filmService.DeleteAsync(id);
                 if (success)
                 {
-                    TempData["SuccessMessage"] = "Movie deleted successfully!";
+                    TempData["SuccessMessage"] = "Film deleted successfully!";
                 }
                 else
                 {
-                    TempData["ErrorMessage"] = "Movie not found.";
+                    TempData["ErrorMessage"] = "Film not found.";
                 }
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = $"Error deleting movie: {ex.Message}";
+                TempData["ErrorMessage"] = $"Error deleting Film: {ex.Message}";
             }
 
             return RedirectToAction(nameof(Index));
         }
 
+        // GET: Films/ToggleStatus/5
+        public async Task<IActionResult> ToggleStatus(int id)
+        {
+            try
+            {
+                var Film = await _filmService.GetByIdAsync(id);
+                if (Film == null)
+                {
+                    TempData["ErrorMessage"] = "Film not found.";
+                    return RedirectToAction(nameof(Index));
+                }
 
+                Film.IsActive = !Film.IsActive;
+                await _filmService.UpdateAsync(Film);
+
+                TempData["SuccessMessage"] = $"Film {(Film.IsActive ? "activated" : "deactivated")} successfully!";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error updating Film status: {ex.Message}";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        // API endpoint for getting active Films (for AJAX calls)
+        [HttpGet]
+        public async Task<IActionResult> GetActivefilms()
+        {
+            try
+            {
+                var Films = await _filmService.GetActiveFilmsAsync();
+                return Json(Films.Select(m => new {
+                    id = m.Id,
+                    title = m.Title,
+                    duration = m.DurationMinutes,
+                    genre = m.Genre,
+                    rating = m.Rating
+                }));
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+        }
     }
 }
