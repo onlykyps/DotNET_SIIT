@@ -50,7 +50,7 @@ namespace FilmTicketApp.ViewModels
         public bool Is3D { get; set; }
         public bool IsReduced { get; set; }
         public decimal CurrentPrice { get; set; }
-        
+
         [Range(0.01, double.MaxValue, ErrorMessage = "Price must be greater than 0")]
         [Display(Name = "New Price")]
         public decimal NewPrice { get; set; }
