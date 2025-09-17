@@ -1,7 +1,7 @@
 @model Film
 
 @{
-    ViewData["Title"] = "Edit Movie";
+    ViewData["Title"] = "Edit film";
 }
 
 <div class="container">
@@ -15,7 +15,7 @@
                     <form asp-action="Edit" method="post">
                         <input asp-for="Id" type="hidden">
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
-                        
+
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label asp-for="Name" class="form-label">Movie Title *</label>
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label asp-for="Description" class="form-label">Description</label>
-                                <textarea asp-for="Description" class="form-control" rows="4" 
+                                <textarea asp-for="Description" class="form-control" rows="4"
                                           placeholder="Enter movie description..."></textarea>
                                 <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label asp-for="DurationMinutes" class="form-label">Duration (minutes)</label>
-                                <input asp-for="DurationMinutes" type="number" class="form-control" 
+                                <input asp-for="DurationMinutes" type="number" class="form-control"
                                        placeholder="e.g., 120" min="1" max="600">
                                 <span asp-validation-for="DurationMinutes" class="text-danger"></span>
                                 <div class="form-text">Enter duration in minutes (e.g., 120 for 2 hours)</div>
@@ -74,13 +74,17 @@
                                 <input asp-for="Director" class="form-control" placeholder="Director name">
                                 <span asp-validation-for="Director" class="text-danger"></span>
                             </div>
-                           
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Language" class="form-label">Language</label>
+                                <input asp-for="Language" class="form-control" placeholder="e.g., English, Spanish">
+                                <span asp-validation-for="Language" class="text-danger"></span>
+                            </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label asp-for="Cast" class="form-label">Cast</label>
-                                <textarea asp-for="Cast" class="form-control" rows="2" 
+                                <textarea asp-for="Cast" class="form-control" rows="2"
                                           placeholder="Main cast members (comma separated)"></textarea>
                                 <span asp-validation-for="Cast" class="text-danger"></span>
                             </div>
@@ -89,20 +93,34 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label asp-for="PosterImageUrl" class="form-label">Poster URL</label>
-                                <input asp-for="PosterImageUrl" type="url" class="form-control" 
+                                <input asp-for="PosterImageUrl" type="url" class="form-control"
                                        placeholder="https://example.com/poster.jpg">
                                 <span asp-validation-for="PosterImageUrl" class="text-danger"></span>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label asp-for="TrailerUrl" class="form-label">Trailer URL</label>
-                                <input asp-for="TrailerUrl" type="url" class="form-control" 
+                                <input asp-for="TrailerUrl" type="url" class="form-control"
                                        placeholder="https://youtube.com/watch?v=...">
                                 <span asp-validation-for="TrailerUrl" class="text-danger"></span>
                             </div>
                         </div>
 
                         <div class="row">
-                           
+                            <div class="col-md-12 mb-3">
+                                <div class="form-check">
+                                    <input asp-for="IsActive" class="form-check-input" type="checkbox">
+                                    <label asp-for="IsActive" class="form-check-label">
+                                        Active (Movie is available for scheduling)
+                                    </label>
+                                </div>
+                                @if (Model.Sessions?.Any() == true)
+                                {
+                                    <div class="form-text text-warning">
+                                        <i class="fas fa-exclamation-triangle me-1"></i>
+                                        This movie has @Model.Sessions.Count() active session(s). Deactivating will affect existing sessions.
+                                    </div>
+                                }
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-between">
@@ -126,8 +144,10 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
     <script>
         // Auto-calculate duration display
         $('#DurationMinutes').on('input', function() {
@@ -145,7 +165,7 @@
                 $(this).next('.form-text').text('Duration: ' + display + ' (' + minutes + ' minutes)');
             }
         });
-        
+
         // Trigger on page load
         $('#DurationMinutes').trigger('input');
     </script>
