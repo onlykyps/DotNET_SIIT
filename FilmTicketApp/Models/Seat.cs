@@ -32,9 +32,7 @@ namespace FilmTicketApp.Models
         // Navigation properties
         [ForeignKey("CinemaId")]
         public virtual Cinema Cinema { get; set; } = null!;
-        
-        [Display(Name = "Is Active")]
-        public bool IsActive { get; set; } = true;
+
         public virtual ICollection<TicketReservation> Reservations { get; set; } = new List<TicketReservation>();
 
         // Helper properties
