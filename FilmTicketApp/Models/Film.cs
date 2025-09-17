@@ -11,8 +11,8 @@ namespace FilmTicketApp.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Film name")]
-        public string Name { get; set; } = string.Empty;
+        [Display(Name = "Film Name")]
+        public string Title { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Description")]
