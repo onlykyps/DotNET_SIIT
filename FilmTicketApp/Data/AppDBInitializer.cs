@@ -119,7 +119,7 @@ namespace FilmTicketApp.Data
                   new Film()
                   {
                      Name = "Film 1",
-                     ImageURL = "https://unsplash.com/photos/turned-on-capitol-theatre-neon-light-signage-IOr6a62l4L4",
+                     PosterImageUrl = "https://unsplash.com/photos/turned-on-capitol-theatre-neon-light-signage-IOr6a62l4L4",
                      Description = "Film description",
                      StartDate = DateTime.Now.AddDays(-10),
                      EndDate = DateTime.Now.AddDays(-2),
@@ -132,7 +132,7 @@ namespace FilmTicketApp.Data
                   new Film()
                   {
                      Name = "Film 2",
-                     ImageURL = "https://unsplash.com/photos/red-and-white-concrete-building-7kBkJbhl7IY",
+                     PosterImageUrl = "https://unsplash.com/photos/red-and-white-concrete-building-7kBkJbhl7IY",
                      Description = "Film description",
                      StartDate = DateTime.Now.AddDays(10),
                      EndDate = DateTime.Now.AddDays(2),
@@ -145,7 +145,7 @@ namespace FilmTicketApp.Data
                   new Film()
                   {
                      Name = "Film 3",
-                     ImageURL = "https://unsplash.com/photos/blue-and-red-neon-sign-NFBhiOLH-l8",
+                     PosterImageUrl = "https://unsplash.com/photos/blue-and-red-neon-sign-NFBhiOLH-l8",
                      Description = "Film description",
                      StartDate = DateTime.Now.AddDays(-15),
                      EndDate = DateTime.Now.AddDays(-3),
@@ -158,7 +158,7 @@ namespace FilmTicketApp.Data
                   new Film()
                   {
                      Name = "Actor 4",
-                     ImageURL = "https://unsplash.com/photos/a-movie-theater-at-night-with-lights-on-7-N13Zl_DAQ",
+                     PosterImageUrl = "https://unsplash.com/photos/a-movie-theater-at-night-with-lights-on-7-N13Zl_DAQ",
                      Description = "Film description",
                      StartDate = DateTime.Now.AddDays(-18),
                      EndDate = DateTime.Now.AddDays(4),

@@ -7,16 +7,16 @@ namespace FilmTicketApp.Controllers
 {
     public class CinemasController : Controller
     {
-        private readonly ICinemasService _cinemasService;
+        private readonly ICinemaService _cinemasService;
 
-        public CinemasController(ICinemasService cinemasService)
+        public CinemasController(ICinemaService cinemasService)
         {
             _cinemasService = cinemasService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var data = await _cinemasService.GetAll();
+            var data = await _cinemasService.GetAllAsync();
             return View(data);
         }
 
@@ -46,7 +46,7 @@ namespace FilmTicketApp.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var cinemaDetails = await _cinemasService.GetById(id);
+            var cinemaDetails = await _cinemasService.GetByIdAsync(id);
 
             if (cinemaDetails == null)
             {
@@ -58,7 +58,7 @@ namespace FilmTicketApp.Controllers
 
         public IActionResult Edit(int id)
         {
-            Cinema cinemaDetails = _cinemasService.GetById(id).Result;
+            Cinema cinemaDetails = _cinemasService.GetCinemaByIdAsync(id).Result;
 
             if (cinemaDetails == null)
             {
@@ -99,7 +99,7 @@ namespace FilmTicketApp.Controllers
         }
         public async Task<IActionResult> Delete(int id)
         {
-            var details = await _cinemasService.GetById(id);
+            var details = await _cinemasService.GetByIdAsync(id);
 
             if (details == null)
             {
@@ -115,7 +115,7 @@ namespace FilmTicketApp.Controllers
         {
             try
             {
-                var success = await _cinemasService.DeleteAsync(id);
+                var success = await _cinemasService.DeleteCinemaAsync(id);
                 if (success)
                 {
                     TempData["SuccessMessage"] = "Cinema and all associated seats deleted successfully!";

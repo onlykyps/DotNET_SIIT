@@ -13,7 +13,7 @@
                     </h4>
                     <div class="mt-2">
                         <p class="mb-1">
-                            <i class="bi bi-film me-1"></i><strong>@Model.Session.Movie.Title</strong>
+                            <i class="bi bi-film me-1"></i><strong>@Model.Session.Film.Name</strong>
                         </p>
                         <p class="mb-0">
                             <i class="bi bi-building me-1"></i>@Model.Session.Cinema.Name - 
@@ -28,7 +28,7 @@
                             <i class="bi bi-info-circle-fill text-primary me-3" style="font-size: 1.5rem;"></i>
                             <div>
                                 <h6 class="mb-1 text-primary fw-bold">Consecutive Seat Selection Required</h6>
-                                <p class="mb-0 text-dark">Please select seats that are next to each other in the same row for the best movie experience.</p>
+                                <p class="mb-0 text-dark">Please select seats that are next to each other in the same row for the best Film experience.</p>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                     </form>
                     
                     <div class="mt-3">
-                        <a href="@Url.Action("SelectSession", new { cinemaId = Model.Session.CinemaId, movieId = Model.Session.MovieId })" 
+                        <a href="@Url.Action("SelectSession", new { cinemaId = Model.Session.CinemaId, movieId = Model.Session.FilmId })" 
                            class="btn btn-outline-secondary w-100">
                             <i class="bi bi-arrow-left me-2"></i>Back to Sessions
                         </a>
