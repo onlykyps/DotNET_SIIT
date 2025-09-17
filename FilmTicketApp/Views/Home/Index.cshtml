@@ -1,8 +1,445 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Film ticket app";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero-section text-center py-5 mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1 class="display-3 fw-bold mb-4">
+                    <i class="bi bi-camera-reels me-3"></i>Cinema Booking
+                </h1>
+                <p class="lead mb-4 fs-5">Book Your Movie Tickets Online</p>
+                <p class="text-white-50">Experience the latest movies in comfort - select your cinema, choose your seats, and enjoy the show!</p>
+                @{
+                    var isAuthenticated = !string.IsNullOrEmpty(Context.Session.GetString("AdminId")) || !string.IsNullOrEmpty(Context.Session.GetString("UserId"));
+                }
+                @if (!isAuthenticated)
+                {
+                    <div class="mt-4">
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-light btn-lg me-3">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                        </a>
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-person-plus me-2"></i>Register
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="mt-4">
+                        <a asp-controller="Tickets" asp-action="SelectCinema" class="btn btn-light btn-lg">
+                            <i class="bi bi-ticket me-2"></i>Book Tickets Now
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="container">
+    <!-- Features Section -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6">
+            <div class="feature-card text-center">
+                <i class="bi bi-building feature-icon text-primary"></i>
+                <h5 class="mt-3">Multiple Cinemas</h5>
+                <p class="text-muted">Choose from various cinema locations</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="feature-card text-center">
+                <i class="bi bi-film feature-icon text-success"></i>
+                <h5 class="mt-3">Latest Movies</h5>
+                <p class="text-muted">Watch the newest blockbusters</p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="feature-card text-center enhanced-feature">
+                <i class="bi bi-grid-3x3-gap feature-icon text-warning"></i>
+                <h5 class="mt-3">Smart Seat Selection</h5>
+                <p class="text-muted">Consecutive seat allocation for the best experience</p>
+                <div class="feature-badge">
+                    <span class="badge bg-warning text-dark">NEW!</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="feature-card text-center">
+                <i class="bi bi-credit-card feature-icon text-info"></i>
+                <h5 class="mt-3">Easy Booking</h5>
+                <p class="text-muted">Quick and secure payment</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Statistics -->
+    @if (isAuthenticated)
+    {
+        <div class="row g-4 mb-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">
+                    <i class="bi bi-bar-chart me-2"></i>Dashboard Statistics
+                </h3>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-primary">
+                        <i class="bi bi-ticket"></i>
+                    </div>
+                    <h4 class="stats-number">@ViewBag.TotalBookings</h4>
+                    <p class="stats-label">Total Bookings</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-success">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <h4 class="stats-number">@ViewBag.TodayBookings</h4>
+                    <p class="stats-label">Today's Bookings</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-warning">
+                        <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <h4 class="stats-number">$@ViewBag.TotalRevenue</h4>
+                    <p class="stats-label">Total Revenue</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-info">
+                        <i class="bi bi-currency-exchange"></i>
+                    </div>
+                    <h4 class="stats-number">$@ViewBag.TodayRevenue</h4>
+                    <p class="stats-label">Today's Revenue</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Statistics Row -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-secondary">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h4 class="stats-number">@ViewBag.UniqueCustomers</h4>
+                    <p class="stats-label">Unique Customers</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-dark">
+                        <i class="bi bi-calculator"></i>
+                    </div>
+                    <h4 class="stats-number">$@ViewBag.AverageTicketPrice.ToString("F2")</h4>
+                    <p class="stats-label">Average Ticket Price</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-danger">
+                        <i class="bi bi-grid-3x3-gap"></i>
+                    </div>
+                    <h4 class="stats-number">@Model.OccupiedSeats</h4>
+                    <p class="stats-label">Occupied Seats</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stats-card text-center">
+                    <div class="stats-icon bg-success">
+                        <i class="bi bi-check-square"></i>
+                    </div>
+                    <h4 class="stats-number">@Model.AvailableSeats</h4>
+                    <p class="stats-label">Available Seats</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Quick Actions -->
+    <div class="row g-4">
+        @if (isAuthenticated)
+        {
+            <div class="col-lg-3 col-md-6">
+                <a href="@Url.Action("SelectCinema", "Tickets")" class="dashboard-card book-tickets text-decoration-none">
+                    <i class="bi bi-ticket"></i>
+                    <h5>Book Tickets</h5>
+                    <p class="mb-0">Start your movie booking journey</p>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <a href="@Url.Action("ChangePrices", "Admin")" class="dashboard-card admin-prices text-decoration-none">
+                    <i class="bi bi-currency-dollar"></i>
+                    <h5>Manage Prices</h5>
+                    <p class="mb-0">Update ticket pricing</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="@Url.Action("ManageTickets", "Admin")" class="dashboard-card admin-manage text-decoration-none">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <h5>Manage Tickets</h5>
+                    <p class="mb-0">View all ticket bookings</p>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="col-lg-6 col-md-6">
+                <a href="@Url.Action("Login", "Account")" class="dashboard-card login-card text-decoration-none">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <h5>Login</h5>
+                    <p class="mb-0">Sign in to book your tickets</p>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <a href="@Url.Action("Register", "Account")" class="dashboard-card register-card text-decoration-none">
+                    <i class="bi bi-person-plus"></i>
+                    <h5>Register</h5>
+                    <p class="mb-0">Create a new account to get started</p>
+                </a>
+            </div>
+        }
+    </div>
+
+    <!-- New Features Highlight -->
+    <div class="row mt-5 mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="card-body text-white p-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h4 class="mb-2">
+                                <i class="bi bi-stars me-2"></i>Enhanced Booking Experience
+                            </h4>
+                            <p class="mb-3 lead">We've improved our booking system with smart features for a better movie experience:</p>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Consecutive Seat Selection</strong> - Automatically ensures seats are next to each other
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Real-time Validation</strong> - Instant feedback during seat selection
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Enhanced UI</strong> - Improved visual indicators and error messages
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    <strong>Smart Pricing</strong> - Dynamic pricing with admin controls
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <i class="bi bi-award" style="font-size: 4rem; opacity: 0.3;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Pricing Information -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-tags me-2"></i>Current Ticket Prices</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var ticketType in (ViewBag.TicketTypes as List<FilmTicketApp.Models.TicketType>) ?? new List<FilmTicketApp.Models.TicketType>())
+                        {
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="text-center p-3 bg-light rounded">
+                                    <h6 class="fw-bold">@ticketType.Name</h6>
+                                    <span class="h4 @(ticketType.IsReduced ? "text-success" : "text-primary") price-display" data-ticket-id="@ticketType.Id">$@ticketType.Price.ToString("F2")</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        margin: 0 15px;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .feature-icon {
+        font-size: 3rem;
+    }
+
+    .dashboard-card {
+        display: block;
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        color: #333;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: none;
+        height: 100%;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            color: #333;
+        }
+
+        .dashboard-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+    .stats-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+    .stats-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: white;
+    }
+
+        .stats-icon i {
+            font-size: 2rem;
+        }
+
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .stats-label {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .book-tickets {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white !important;
+    }
+
+    .my-tickets {
+        background: linear-gradient(135deg, #17a2b8, #6f42c1);
+        color: white !important;
+    }
+
+    .login-card {
+        background: linear-gradient(135deg, #007bff, #6610f2);
+        color: white !important;
+    }
+
+    .register-card {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white !important;
+    }
+
+        .book-tickets:hover,
+        .my-tickets:hover,
+        .login-card:hover,
+        .register-card:hover {
+            color: white !important;
+        }
+
+    .admin-dashboard {
+        background: linear-gradient(135deg, #6f42c1, #e83e8c);
+        color: white !important;
+    }
+
+    .admin-prices {
+        background: linear-gradient(135deg, #fd7e14, #dc3545);
+        color: white !important;
+    }
+
+    .admin-seats {
+        background: linear-gradient(135deg, #20c997, #17a2b8);
+        color: white !important;
+    }
+
+        .admin-dashboard:hover,
+        .admin-prices:hover,
+        .admin-seats:hover {
+            color: white !important;
+        }
+
+    .enhanced-feature {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .enhanced-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .enhanced-feature:hover::before {
+            left: 100%;
+        }
+
+    .feature-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .enhanced-feature:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+</style>
