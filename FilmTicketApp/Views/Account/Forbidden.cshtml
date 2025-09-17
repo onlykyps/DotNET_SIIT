@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4><i class="bi bi-shield-exclamation me-2"></i>Access Denied</h4>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-shield-x text-danger" style="font-size: 4rem;"></i>
+                    </div>
+                    <h5 class="card-title text-danger">Insufficient Permissions</h5>
+                    <p class="card-text">
+                        You don't have the necessary permissions to access this resource. 
+                        This area is restricted to administrators only.
+                    </p>
+                    <div class="mt-4">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-primary me-2">
+                            <i class="bi bi-house me-1"></i> Go to Home
+                        </a>
+                        <a href="@Url.Action("Login", "Account")" class="btn btn-outline-secondary">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Login as Admin
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
