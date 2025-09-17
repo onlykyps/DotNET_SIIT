@@ -4,7 +4,7 @@
 @*Define ViewData*@
 
 @{
-    ViewData["Title"] = "List of Films";
+    ViewData["Title"] = "Film details";
 }
 
 @*Write Code*@
@@ -13,99 +13,250 @@
     Film details
 </h1>
 
-<div class="row">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    @if (!string.IsNullOrEmpty(Model.PosterImageUrl))
+                    {
+                        <img src="@Model.PosterImageUrl" alt="@Model.Name Poster" class="img-fluid rounded mb-3" style="max-height: 400px;">
+                    }
+                    else
+                    {
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 300px;">
+                            <i class="fas fa-film fa-4x text-muted"></i>
+                        </div>
+                    }
 
-    <div class="col-md-8 offset-2">
-        <div class="card mb-12">
-            <div class="row g-0">
-                <div class="col-md-12">
-                    <div class="card-header text-white bg-info">
-                        <p class="card-text">
-                            <h5 class="card-title">
-                                @Model.Name
+                    @if (Model.IsActive)
+                    {
+                        <span class="badge bg-success fs-6">Active</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary fs-6">Inactive</span>
+                    }
+                </div>
+            </div>
+        </div>
 
-                            </h5>
-                        </p>
-                    </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-film me-2"></i>@Model.Name</h2>
                 </div>
-                <div class="col-md-4">
-                    <img src="@Model.PosterImageUrl" width="100%">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <p class="card-text">@Model.Description</p>
-                        <p class="card-text">
-                            <b>Cinema: </b>
-                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaID">
-                                @Model.Cinema.Name
-                            </a>
-                        </p>
-                        <p class="card-text">
-                            <b>Producer: </b>
-                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerID">
-                                @Model.Producer.FullName
-                            </a>
-                        </p>
-                        <p class="card-text"><b>Category: </b>@Model.FilmGenre</p>
-                        <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
-                        <p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>
-                        <p class="card-text ">
-                            <b>Status: </b>
-                            @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Description:</strong></div>
+                        <div class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Description))
                             {
-                                <span class="badge bg-success text-white">Available</span>
-                            }
-                            else if (DateTime.Now > Model.EndDate)
-                            {
-                                <span class="badge bg-danger text-white">Expired</span>
+                                <p>@Model.Description</p>
                             }
                             else
                             {
-                                <span class="badge bg-primary text-white">Upcoming</span>
+                                <span class="text-muted">No description available</span>
                             }
-                        </p>
-                        <p class="card-text">
-                            <b>Actors:</b>
-                            <hr />
-                            <div class="row">
-                                @foreach (var actor in Model.FilmActors)
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Duration:</strong></div>
+                        <div class="col-sm-9">
+                            @if (Model.DurationMinutes > 0)
+                            {
+                                var hours = Model.DurationMinutes / 60;
+                                var minutes = Model.DurationMinutes % 60;
+                                if (hours > 0)
                                 {
-                                    <div class="flex-column text-center">
-                                        <img class="border-info rounded-circle"
-                                             src="@actor.Actor.ProfilePicture" style="max-width: 150px" />
-                                        <br />
-                                        <a asp-controller="Actors"
-                                           asp-action="Details"
-                                           asp-route-id="@actor.ActorID">
-                                            @actor.Actor.FullName
-                                        </a>
-                                    </div>
+                                    <span>@hours h @minutes min (@Model.DurationMinutes min total)</span>
                                 }
+                                else
+                                {
+                                    <span>@Model.DurationMinutes min</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not specified</span>
+                            }
+                        </div>
+                    </div>
 
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Release Date:</strong></div>
+                        <div class="col-sm-9">
+                            @if (Model.ReleaseDate != default(DateTime))
+                            {
+                                <span>@Model.ReleaseDate.ToString("MMMM dd, yyyy")</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not specified</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Genre:</strong></div>
+                        <div class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Genre))
+                            {
+                                <span class="badge bg-primary">@Model.Genre</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not specified</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Rating:</strong></div>
+                        <div class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Rating))
+                            {
+                                <span class="badge bg-warning text-dark">@Model.Rating</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not rated</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Director:</strong></div>
+                        <div class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Director))
+                            {
+                                <span>@Model.Director</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not specified</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Language:</strong></div>
+                        <div class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Language))
+                            {
+                                <span>@Model.Language</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not specified</span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-3"><strong>Cast:</strong></div>
+                        <div class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Cast))
+                            {
+                                <span>@Model.Cast</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Not specified</span>
+                            }
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.TrailerUrl))
+                    {
+                        <div class="row mb-3">
+                            <div class="col-sm-3"><strong>Trailer:</strong></div>
+                            <div class="col-sm-9">
+                                <a href="@Model.TrailerUrl" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-play me-1"></i>Watch Trailer
+                                </a>
                             </div>
+                        </div>
+                    }
+                </div>
+            </div>
 
-                        </p>
-
+            <!-- Sessions Information -->
+            @if (Model.Sessions?.Any() == true)
+            {
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5><i class="fas fa-calendar me-2"></i>Sessions (@Model.Sessions.Count())</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Cinema</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var session in Model.Sessions.OrderBy(s => s.SessionDate).ThenBy(s => s.StartTime))
+                                    {
+                                        <tr>
+                                            <td>@session.SessionDate.ToString("MMM dd, yyyy")</td>
+                                            <td>@session.StartTime.ToString(@"hh\:mm") - @session.EndTime.ToString(@"hh\:mm")</td>
+                                            <td>@session.Cinema?.Name</td>
+                                            <td>
+                                                @if (session.IsActive)
+                                                {
+                                                    <span class="badge bg-success">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">Inactive</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="card-footer ">
-                        <p class="card-text">
-
-                            <a class="btn btn-outline-primary float-right"
-                               asp-action="Index">
-
-                                Back to list
-
-                            </a>
-                            <a class="btn btn-success text-white">
-                                <i class="bi bi-cart-plus"></i> Select (Price @Model.Price.ToString("c"))
-                            </a>
-                        </p>
+            }
+            else
+            {
+                <div class="card mt-4">
+                    <div class="card-body text-center">
+                        <i class="fas fa-calendar-times fa-2x text-muted mb-2"></i>
+                        <p class="text-muted">No sessions scheduled for this movie.</p>
                     </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-1"></i>Back to List
+                </a>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">
+                        <i class="fas fa-edit me-1"></i>Edit
+                    </a>
+                    <a asp-action="ToggleStatus" asp-route-id="@Model.Id"
+                       class="btn @(Model.IsActive ? "btn-outline-secondary" : "btn-outline-success") me-2">
+                        <i class="fas @(Model.IsActive ? "fa-pause" : "fa-play") me-1"></i>
+                        @(Model.IsActive ? "Deactivate" : "Activate")
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>Delete
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
