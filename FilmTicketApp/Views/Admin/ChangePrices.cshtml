@@ -1,0 +1,251 @@
+@using FilmTicketApp.ViewModels
+@model ChangePricesViewModel
+@{
+    ViewData["Title"] = "Change Ticket Prices";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">Manage Ticket Prices</h2>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Current Ticket Prices</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ChangePrices" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Ticket Type</th>
+                                        <th>Current Price</th>
+                                        <th>New Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.TicketTypes.Count; i++)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <span class="badge @(Model.TicketTypes[i].Category == FilmTicketApp.Models.TicketCategory.Full ? "bg-primary" : "bg-success")">
+                                                    @Model.TicketTypes[i].Category
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <strong>@Model.TicketTypes[i].Name</strong>
+                                                <br>
+                                                <small class="text-muted">@Model.TicketTypes[i].Description</small>
+                                                @Html.HiddenFor(m => m.TicketTypes[i].Id)
+                                                @Html.HiddenFor(m => m.TicketTypes[i].Name)
+                                                @Html.HiddenFor(m => m.TicketTypes[i].Description)
+                                                @Html.HiddenFor(m => m.TicketTypes[i].Category)
+                                                @Html.HiddenFor(m => m.TicketTypes[i].Is3D)
+                                                @Html.HiddenFor(m => m.TicketTypes[i].IsReduced)
+                                                @Html.HiddenFor(m => m.TicketTypes[i].CurrentPrice)
+                                            </td>
+                                            <td>
+                                                <span class="h5 text-success">$@Model.TicketTypes[i].CurrentPrice.ToString("F2")</span>
+                                            </td>
+                                            <td>
+                                                <div class="input-group">
+                                                    <span class="input-group-text">$</span>
+                                                    @Html.EditorFor(m => m.TicketTypes[i].NewPrice, new { htmlAttributes = new { @class = "form-control", step = "0.01", min = "0.01" } })
+                                                </div>
+                                                @Html.ValidationMessageFor(m => m.TicketTypes[i].NewPrice, "", new { @class = "text-danger" })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+                            </a>
+                            <button type="submit" class="btn btn-primary" id="updatePricesBtn">
+                                <i class="fas fa-save me-2"></i>Update Prices
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Pricing Guidelines</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-info-circle me-2"></i>Recommended Pricing</h6>
+                        <ul class="mb-0">
+                            <li><strong>Full Price:</strong> $30.00</li>
+                            <li><strong>Full Price 3D:</strong> $32.00</li>
+                            <li><strong>Reduced Price:</strong> $20.00</li>
+                            <li><strong>Reduced Price 3D:</strong> $22.00</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <h6><i class="fas fa-exclamation-triangle me-2"></i>Important Notes</h6>
+                        <ul class="mb-0">
+                            <li>Price changes affect new bookings only</li>
+                            <li>Existing reservations maintain original prices</li>
+                            <li>Consider peak/off-peak pricing strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+    <div id="priceUpdateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i id="toastIcon" class="me-2"></i>
+            <strong id="toastTitle" class="me-auto">Price Update</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toastMessage">
+            <!-- Toast message will be inserted here -->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        $(document).ready(function() {
+            // Handle form submission with AJAX
+            $('form').on('submit', function(e) {
+                e.preventDefault();
+                
+                var $form = $(this);
+                var $submitBtn = $('#updatePricesBtn');
+                var originalBtnText = $submitBtn.html();
+                
+                // Disable button and show loading state
+                $submitBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Updating...');
+                
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: 'POST',
+                    data: $form.serialize(),
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            // Update current prices in the table
+                            $('input[name*="Price"]').each(function() {
+                                var $input = $(this);
+                                var newPrice = parseFloat($input.val());
+                                var $currentPriceSpan = $input.closest('tr').find('td:nth-child(3) span');
+                                $currentPriceSpan.text('$' + newPrice.toFixed(2));
+                                
+                                // Add a brief highlight effect
+                                $currentPriceSpan.addClass('bg-warning text-dark');
+                                setTimeout(function() {
+                                    $currentPriceSpan.removeClass('bg-warning text-dark');
+                                }, 1000);
+                            });
+                            
+                            // Show success toast
+                            showToast('success', 'Success!', response.message);
+                            
+                            // Trigger SignalR price update notification if available
+                            if (window.priceUpdateConnection && window.priceUpdateConnection.state === 'Connected') {
+                                // The server-side will handle the SignalR notification
+                            }
+                        } else {
+                            // Show error toast for server-side validation or business logic errors
+                            showToast('error', 'Error!', response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Show error toast
+                        showToast('error', 'Error!', 'Failed to update ticket prices. Please try again.');
+                    },
+                    complete: function() {
+                        // Re-enable button and restore original text
+                        $submitBtn.prop('disabled', false).html(originalBtnText);
+                    }
+                });
+            });
+            
+            // Toast notification function
+            function showToast(type, title, message) {
+                var $toast = $('#priceUpdateToast');
+                var $toastIcon = $('#toastIcon');
+                var $toastTitle = $('#toastTitle');
+                var $toastMessage = $('#toastMessage');
+                var $toastHeader = $toast.find('.toast-header');
+                
+                // Reset classes
+                $toastHeader.removeClass('bg-success bg-danger text-white');
+                $toastIcon.removeClass('fas fa-check-circle fas fa-exclamation-circle text-success text-danger');
+                
+                if (type === 'success') {
+                    $toastHeader.addClass('bg-success text-white');
+                    $toastIcon.addClass('fas fa-check-circle text-white');
+                } else {
+                    $toastHeader.addClass('bg-danger text-white');
+                    $toastIcon.addClass('fas fa-exclamation-circle text-white');
+                }
+                
+                $toastTitle.text(title);
+                $toastMessage.text(message);
+                
+                // Show toast
+                var toast = new bootstrap.Toast($toast[0], {
+                    autohide: true,
+                    delay: 5000
+                });
+                toast.show();
+            }
+            
+            // Add input validation and formatting
+            $('input[name*="Price"]').on('input', function() {
+                var $input = $(this);
+                var value = parseFloat($input.val());
+                
+                if (isNaN(value) || value < 0) {
+                    $input.addClass('is-invalid');
+                } else {
+                    $input.removeClass('is-invalid').addClass('is-valid');
+                }
+            });
+        });
+    </script>
+}

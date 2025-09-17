@@ -1,0 +1,255 @@
+@model IEnumerable<TicketReservation>
+@{
+    ViewData["Title"] = "Manage Tickets";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0 text-gray-800">
+                    <i class="bi bi-ticket-perforated me-2"></i>Manage Tickets
+                </h1>
+                <div class="text-muted">
+                    Total Tickets: <span class="badge bg-primary">@Model.Count()</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <i class="bi bi-funnel me-2"></i>Search & Filter
+            </h6>
+        </div>
+        <div class="card-body">
+            <form method="get" asp-action="ManageTickets">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="searchTerm" class="form-label">Search by Email or Movie</label>
+                        <input type="text" class="form-control" id="searchTerm" name="searchTerm" 
+                               value="@ViewBag.SearchTerm" placeholder="Enter customer email or movie title...">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="sessionId" class="form-label">Filter by Session</label>
+                        <select class="form-select" id="sessionId" name="sessionId">
+                            <option value="">All Sessions</option>
+                            @foreach (var session in ViewBag.Sessions as List<FilmTicketApp.Models.Session>)
+                            {
+                                <option value="@session.Id" selected="@(ViewBag.SelectedSessionId?.ToString() == session.Id.ToString())">
+                                    @session.Film.Name - @session.Cinema.Name (@session.SessionDate.ToString("MMM dd, yyyy") @session.StartTime.ToString(@"hh\:mm"))
+                                </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4 mb-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary me-2">
+                            <i class="bi bi-search me-1"></i>Search
+                        </button>
+                        <a href="@Url.Action("ManageTickets")" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-clockwise me-1"></i>Clear
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tickets Table -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <i class="bi bi-table me-2"></i>Ticket Reservations
+            </h6>
+        </div>
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Reservation ID</th>
+                                <th>Customer</th>
+                                <th>Movie</th>
+                                <th>Cinema</th>
+                                <th>Session</th>
+                                <th>Seat</th>
+                                <th>Ticket Type</th>
+                                <th>Price</th>
+                                <th>Reserved Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ticket in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <span class="badge bg-info">#@ticket.Id</span>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@ticket.CustomerEmail</strong>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@ticket.Session.Film.Name</strong>
+                                            <br>
+                                            <small class="text-muted">@ticket.Session.Film.Genre</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@ticket.Session.Cinema.Name</strong>
+                                            <br>
+                                            <small class="text-muted">@ticket.Session.Cinema.Description</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@ticket.Session.SessionDate.ToString("MMM dd, yyyy")</strong>
+                                            <br>
+                                            <small class="text-muted">@ticket.Session.StartTime.ToString(@"hh\:mm") - @ticket.Session.EndTime.ToString(@"hh\:mm")</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary">
+                                            Row @ticket.Seat.Row, Seat @ticket.Seat.SeatNumber
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@ticket.TicketType.Name</strong>
+                                            @if (ticket.TicketType.IsReduced)
+                                            {
+                                                <br><small class="text-success">Reduced Price</small>
+                                            }
+                                            @if (ticket.TicketType.Is3D)
+                                            {
+                                                <br><small class="text-info">3D</small>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="text-success">$@ticket.TotalAmount.ToString("N2")</strong>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <strong>@ticket.ReservationDate.ToString("MMM dd, yyyy")</strong>
+                                            <br>
+                                            <small class="text-muted">@ticket.ReservationDate.ToString("HH:mm")</small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <form asp-action="CancelTicket" method="post" class="d-inline" 
+                                              onsubmit="return confirm('Are you sure you want to cancel this ticket reservation?')">
+                                            <input type="hidden" name="id" value="@ticket.Id" />
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" 
+                                                    title="Cancel Ticket">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <i class="bi bi-ticket-perforated display-1 text-muted"></i>
+                    <h4 class="mt-3 text-muted">No Tickets Found</h4>
+                    <p class="text-muted">No ticket reservations match your search criteria.</p>
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchTerm as string) || ViewBag.SelectedSessionId != null)
+                    {
+                        <a href="@Url.Action("ManageTickets")" class="btn btn-primary">
+                            <i class="bi bi-arrow-clockwise me-1"></i>View All Tickets
+                        </a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Summary Statistics -->
+    @if (Model.Any())
+    {
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="text-white-50 small">Total Tickets</div>
+                                <div class="h5 mb-0">@Model.Count()</div>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="bi bi-ticket-perforated fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="text-white-50 small">Total Revenue</div>
+                                <div class="h5 mb-0">$@Model.Sum(t => t.TotalAmount).ToString("N2")</div>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="bi bi-currency-dollar fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="text-white-50 small">Unique Customers</div>
+                                <div class="h5 mb-0">@Model.Select(t => t.CustomerEmail).Distinct().Count()</div>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="bi bi-people fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="text-white-50 small">Avg. Ticket Price</div>
+                                <div class="h5 mb-0">$@Model.Average(t => t.TotalAmount).ToString("N2")</div>
+                            </div>
+                            <div class="align-self-center">
+                                <i class="bi bi-graph-up fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .text-gray-800 {
+        color: #5a5c69 !important;
+    }
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+</style>
