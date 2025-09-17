@@ -1,0 +1,137 @@
+@model List<FilmTicketApp.Models.TicketReservation>
+@{
+    ViewData["Title"] = "My Tickets";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">
+                        <i class="bi bi-collection me-2"></i>My Tickets
+                    </h3>
+                    <p class="mb-0">View and manage your movie ticket bookings</p>
+                </div>
+                <div class="card-body">
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="alert alert-info">
+                            <h6 class="alert-heading">
+                                <i class="bi bi-info-circle me-2"></i>Ticket Information
+                            </h6>
+                            <ul class="mb-0">
+                                <li>You can return tickets up to 2 hours before the show time</li>
+                                <li>Click on a ticket to view more details or process returns</li>
+                                <li>Keep your booking reference for easy identification</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="row g-3">
+                            @foreach (var reservation in Model)
+                            {
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="card border-primary h-100">
+                                        <div class="card-header bg-light">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h6 class="mb-0">
+                                                    <i class="bi bi-film me-1"></i>@reservation.Session.Movie.Title
+                                                </h6>
+                                                <span class="badge bg-primary">@reservation.BookingReference</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-12 mb-2">
+                                                    <small class="text-muted">
+                                                        <i class="bi bi-building me-1"></i>@reservation.Session.Cinema.Name
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mb-2">
+                                                    <small class="text-muted">
+                                                        <i class="bi bi-calendar3 me-1"></i>@reservation.Session.SessionDate.ToString("MMM dd, yyyy")
+                                                        <i class="bi bi-clock ms-2 me-1"></i>@reservation.Session.StartTime.ToString(@"hh\:mm")
+                                                    </small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <small class="text-muted">
+                                                        <i class="bi bi-geo-alt me-1"></i>Seat: Row @reservation.Seat.Row, Seat @reservation.Seat.SeatNumber
+                                                    </small>
+                                                </div>
+                                                <div class="col-6">
+                                                    <small class="text-muted">
+                                                        <i class="bi bi-tag me-1"></i>@reservation.TicketType.Name
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <span class="fw-bold text-success">$@reservation.TicketType.Price.ToString("F2")</span>
+                                                        <small class="text-muted">Booked: @reservation.ReservationDate.ToString("MMM dd, yyyy")</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer bg-light">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                @{
+                                                    var showTime = reservation.Session.SessionDate.Add(reservation.Session.StartTime);
+                                                    var canReturn = showTime > DateTime.Now.AddHours(2);
+                                                }
+                                                @if (canReturn)
+                                                {
+                                                    <a href="@Url.Action("ReturnTickets", new { sessionId = reservation.SessionId })" 
+                                                       class="btn btn-outline-warning btn-sm">
+                                                        <i class="bi bi-arrow-return-left me-1"></i>Return Ticket
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted small">
+                                                        <i class="bi bi-clock me-1"></i>Return period expired
+                                                    </span>
+                                                }
+                                                <a href="@Url.Action("BookingConfirmation", new { bookingReference = reservation.BookingReference })" 
+                                                   class="btn btn-outline-primary btn-sm">
+                                                    <i class="bi bi-eye me-1"></i>View Details
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="bi bi-ticket-perforated display-1 text-muted mb-3"></i>
+                            <h4 class="text-muted mb-3">No Tickets Found</h4>
+                            <p class="text-muted mb-4">You haven't booked any tickets yet. Start your movie experience today!</p>
+                            <a href="@Url.Action("SelectCinema", "Tickets")" class="btn btn-primary btn-lg">
+                                <i class="bi bi-ticket me-2"></i>Book Your First Ticket
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.badge {
+    font-size: 0.75em;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+}
+</style>

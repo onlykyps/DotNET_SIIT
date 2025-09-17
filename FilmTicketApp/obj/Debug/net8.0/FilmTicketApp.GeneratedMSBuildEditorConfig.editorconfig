@@ -136,12 +136,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/BookingConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xCb29raW5nQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/ReturnTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xSZXR1cm5UaWNrZXRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/ReturnTicketsForSession.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xSZXR1cm5UaWNrZXRzRm9yU2Vzc2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/SelectCinema.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xTZWxlY3RDaW5lbWEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/SelectFilm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xTZWxlY3RGaWxtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/SelectSeats.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xTZWxlY3RTZWF0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/Tickets/SelectSession.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0c1xTZWxlY3RTZXNzaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/adria/source/repos/DotNET_SIIT/FilmTicketApp/Views/_ViewImports.cshtml]

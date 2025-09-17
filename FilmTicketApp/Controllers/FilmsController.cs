@@ -74,18 +74,18 @@ namespace FilmTicketApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Biography")] Film film)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(film);
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Biography")] Film film)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(film);
+        //    }
 
-            await _filmsService.Add(film);
+        //    await _filmsService.Add(film);
 
-            return RedirectToAction(nameof(Index));
-        }
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int id)

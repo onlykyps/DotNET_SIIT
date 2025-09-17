@@ -1,0 +1,99 @@
+@model FilmTicketApp.Controllers.SelectSessionViewModel
+@{
+    ViewData["Title"] = "Select Session";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">
+                        <i class="bi bi-calendar-event me-2"></i>Select Session
+                    </h3>
+                    <div class="mt-2">
+                        <p class="mb-1">
+                            <i class="bi bi-film me-1"></i><strong>@Model.Movie.Title</strong>
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-building me-1"></i>@Model.Cinema.Name - @Model.Cinema.Description
+                        </p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (Model.Sessions != null && Model.Sessions.Any())
+                    {
+                        <div class="row g-3">
+                            @foreach (var session in Model.Sessions.GroupBy(s => s.SessionDate.Date))
+                            {
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            <h5 class="mb-0">
+                                                <i class="bi bi-calendar3 me-2"></i>@session.Key.ToString("dddd, MMMM dd, yyyy")
+                                            </h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row g-3">
+                                                @foreach (var sessionItem in session.OrderBy(s => s.StartTime))
+                                                {
+                                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                                        <div class="card session-card h-100">
+                                                            <div class="card-body text-center">
+                                                                <div class="display-6 text-primary mb-2">
+                                                                    <i class="bi bi-clock"></i>
+                                                                </div>
+                                                                <h6 class="card-title">@sessionItem.StartTime.ToString(@"hh\:mm")</h6>
+                                                                <p class="card-text small text-muted">
+                                                                    Duration: @Model.Movie.DurationMinutes min
+                                                                </p>
+                                                                <p class="card-text small">
+                                                                    <span class="badge bg-success">Available</span>
+                                                                </p>
+                                                                <a href="@Url.Action("SelectSeats", new { sessionId = sessionItem.Id })" 
+                                                                   class="btn btn-primary btn-sm">
+                                                                    <i class="bi bi-grid-3x3-gap me-1"></i>Select Seats
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="bi bi-exclamation-triangle display-1 text-warning"></i>
+                            <h4 class="mt-3">No Sessions Available</h4>
+                            <p class="text-muted">There are currently no available sessions for this movie at this cinema.</p>
+                        </div>
+                    }
+                    
+                    <div class="mt-4">
+                        <a href="@Url.Action("SelectMovie", new { cinemaId = Model.Cinema.Id })" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Back to Movie Selection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.session-card {
+    transition: transform 0.2s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.session-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--bs-primary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+</style>

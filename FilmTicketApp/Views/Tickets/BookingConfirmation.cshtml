@@ -1,0 +1,149 @@
+@using FilmTicketApp.Controllers
+@model BookingConfirmationViewModel
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white text-center">
+                    <div class="display-1 mb-3">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                    <h2 class="mb-0">Booking Confirmed!</h2>
+                    <p class="mb-0 mt-2">Your tickets have been successfully reserved</p>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5 class="text-primary">
+                                <i class="bi bi-film me-2"></i>Movie Details
+                            </h5>
+                            <div class="ms-4">
+                                <p class="mb-1"><strong>@Model.Session.Film.Name</strong></p>
+                                <p class="mb-1 text-muted">@Model.Session.Film.Genre • @Model.Session.Film.DurationMinutes min</p>
+                                <p class="mb-0 text-muted">@Model.Session.Film.Rating</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-primary">
+                                <i class="bi bi-building me-2"></i>Cinema & Session
+                            </h5>
+                            <div class="ms-4">
+                                <p class="mb-1"><strong>@Model.Session.Cinema.Name</strong></p>
+                                <p class="mb-1 text-muted">@Model.Session.Cinema.Description</p>
+                                <p class="mb-1">
+                                    <i class="bi bi-calendar3 me-1"></i>@Model.Session.SessionDate.ToString("dddd, MMMM dd, yyyy")
+                                </p>
+                                <p class="mb-0">
+                                    <i class="bi bi-clock me-1"></i>@Model.Session.StartTime.ToString(@"hh\:mm")
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    @if (Model.Reservations != null && Model.Reservations.Any())
+                    {
+                        <h5 class="text-primary mb-3">
+                            <i class="bi bi-ticket-perforated me-2"></i>Your Tickets
+                        </h5>
+                        <div class="row g-3 mb-4">
+                            @foreach (var reservation in Model.Reservations)
+                            {
+                                <div class="col-md-6">
+                                    <div class="card border-success">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <h6 class="card-title text-success">
+                                                        <i class="bi bi-ticket me-1"></i>Ticket #@reservation.Id
+                                                    </h6>
+                                                    <p class="card-text mb-1">
+                                                        <strong>Row @reservation.Seat.Row, Seat @reservation.Seat.SeatNumber</strong>
+                                                    </p>
+                                                    <p class="card-text mb-1">
+                                                        @reservation.TicketType.Name
+                                                    </p>
+                                                    <p class="card-text text-muted small">
+                                                        Booked: @reservation.ReservationDate.ToString("MMM dd, yyyy HH:mm")
+                                                    </p>
+                                                </div>
+                                                <div class="text-end">
+                                                    <span class="h5 text-success">$@reservation.TicketType.Price</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h5 class="mb-0">Total Amount Paid</h5>
+                                        <p class="mb-0 text-muted">@Model.Reservations.Count ticket(s)</p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <h3 class="text-success mb-0">$@Model.Reservations.Sum(r => r.TicketType.Price).ToString("F2")</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                    <div class="alert alert-info mt-4">
+                        <h6 class="alert-heading">
+                            <i class="bi bi-info-circle me-2"></i>Important Information
+                        </h6>
+                        <ul class="mb-0">
+                            <li>Please arrive at least 15 minutes before the show time</li>
+                            <li>Keep this confirmation for your records</li>
+                            <li>You can return tickets up to 2 hours before the show time</li>
+                            <li>Present a valid ID at the cinema entrance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="row g-3 mt-4">
+                        <div class="col-md-4">
+                            <a href="@Url.Action("SelectCinema")" class="btn btn-primary w-100">
+                                <i class="bi bi-plus-circle me-2"></i>Book More Tickets
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="@Url.Action("ReturnTickets", new { sessionId = Model.Session.Id })" class="btn btn-outline-warning w-100">
+                                <i class="bi bi-arrow-return-left me-2"></i>Return Tickets
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <button onclick="window.print()" class="btn btn-outline-secondary w-100">
+                                <i class="bi bi-printer me-2"></i>Print Confirmation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@@media print {
+    .btn, .alert {
+        display: none !important;
+    }
+    
+    .card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+    
+    .card-header {
+        background-color: #f8f9fa !important;
+        color: #000 !important;
+    }
+}
+</style>

@@ -10,5 +10,19 @@ namespace FilmTicketApp.Data.Services
          
       }
 
-   }
+        public Task<Cinema> CreateAsync(Cinema cinema)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Cinema> UpdateAsync(Cinema cinema)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

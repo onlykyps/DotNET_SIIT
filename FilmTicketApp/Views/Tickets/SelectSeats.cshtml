@@ -1,0 +1,539 @@
+@model FilmTicketApp.Controllers.SelectSeatsViewModel
+@{
+    ViewData["Title"] = "Select Seats";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-grid-3x3-gap me-2"></i>Select Your Seats
+                    </h4>
+                    <div class="mt-2">
+                        <p class="mb-1">
+                            <i class="bi bi-film me-1"></i><strong>@Model.Session.Movie.Title</strong>
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-building me-1"></i>@Model.Session.Cinema.Name - 
+                            <i class="bi bi-calendar3 me-1"></i>@Model.Session.SessionDate.ToString("MMM dd, yyyy") at @Model.Session.StartTime.ToString(@"hh\:mm")
+                        </p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Consecutive Seat Notice -->
+                    <div class="alert alert-info border-0 mb-4" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-left: 4px solid #2196f3 !important;">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-info-circle-fill text-primary me-3" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <h6 class="mb-1 text-primary fw-bold">Consecutive Seat Selection Required</h6>
+                                <p class="mb-0 text-dark">Please select seats that are next to each other in the same row for the best movie experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Screen -->
+                    <div class="text-center mb-4">
+                        <div class="screen">
+                            <i class="bi bi-tv me-2"></i>SCREEN
+                        </div>
+                    </div>
+                    
+                    <!-- Seat Grid -->
+                    <div class="seat-grid">
+                        @for (int row = 1; row <= 20; row++)
+                        {
+                            <div class="seat-row">
+                                <div class="row-label">@row</div>
+                                @for (int seatNum = 1; seatNum <= 20; seatNum++)
+                                {
+                                    var seat = Model.SeatGrid[row - 1].FirstOrDefault(s => s.SeatNumber == seatNum);
+                                    var seatClass = "seat";
+                                    var seatId = "";
+                                    var isDisabled = false;
+                                    
+                                    if (seat != null)
+                                    {
+                                        seatId = seat.Id.ToString();
+                                        if (!seat.IsAvailableForSession(Model.Session.Id))
+                                        {
+                                            seatClass += " occupied";
+                                            isDisabled = true;
+                                        }
+                                        else
+                                        {
+                                            seatClass += " available";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        seatClass += " unavailable";
+                                        isDisabled = true;
+                                    }
+                                    
+                                    <div class="@seatClass" 
+                                         data-seat-id="@seatId" 
+                                         data-row="@row" 
+                                         data-seat="@seatNum"
+                                         @(isDisabled ? "" : Html.Raw("onclick=\"toggleSeat(this)\""))>
+                                        @seatNum
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="seat-legend mt-4">
+                        <div class="d-flex justify-content-center gap-4">
+                            <div class="legend-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to select available seats">
+                                <div class="seat available"></div>
+                                <span>Available</span>
+                            </div>
+                            <div class="legend-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your currently selected seats">
+                                <div class="seat selected"></div>
+                                <span>Selected</span>
+                            </div>
+                            <div class="legend-item" data-bs-toggle="tooltip" data-bs-placement="top" title="These seats are already booked">
+                                <div class="seat occupied"></div>
+                                <span>Occupied</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-ticket-perforated me-2"></i>Booking Summary
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="bookingForm" method="post" action="@Url.Action("BookTickets")">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="SessionId" value="@Model.Session.Id" />
+                        <input type="hidden" id="selectedSeatsInput" name="SelectedSeatIds" />
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Selected Seats:</label>
+                            <div id="selectedSeatsList" class="selected-seats-list">
+                                <span class="text-muted">No seats selected</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="ticketTypeId" class="form-label">Ticket Type:</label>
+                            <select class="form-select" id="ticketTypeId" name="TicketTypeId" required>
+                                <option value="">Select Ticket Type</option>
+                                @foreach (var ticketType in Model.TicketTypes)
+                                {
+                                    <option value="@ticketType.Id" data-price="@ticketType.Price">
+                                        @ticketType.Name - $@ticketType.Price
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="p-3 bg-light rounded">
+                                <div class="d-flex justify-content-between">
+                                    <span>Total Amount:</span>
+                                    <strong id="totalAmount">$0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" id="bookButton" class="btn btn-success w-100" disabled>
+                            <i class="bi bi-credit-card me-2"></i>Book Tickets
+                        </button>
+                    </form>
+                    
+                    <div class="mt-3">
+                        <a href="@Url.Action("SelectSession", new { cinemaId = Model.Session.CinemaId, movieId = Model.Session.MovieId })" 
+                           class="btn btn-outline-secondary w-100">
+                            <i class="bi bi-arrow-left me-2"></i>Back to Sessions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Theater Stats -->
+            <div class="card shadow mt-3">
+                <div class="card-header bg-info text-white">
+                    <h6 class="mb-0">
+                        <i class="bi bi-bar-chart me-2"></i>Theater Statistics
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="stat-number text-primary">@Model.TotalSeats</div>
+                            <div class="stat-label">Total</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-number text-success">@Model.AvailableSeats</div>
+                            <div class="stat-label">Available</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-number text-danger">@Model.OccupiedSeats</div>
+                            <div class="stat-label">Occupied</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.screen {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    border: 2px solid #6c757d;
+    border-radius: 20px;
+    padding: 10px 40px;
+    margin: 0 auto;
+    width: fit-content;
+    font-weight: bold;
+    color: #495057;
+}
+
+.seat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+}
+
+.row-label {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.seat {
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #dee2e6;
+}
+
+.seat.available {
+    background-color: #28a745;
+    color: white;
+}
+
+.seat.available:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+.seat.selected {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+}
+
+.seat.occupied {
+    background-color: #dc3545;
+    color: white;
+    cursor: not-allowed;
+}
+
+.seat.unavailable {
+    background-color: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+.seat-legend {
+    border-top: 1px solid #dee2e6;
+    padding-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.legend-item .seat {
+    width: 20px;
+    height: 20px;
+    cursor: default;
+}
+
+.selected-seats-list {
+    min-height: 40px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.seat-tag {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 2px;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Animation for error messages */
+@@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Enhanced seat selection visual feedback */
+.seat.available:hover {
+    background-color: #28a745 !important;
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.4);
+    transition: all 0.2s ease;
+}
+
+.seat.selected {
+    background-color: #007bff !important;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.4);
+    animation: pulse 1s ease-in-out;
+}
+
+@@keyframes pulse {
+    0% { transform: scale(1.05); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.05); }
+}
+
+/* Consecutive seat highlighting */
+.seat.consecutive-hint {
+    background-color: #ffc107 !important;
+    color: #212529;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@@keyframes glow {
+    from { box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); }
+    to { box-shadow: 0 0 15px rgba(255, 193, 7, 0.8); }
+}
+</style>
+
+<script>
+let selectedSeats = [];
+let ticketPrice = 0;
+
+function toggleSeat(seatElement) {
+    const seatId = seatElement.getAttribute('data-seat-id');
+    const row = parseInt(seatElement.getAttribute('data-row'));
+    const seatNum = parseInt(seatElement.getAttribute('data-seat'));
+    
+    if (seatElement.classList.contains('selected')) {
+        // Deselect seat
+        seatElement.classList.remove('selected');
+        seatElement.classList.add('available');
+        selectedSeats = selectedSeats.filter(s => s.id !== seatId);
+    } else {
+        // Check if this seat can be added while maintaining consecutive order
+        const newSeat = {
+            id: seatId,
+            row: row,
+            seat: seatNum,
+            display: `Row ${row}, Seat ${seatNum}`
+        };
+        
+        if (canAddSeat(newSeat)) {
+            // Select seat
+            seatElement.classList.remove('available');
+            seatElement.classList.add('selected');
+            selectedSeats.push(newSeat);
+            
+            // Sort selected seats by row and seat number
+            selectedSeats.sort((a, b) => {
+                if (a.row !== b.row) return a.row - b.row;
+                return a.seat - b.seat;
+            });
+        } else {
+            // Show error message for non-consecutive selection
+            showSeatSelectionError('Please select consecutive seats in the same row.');
+            return;
+        }
+    }
+    
+    updateBookingSummary();
+}
+
+function canAddSeat(newSeat) {
+    if (selectedSeats.length === 0) {
+        return true; // First seat can always be selected
+    }
+    
+    // Check if all selected seats are in the same row
+    const currentRow = selectedSeats[0].row;
+    if (newSeat.row !== currentRow) {
+        return false; // Must be in same row
+    }
+    
+    // Create a temporary array with the new seat
+    const tempSeats = [...selectedSeats, newSeat];
+    tempSeats.sort((a, b) => a.seat - b.seat);
+    
+    // Check if seats are consecutive
+    for (let i = 1; i < tempSeats.length; i++) {
+        if (tempSeats[i].seat - tempSeats[i-1].seat !== 1) {
+            return false; // Not consecutive
+        }
+    }
+    
+    return true;
+}
+
+function showSeatSelectionError(message) {
+    // Remove any existing error message
+    const existingError = document.getElementById('seatSelectionError');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Create new error message with enhanced styling
+    const errorDiv = document.createElement('div');
+    errorDiv.id = 'seatSelectionError';
+    errorDiv.className = 'alert alert-danger alert-dismissible fade show mt-3 mb-3';
+    errorDiv.style.cssText = `
+        background: linear-gradient(135deg, #ffebee, #ffcdd2);
+        border: 2px solid #f44336;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+        animation: shake 0.5s ease-in-out;
+    `;
+    
+    errorDiv.innerHTML = `
+        <div class="d-flex align-items-center">
+            <i class="bi bi-exclamation-triangle-fill text-danger me-3" style="font-size: 1.5rem;"></i>
+            <div class="flex-grow-1">
+                <h6 class="mb-1 text-danger fw-bold">Seat Selection Error</h6>
+                <span id="errorMessage" class="text-dark">${message}</span>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    
+    // Insert error message after the consecutive seat notice
+    const noticeDiv = document.querySelector('.alert.alert-info');
+    noticeDiv.parentNode.insertBefore(errorDiv, noticeDiv.nextSibling);
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+        if (errorDiv && errorDiv.parentNode) {
+            errorDiv.remove();
+        }
+    }, 5000);
+    
+    // Scroll to error message
+    errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function updateBookingSummary() {
+    const selectedSeatsList = document.getElementById('selectedSeatsList');
+    const selectedSeatsInput = document.getElementById('selectedSeatsInput');
+    const totalAmountElement = document.getElementById('totalAmount');
+    const bookButton = document.getElementById('bookButton');
+    
+    if (selectedSeats.length === 0) {
+        selectedSeatsList.innerHTML = '<span class="text-muted">No seats selected</span>';
+        selectedSeatsInput.value = '';
+        totalAmountElement.textContent = '$0.00';
+        bookButton.disabled = true;
+    } else {
+        const seatTags = selectedSeats.map(seat => 
+            `<span class="seat-tag">${seat.display}</span>`
+        ).join('');
+        selectedSeatsList.innerHTML = seatTags;
+        
+        const seatIds = selectedSeats.map(seat => seat.id);
+        selectedSeatsInput.value = seatIds.join(',');
+        
+        const total = selectedSeats.length * ticketPrice;
+        totalAmountElement.textContent = `$${total.toFixed(2)}`;
+        
+        bookButton.disabled = selectedSeats.length === 0 || ticketPrice === 0;
+    }
+}
+
+document.getElementById('ticketTypeId').addEventListener('change', function() {
+    const selectedOption = this.options[this.selectedIndex];
+    ticketPrice = selectedOption.getAttribute('data-price') || 0;
+    updateBookingSummary();
+});
+
+// Initialize tooltips and page load functions
+document.addEventListener('DOMContentLoaded', function() {
+    updateBookingSummary();
+    
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Add helpful hints
+    showHelpfulHints();
+});
+
+// Show helpful hints to users
+function showHelpfulHints() {
+    setTimeout(function() {
+        if (selectedSeats.length === 0) {
+            const hintDiv = document.createElement('div');
+            hintDiv.className = 'alert alert-info alert-dismissible fade show mt-3';
+            hintDiv.innerHTML = `
+                <i class="bi bi-lightbulb me-2"></i>
+                <strong>Tip:</strong> Click on available seats to select them. Remember, all seats must be consecutive!
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.alert.alert-info').after(hintDiv);
+            
+            // Auto-hide after 8 seconds
+            setTimeout(function() {
+                if (hintDiv.parentNode) {
+                    hintDiv.remove();
+                }
+            }, 8000);
+        }
+    }, 2000);
+}
+</script>

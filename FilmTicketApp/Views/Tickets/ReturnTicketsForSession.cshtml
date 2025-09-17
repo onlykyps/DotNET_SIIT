@@ -1,0 +1,196 @@
+@model FilmTicketApp.Controllers.ReturnTicketsViewModel
+@{
+    ViewData["Title"] = "Return Tickets";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="mb-0">
+                        <i class="bi bi-arrow-return-left me-2"></i>Return Tickets
+                    </h3>
+                    <div class="mt-2">
+                        <p class="mb-1">
+                            <i class="bi bi-film me-1"></i><strong>@Model.Session.Movie.Title</strong>
+                        </p>
+                        <p class="mb-0">
+                            <i class="bi bi-building me-1"></i>@Model.Session.Cinema.Name - 
+                            <i class="bi bi-calendar3 me-1"></i>@Model.Session.SessionDate.ToString("MMM dd, yyyy") at @Model.Session.StartTime.ToString(@"hh\:mm")
+                        </p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (Model.Reservations != null && Model.Reservations.Any())
+                    {
+                        <div class="alert alert-warning">
+                            <h6 class="alert-heading">
+                                <i class="bi bi-exclamation-triangle me-2"></i>Return Policy
+                            </h6>
+                            <ul class="mb-0">
+                                <li>Tickets can only be returned up to 2 hours before the show time</li>
+                                <li>A processing fee may apply for returns</li>
+                                <li>Refunds will be processed to the original payment method</li>
+                            </ul>
+                        </div>
+                        
+                        <form method="post" action="@Url.Action("ProcessReturn")">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="SessionId" value="@Model.Session.Id" />
+                            
+                            <h5 class="mb-3">
+                                <i class="bi bi-ticket-perforated me-2"></i>Your Tickets for This Session
+                            </h5>
+                            
+                            <div class="row g-3 mb-4">
+                                @foreach (var reservation in Model.Reservations)
+                                {
+                                    <div class="col-md-6">
+                                        <div class="card border-warning">
+                                            <div class="card-body">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" 
+                                                           name="reservationIds" 
+                                                           value="@reservation.Id" 
+                                                           id="ticket_@reservation.Id"
+                                                           onchange="updateReturnSummary()">
+                                                    <label class="form-check-label w-100" for="ticket_@reservation.Id">
+                                                        <div class="d-flex justify-content-between align-items-start">
+                                                            <div>
+                                                                <h6 class="card-title text-warning">
+                                                                    <i class="bi bi-ticket me-1"></i>Ticket #@reservation.Id
+                                                                </h6>
+                                                                <p class="card-text mb-1">
+                                                                    <strong>Row @reservation.Seat.Row, Seat @reservation.Seat.SeatNumber</strong>
+                                                                </p>
+                                                                <p class="card-text mb-1">
+                                                                    @reservation.TicketType.Name
+                                                                </p>
+                                                                <p class="card-text text-muted small">
+                                                                    Booked: @reservation.ReservationDate.ToString("MMM dd, yyyy HH:mm")
+                                                                </p>
+                                                            </div>
+                                                            <div class="text-end">
+                                                                <span class="h6 text-warning" data-price="@reservation.TicketType.Price">
+                                                                    $@reservation.TicketType.Price
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            
+                            <!-- Return Summary -->
+                            <div class="card bg-light mb-4">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="mb-1">Return Summary</h6>
+                                            <p class="mb-0 text-muted">
+                                                <span id="selectedCount">0</span> ticket(s) selected for return
+                                            </p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="text-end">
+                                                <div class="h5 mb-1">Refund Amount</div>
+                                                <div class="h4 text-success" id="refundAmount">$0.00</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <button type="submit" id="returnButton" class="btn btn-warning w-100" disabled>
+                                        <i class="bi bi-arrow-return-left me-2"></i>Process Return
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("BookingConfirmation", new { sessionId = Model.Session.Id })" 
+                                       class="btn btn-outline-secondary w-100">
+                                        <i class="bi bi-arrow-left me-2"></i>Back to Confirmation
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="bi bi-ticket-perforated display-1 text-muted"></i>
+                            <h4 class="mt-3">No Tickets Found</h4>
+                            <p class="text-muted">You don't have any tickets for this session that can be returned.</p>
+                            <a href="@Url.Action("SelectCinema")" class="btn btn-primary">
+                                <i class="bi bi-plus-circle me-2"></i>Book New Tickets
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function updateReturnSummary() {
+    const checkboxes = document.querySelectorAll('input[name="reservationIds"]:checked');
+    const selectedCount = checkboxes.length;
+    const returnButton = document.getElementById('returnButton');
+    const selectedCountElement = document.getElementById('selectedCount');
+    const refundAmountElement = document.getElementById('refundAmount');
+    
+    let totalRefund = 0;
+    
+    checkboxes.forEach(checkbox => {
+        const card = checkbox.closest('.card');
+        const priceElement = card.querySelector('[data-price]');
+        const price = parseFloat(priceElement.getAttribute('data-price')) || 0;
+        totalRefund += price;
+    });
+    
+    selectedCountElement.textContent = selectedCount;
+    refundAmountElement.textContent = `$${totalRefund.toFixed(2)}`;
+    returnButton.disabled = selectedCount === 0;
+    
+    // Add visual feedback
+    checkboxes.forEach(checkbox => {
+        const card = checkbox.closest('.card');
+        if (checkbox.checked) {
+            card.classList.add('border-danger');
+            card.classList.remove('border-warning');
+        } else {
+            card.classList.add('border-warning');
+            card.classList.remove('border-danger');
+        }
+    });
+}
+
+// Initialize
+updateReturnSummary();
+</script>
+
+<style>
+.form-check-input:checked + .form-check-label .card-title {
+    color: #dc3545 !important;
+}
+
+.form-check-input:checked + .form-check-label .h6 {
+    color: #dc3545 !important;
+}
+
+.card {
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+</style>
