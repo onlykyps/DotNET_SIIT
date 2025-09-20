@@ -20,6 +20,6 @@ namespace FilmTicketApp.Models
       [Required(ErrorMessage = "Biographyis required")]
       public string Biography { get; set; }
 
-      public List<ActorToFilm>? ActorFilms { get; set; }
+      //public List<ActorToFilm>? ActorFilms { get; set; }
    }
 }

@@ -270,7 +270,7 @@ namespace FilmTicketApp.Controllers
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
 
-                TempData["SuccessMessage"] = $"Successfully booked {seatsToBook.Count} tickets for {session.Film.Name}!";
+                TempData["SuccessMessage"] = $"Successfully booked {seatsToBook.Count} tickets for {session.Film.Title}!";
                 return RedirectToAction("BookingConfirmation", new { sessionId = model.SessionId });
             }
             catch (Exception ex)

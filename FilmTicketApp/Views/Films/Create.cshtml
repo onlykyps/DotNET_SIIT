@@ -1,7 +1,7 @@
 ﻿@model Film
 
 @{
-    ViewData["Name"] = "Add a new Film";
+    ViewData["Title"] = "Add a new Film";
 }
 
 <div class="container">
@@ -17,9 +17,9 @@
 
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label asp-for="Name" class="form-label">Film Name *</label>
-                                <input asp-for="Name" class="form-control" placeholder="Enter Film Name">
-                                <span asp-validation-for="Name" class="text-danger"></span>
+                                <label asp-for="Title" class="form-label">Film Title *</label>
+                                <input asp-for="Title" class="form-control" placeholder="Enter Film Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label asp-for="Director" class="form-label">Director</label>
-                                <input asp-for="Director" class="form-control" placeholder="Director name">
+                                <input asp-for="Director" class="form-control" placeholder="Director Title">
                                 <span asp-validation-for="Director" class="text-danger"></span>
                             </div>
                             <div class="col-md-6 mb-3">

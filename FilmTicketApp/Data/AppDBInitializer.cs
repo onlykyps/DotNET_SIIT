@@ -83,7 +83,7 @@ namespace FilmTicketApp.Data
                     {
                         new Film()
                         {
-                            Name = "The Matrix Resurrections",
+                            Title = "The Matrix Resurrections",
                             Description = "Return to the world of The Matrix in this mind-bending sequel.",
                             DurationMinutes = 148,
                             Genre = "Sci-Fi",
@@ -93,7 +93,7 @@ namespace FilmTicketApp.Data
                         },
                         new Film()
                         {
-                            Name = "Spider-Man: No Way Home",
+                            Title = "Spider-Man: No Way Home",
                             Description = "Peter Parker's secret identity is revealed to the entire world.",
                             DurationMinutes = 148,
                             Genre = "Action",
@@ -103,7 +103,7 @@ namespace FilmTicketApp.Data
                         },
                         new Film()
                         {
-                            Name = "Dune",
+                            Title = "Dune",
                             Description = "A mythic and emotionally charged hero's journey.",
                             DurationMinutes = 155,
                             Genre = "Sci-Fi",

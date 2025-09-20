@@ -31,7 +31,7 @@
                         <div class="col-md-4 text-center">
                             @if (!string.IsNullOrEmpty(Model.PosterImageUrl))
                             {
-                                <img src="@Model.PosterImageUrl" alt="@Model.Name Poster" class="img-fluid rounded mb-3" style="max-height: 200px;">
+                                <img src="@Model.PosterImageUrl" alt="@Model.Title Poster" class="img-fluid rounded mb-3" style="max-height: 200px;">
                             }
                             else
                             {
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="col-md-8">
-                            <h4>@Model.Name</h4>
+                            <h4>@Model.Title</h4>
 
                             <dl class="row">
                                 <dt class="col-sm-4">Description:</dt>

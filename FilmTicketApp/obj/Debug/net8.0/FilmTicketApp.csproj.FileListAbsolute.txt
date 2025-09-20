@@ -342,3 +342,4 @@ C:\Users\adria\source\repos\DotNET_SIIT\FilmTicketApp\obj\Debug\net8.0\refint\Fi
 C:\Users\adria\source\repos\DotNET_SIIT\FilmTicketApp\obj\Debug\net8.0\FilmTicketApp.pdb
 C:\Users\adria\source\repos\DotNET_SIIT\FilmTicketApp\obj\Debug\net8.0\FilmTicketApp.genruntimeconfig.cache
 C:\Users\adria\source\repos\DotNET_SIIT\FilmTicketApp\obj\Debug\net8.0\ref\FilmTicketApp.dll
+C:\Users\adria\source\repos\DotNET_SIIT\FilmTicketApp\bin\Debug\net8.0\BCrypt.Net-Next.dll

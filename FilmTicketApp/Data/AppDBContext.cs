@@ -68,7 +68,7 @@ namespace FilmTicketApp.Data
 
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Film> Films { get; set; }
-        public DbSet<ActorToFilm> ActorToFilm { get; set; }
+        //public DbSet<ActorToFilm> ActorToFilm { get; set; }
         public DbSet<Producer> Producers { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
 

@@ -3,12 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\account\\forbidden.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\account\\forbidden.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\models\\actor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:models\\actor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\data\\services\\icinemasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:data\\services\\icinemasservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\admin\\managetickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\admin\\managetickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\tickets\\selectfilm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\tickets\\selectfilm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\tickets\\selectsession.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\tickets\\selectsession.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\tickets\\selectseats.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\tickets\\selectseats.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\tickets\\returnticketsforsession.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\tickets\\returnticketsforsession.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\tickets\\returntickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\tickets\\returntickets.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\tickets\\bookingconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\tickets\\bookingconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\films\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\films\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|c:\\users\\adria\\source\\repos\\dotnet_siit\\filmticketapp\\views\\films\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{179CDA9D-3986-40C3-A711-8B6C36EA9416}|FilmTicketApp.csproj|solutionrelative:views\\films\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +59,144 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Forbidden.cshtml",
-              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Account\\Forbidden.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Forbidden.cshtml",
-              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Account\\Forbidden.cshtml",
-              "RelativeToolTip": "Views\\Account\\Forbidden.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T06:22:15.687Z",
+              "Title": "Actor.cs",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\Actor.cs",
+              "RelativeDocumentMoniker": "Models\\Actor.cs",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Models\\Actor.cs",
+              "RelativeToolTip": "Models\\Actor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T12:55:51.124Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ICinemasService.cs",
-              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Data\\Services\\ICinemasService.cs",
-              "RelativeDocumentMoniker": "Data\\Services\\ICinemasService.cs",
-              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Data\\Services\\ICinemasService.cs",
-              "RelativeToolTip": "Data\\Services\\ICinemasService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
+              "Title": "AppDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDBContext.cs",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Data\\AppDBContext.cs",
+              "RelativeToolTip": "Data\\AppDBContext.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAUwEYAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T06:21:32.493Z",
+              "WhenOpened": "2025-09-20T12:55:44.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ManageTickets.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Admin\\ManageTickets.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\ManageTickets.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Admin\\ManageTickets.cshtml",
+              "RelativeToolTip": "Views\\Admin\\ManageTickets.cshtml",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAUwGEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:54:06.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SelectSession.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\SelectSession.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tickets\\SelectSession.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\SelectSession.cshtml",
+              "RelativeToolTip": "Views\\Tickets\\SelectSession.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:53:35.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SelectSeats.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\SelectSeats.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tickets\\SelectSeats.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\SelectSeats.cshtml",
+              "RelativeToolTip": "Views\\Tickets\\SelectSeats.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:53:25.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SelectFilm.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\SelectFilm.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tickets\\SelectFilm.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\SelectFilm.cshtml",
+              "RelativeToolTip": "Views\\Tickets\\SelectFilm.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwDIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:53:16.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReturnTicketsForSession.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\ReturnTicketsForSession.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tickets\\ReturnTicketsForSession.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\ReturnTicketsForSession.cshtml",
+              "RelativeToolTip": "Views\\Tickets\\ReturnTicketsForSession.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:53:04.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReturnTickets.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\ReturnTickets.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tickets\\ReturnTickets.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\ReturnTickets.cshtml",
+              "RelativeToolTip": "Views\\Tickets\\ReturnTickets.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwD4AAAByAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:52:38.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BookingConfirmation.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\BookingConfirmation.cshtml",
+              "RelativeDocumentMoniker": "Views\\Tickets\\BookingConfirmation.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Tickets\\BookingConfirmation.cshtml",
+              "RelativeToolTip": "Views\\Tickets\\BookingConfirmation.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwBQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:52:25.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Films\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Films\\Index.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Films\\Index.cshtml",
+              "RelativeToolTip": "Views\\Films\\Index.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAQwFMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:52:12.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Films\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Films\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\adria\\source\\repos\\DotNET_SIIT\\FilmTicketApp\\Views\\Films\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Films\\Edit.cshtml",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAABsAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-20T12:51:56.77Z",
               "EditorCaption": ""
             }
           ]

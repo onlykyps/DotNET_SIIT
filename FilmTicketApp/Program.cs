@@ -19,7 +19,7 @@ namespace FilmTicketApp
          builder.Services.AddScoped<IActorsService, ActorsService>();
          builder.Services.AddScoped<IProducersService, ProducersService>();
          builder.Services.AddScoped<ICinemaService, CinemaService>();
-         builder.Services.AddScoped<IFilmsService, FilmsService>();
+         builder.Services.AddScoped<IFilmsService, FilmService>();
 
          var app = builder.Build();
 

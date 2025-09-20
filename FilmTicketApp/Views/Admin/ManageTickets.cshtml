@@ -39,7 +39,7 @@
                             @foreach (var session in ViewBag.Sessions as List<FilmTicketApp.Models.Session>)
                             {
                                 <option value="@session.Id" selected="@(ViewBag.SelectedSessionId?.ToString() == session.Id.ToString())">
-                                    @session.Film.Name - @session.Cinema.Name (@session.SessionDate.ToString("MMM dd, yyyy") @session.StartTime.ToString(@"hh\:mm"))
+                                    @session.Film.Title - @session.Cinema.Name (@session.SessionDate.ToString("MMM dd, yyyy") @session.StartTime.ToString(@"hh\:mm"))
                                 </option>
                             }
                         </select>
@@ -97,7 +97,7 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <strong>@ticket.Session.Film.Name</strong>
+                                            <strong>@ticket.Session.Film.Title</strong>
                                             <br>
                                             <small class="text-muted">@ticket.Session.Film.Genre</small>
                                         </div>
